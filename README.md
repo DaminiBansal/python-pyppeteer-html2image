@@ -11,8 +11,7 @@ pip3 install -r requirements.txt
 Then simply run the script from the command line:
 
 ```
-convert.py <input.html> <output.png>
+python3 convert.py
 ```
 
-A PNG file will be created in the current directory. If you simply 
-change output file extension from *.png* to *.jpg* or *.pdf* you have a different output file.
+A pdf file will be created in the current directory.

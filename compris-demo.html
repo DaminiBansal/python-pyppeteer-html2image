@@ -1,0 +1,4523 @@
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>COMPRIS</title>
+    <style>
+      body {
+        font-family: 'Montserrat', sans-serif;
+      }
+      ul {
+        list-style: none;
+        padding-left: 0px;
+        margin: 0px;
+      }
+      @font-face {
+        font-family: 'segoe';
+        src: url('./fonts/segoe-ui.ttf') format('truetype');
+      }
+      @font-face {
+        font-family: 'segoe-light';
+        src: url('./fonts/segoe-ui-light.ttf') format('truetype');
+      }
+      @font-face {
+        font-family: 'segoe-bold';
+        src: url('./fonts/segoe-ui-bold.ttf') format('truetype');
+      }
+      @font-face {
+        font-family: 'segoe-semibold';
+        src: url('./fonts/seguisb.ttf') format('truetype');
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 ,p{
+        margin: 0px;
+      }
+      .mb{
+        margin-bottom: 15px;
+      }
+
+      .smallfill {
+        background-color: #d04646;
+      }
+      .mediumfill {
+        background-color: #349a97;
+      }
+      .highfill {
+        background-color: #fcc528;
+      }
+      .hardfill {
+        background-color: #8dad3c;
+      }
+      .small {
+        color: #d04646;
+      }
+      .medium {
+        color: #349a97;
+      }
+      .high {
+        color: #fcc528;
+      }
+      .hard {
+        color: #8dad3c;
+      }
+      .page-container {
+        padding: 20px;
+        width: 600px;
+        height: 876px;
+        margin: 0px auto;
+      }
+      .box-container {
+        padding: 8px;
+        border: 0.2px solid #009bc8;
+        border-right-color: #97cb6a;
+        border-bottom-color: #97cb6a;
+        border-top-color: #97cb6a;
+        position: relative;
+        margin-bottom: 20px;
+      }
+      .box-head {
+        background: transparent linear-gradient(90deg, #009bc8 0%, #97cb6a 100%)
+          0% 0% no-repeat padding-box;
+        width: 185px;
+        padding: 5px;
+        display: inline-block;
+        position: absolute;
+        top: -15px;
+        left: 8px;
+      }
+      .box-head.width{
+        width: 250px;
+      }
+      .box-head h2 {
+        color: #fff;
+        font-size: 11px;
+        line-height: 14px;
+        font-family: 'segoe-semibold';
+      }
+      .box-inner-section {
+        display: flex;
+        justify-content: space-between;
+      }
+      .box-inner-section .left {
+        width: 60%;
+      }
+      .box-inner-section .right {
+        width: 39%;
+      }
+      .box-inner-section .inner-box {
+        padding: 5px 0px;
+        z-index: 9;
+      }
+      .box-inner-section .inner-box-container {
+       border: 1.0px solid #a6a8ab4d;
+     }
+      .box-inner-section .inner-box .head {
+        margin-bottom: 10px;
+        padding: 0px 5px;
+      }
+      .box-inner-section .inner-box .head h2 {
+        font-family: 'segoe-semibold';
+        color: #3676bb;
+        font-size: 10px;
+        line-height: 14px;
+      }
+      .box-inner-section .inner-box .head h3 {
+        font-family: 'segoe-semibold';
+        color: #3676BB;
+        font-size: 7px;
+        line-height: 9px;
+        font-weight: 300;
+        height: 10px;
+      }
+      .box-inner-section .inner-box .content {
+        display: flex;
+        align-items: center;
+        border-bottom: 0.1px solid rgb(167 169 172 / .1);
+        padding: 0px 5px;
+      }
+      .box-inner-section .inner-box .content:last-child{
+        border-bottom:0px;
+      }
+      .box-inner-section .inner-box .content h2 {
+        /* color: #404041; */
+        font-size: 8px;
+        line-height: 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+      }
+      .box-inner-section .inner-box .content h3 {
+        font-size: 8px;
+        line-height: 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        white-space: nowrap;
+      }
+      .box-inner-section .inner-box .content .middle.nob {
+        border: none;
+      }
+
+      .box-inner-section .inner-box .content .first {
+        border-right: 0.4px solid rgb(167 169 172 / .5);
+        width: 44%;
+      }
+      .box-inner-section .inner-box .content .middle {
+        border-right: 0.4px solid rgb(167 169 172 / .5);
+        width: 20%;
+        padding: 0px 10px;
+      }
+      .box-inner-section .inner-box .content .last {
+        display: flex;
+        align-items: center;
+        width: 39%;
+        padding: 0px 10px;
+      }
+      .box-inner-section .inner-box .content .last h4 {
+        font-size: 8px;
+        line-height: 10px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        /* color: #404041; */
+        width: 25px;
+      }
+      .box-inner-section .inner-box .content .last label {
+        width: 120px;
+        height: 7px;
+        border-radius: 4px;
+        background-color: #e6e7e8;
+      }
+      .box-inner-section .inner-box .content .last label span {
+        height: 7px;
+        display: inline-block;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+
+      .percent {
+        background-color: #f1f2f2;
+        padding:3px 5px;
+        display: flex;
+      }
+      .percent.nop {
+        padding: 0px 5px;
+      }
+      .percent h2 {
+        /* color: #4d4d4f; */
+        font-weight: 400;
+        font-size: 8px;
+        line-height: 15px;
+        font-family: 'Montserrat', sans-serif;
+        width: 33%;
+      }
+      .percent h2.fullwidth {
+        width: 44%;
+        border-right: 0.1px solid rgb(167 169 172 / .5);
+      }
+      .percent h3 {
+        border-left: 0.4px solid rgb(167 169 172 / .5);
+        padding-left: 10px;
+        /* color: #4d4d4f; */
+        font-weight: 400;
+        font-size: 8px;
+        line-height: 15px;
+        font-family: 'Montserrat', sans-serif;
+      }
+      .box-inner-section.time{
+        margin-top: 15px;
+      }
+      .box-inner-section .inner-box .positive-box {
+        display: flex;
+        justify-content: space-between;
+        height: 70px;
+      }
+      .box-inner-section .inner-box .positive-box .first {
+        width: 11%;
+      }
+      .box-inner-section .inner-box .positive-box .first.pos {
+        background-color: #8ead3e;
+      }
+      .box-inner-section .inner-box .positive-box .first.con {
+        background-color: #fcc528;
+      }
+      .box-inner-section .inner-box .positive-box .first.neg {
+        background-color: #d04646;
+      }
+      .box-inner-section .inner-box .positive-box .second {
+        width: 88%;
+        margin-top: -4px;
+      }
+      .box-inner-section .inner-box .positive-box.pos {
+        border: 0.4px solid #8ead3e;
+        margin-bottom: 3px;
+        height: 52px!important;
+      }
+      .box-inner-section .inner-box .positive-box.con {
+        border: 0.4px solid #fcc528;
+        margin-bottom: 2px;
+      }
+      .box-inner-section .inner-box .positive-box.neg {
+        border: 0.4px solid #d04646;
+      }
+      .box-inner-section .inner-box .positive-box .first h2 {
+        color: #fff;
+        font-size: 8px;
+        font-weight: 500;
+        transform: rotate(-90deg);
+        font-family: 'Montserrat', sans-serif;
+      }
+
+
+      .box-inner-section .inner-box .positive-box .first.pos h2 {
+        margin-top: 30px;
+      }
+      .box-inner-section .inner-box .positive-box .first.con h2 {
+        margin-top: 45px;
+      }
+      .box-inner-section .inner-box .positive-box .first.neg h2 {
+        margin-top: 40px;
+      }
+      .box-inner-section .inner-box .positive-box.pos .second ul li label {
+        background-color: #8ead3e;
+      }
+      .box-inner-section .inner-box .positive-box.pos .second ul li label.greenOpacity {
+        background-color: rgb(142 173 62 / .45);
+      }
+
+      .box-inner-section .inner-box .positive-box.con .second ul li label.yellowfill {
+        background-color: rgb(252 197 40 / .45);
+      }
+
+      .box-inner-section .inner-box .positive-box.neg .second ul li label.redfill {
+        background-color: rgb(208 70 70 / .45);
+      }
+
+      .box-inner-section .inner-box .positive-box.con .second ul li label {
+        background-color: #fcc528;
+      }
+      .box-inner-section .inner-box .positive-box.neg .second ul li label {
+        background-color: #d04646;
+      }
+      .box-inner-section .inner-box .positive-box .second ul li {
+        height: 8px;
+      margin-bottom: 10px;
+
+      }
+      .box-inner-section .inner-box .positive-box .second ul li label {
+        color: #fff;
+        font-size: 10px;
+        font-weight: 500;
+        font-family: 'Montserrat', sans-serif;
+        width: 85px;
+        text-align: center;
+        display: inline-block;
+        padding: 2px 0px;
+      }
+      .box-inner-section .inner-box .positive-box .second ul li span {
+        font-size: 8px;
+        font-weight: 400;
+        font-family: 'Montserrat', sans-serif;
+        display: inline-block;
+        padding: 4px;
+        width: 95px;
+        margin-left: -5px;
+        vertical-align: middle;
+        height: 8px;
+      }
+      .box-inner-section .inner-box .positive-box .second ul li span.yellowfill {
+        background-color: rgb(252 197 40 / .45);
+      }
+      .box-inner-section .inner-box .positive-box .second ul li span.greenOpacity {
+        background-color: rgb(142 173 62 / .45);
+      }
+
+      .box-inner-section .inner-box .positive-box .second ul li span.redfill {
+        background-color: rgb(208 70 70 / .45);
+      }
+
+
+      .acuity {
+        padding: 9px 30px;
+        padding-bottom: 15px;
+        display: flex;
+        background-color: #f1f2f2;
+        justify-content: space-between;
+        height: 0px;
+       align-items: center;
+      }
+      .acuity.time div:nth-child(1){
+        height: 5px;
+      }
+      .acuity.time div:nth-child(2){
+        height: 5px;
+      }
+      .acuity label {
+        font-size: 8px;
+        line-height: 10px;
+        font-weight: 400;
+        font-family: 'Montserrat', sans-serif;
+        color: #4d4d4f;
+      }
+      .mild {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        background: #8DAD3C;
+        border-radius: 100%;
+      }
+      .moderate {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        width: 0;
+	      height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: 8px solid #FCC528;
+      }
+      .severe {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        background: #D04646;
+      }
+      .none {
+        min-width: 7px;
+        height: 7px;
+        display: inline-block;
+        max-width: 7px;
+        white-space: nowrap;
+      }
+      .severe.poor {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        background: #fff;
+      }
+      .acuity-table {
+        display: flex;
+        padding:0px 5px;
+        position: relative;
+      }
+      .acuity-table .acuity-first{
+        width: 37%;
+      }
+      .acuity-table .acuity-last{
+        width: 18%;
+        text-align: center;
+        border-left: 0.4px solid rgb(167 169 172 / .3);
+      }
+      .acuity-table h2{
+        color: #404041;
+        font-size: 10px;
+        line-height: 13px;
+        font-weight: 500;
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: 5px;
+      }
+      /* .acuity-table h3{
+        margin-top: 17px;
+        height: 8px;
+
+      } */
+      .acuity-table label{
+        font-size: 8px;
+        line-height: 10px;
+        font-weight: 300;
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: 5px;
+        width: 85%;
+        display: inline-block;
+
+      }
+      .acuity-table h3{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 9px;
+        font-weight: 400;
+        color: #404041;
+        margin-top: 15px;
+        height: 8px;
+      }
+      .prevention{
+        padding: 5px;
+        padding-bottom: 0px;
+      }
+      .prevention h3{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 9px;
+        line-height: 14px;
+        font-weight: 400;
+        margin-bottom: 5px;
+      }
+      .prevention-list h1{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 9px;
+        line-height: 14px;
+        font-weight: 400;
+      }
+      .prevention-list{
+        width: 33%;
+      }
+      .prevention-sec{
+        margin-bottom: 5px;
+        display: flex;
+      }
+      .prevention-ft{
+        background: #F1F2F2;
+        display: flex;
+        padding: 5px 10px;
+        justify-content: space-between;
+      }
+      .prevention-ft h2{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 8px;
+        line-height: 10px;
+        font-weight: 400;
+      }
+      .prevention-ft-content{
+        display: flex;
+        align-items: center;
+      }
+      .prevention-ft-content span{
+        width: 9px;
+        height: 9px;
+        display: inline-block;
+        margin-right: 4px;
+      }
+      .prevention-ft-content span.tick-check:before{
+        content: '\2713';
+        display: inline-block;
+        color: #fff;
+        padding: 1px;
+        font-size: 10px;
+        text-align: center;
+        margin-top: -2px;
+      }
+      .compris-top{
+        border: 1.0px solid #a6a8ab4d;
+
+      }
+      .compris{
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+      }
+      .compris h2{
+        color: #404041;
+        font-size: 8px;
+        line-height: 11px;
+        margin-bottom: 5px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+      }
+      .compris h3{
+        /* color: #404041; */
+        font-size: 7px;
+        line-height: 11px;
+        margin-bottom: 4px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 300;
+        margin-top: 2px;
+        height:12px;
+      }
+      .compris .first{
+        border-right: 0.3px solid rgb(167 169 172 / .3);
+        width: 14%;
+      }
+      .compris .second{
+        border-right: 0.3px solid rgb(0 155 200 / .7);
+        width: 40%;
+        margin-left:-26px;
+      }
+      .compris .third{
+        border-right: 0.3px solid rgb(167 169 172 / .3);
+        width: 14%;
+        /* margin-left: -11px; */
+        margin-left: -22px;
+      }
+      .compris-ft{
+        background: #F1F2F2;
+        padding: 5px;
+      }
+      .compris-ft h2{
+        color: #404041;
+        font-weight: 400;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 9px;
+        line-height: 11px;
+      }
+      .compris-ft h2 span{
+        border-right: 0.4px solid rgb(167 169 172 / .3);
+        margin-left:12px;
+        margin-right: 10px;
+      }
+      .hide{
+        display: none;
+      }
+      .recommen-box{
+        border: 1.0px solid #a6a8ab4d;
+        margin-bottom: 5px;
+      }
+      .recommen-box-list{
+        display: flex;
+        border-bottom: 1.0px solid #a6a8ab4d;
+      }
+      .recommen-box-list .left{
+        width: 25%;
+        background: #F1F2F2;
+        padding: 0px 10px;
+        border-right: 0.5px solid rgb(0 155 200 / .7);
+      }
+      .recommen-box-list .left div{
+        /* border-bottom: 0.2px solid #A6A8AB; */
+        padding: 44px 0px;
+      }
+      .recommen-box-list:last-child .left div{
+        border: none;
+      }
+      .recommen-box-list:last-child .right div{
+        border: none;
+      }
+      .recommen-box-list .left div.six{
+        padding: 58px 0px;
+      }
+      .recommen-box-list .left div.eight{
+        /* padding: 64px 0px; */
+      }
+      .recommen-box-list .right div{
+        /* border-bottom: 0.2px solid #A6A8AB; */
+        padding: 15px 0px;
+      }
+      .risk .recommen-box-list .right div{
+        padding: 25px 0px;
+      }
+
+      .recommen-box-list .left h2{
+        color: #404041;
+        font-weight: 400;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 9px;
+        line-height: 13px;
+      }
+      .recommen-box-list .left .factors{
+        text-align: center;
+        border-bottom: none;
+        padding: 0px;
+        margin-top: 20px;
+      }
+      .recommen-box-list .left .factors h1{
+        color: #3676BB;
+        font-weight: 400;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 17px;
+        line-height: 10px;
+        padding-bottom: 3px;
+        width: 50%;
+        margin:0px auto;
+        border-bottom: 0.2px solid rgb(0 155 200 / .7);
+      }
+      .recommen-box-list .left .factors h2{
+        font-size: 20px;
+        margin-top: 7px;
+        margin-bottom: 3px;
+        opacity: .8;
+      }
+      .recommen-box-list .left .factors h2 span{
+        color: #404041;
+        font-weight: 400;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 10px;
+        line-height: 10px;
+      }
+      .recommen-box-list .left .factors h4{
+        color: #404041;
+        font-weight: 400;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 7px;
+        line-height: 10px;
+        margin-bottom: 20px;
+        margin-top: 7px;
+      }
+      .recommen-box-list .left .factors h4 span{
+        color: #404041;
+        font-weight: 400;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 7px;
+        line-height: 10px;
+      }
+      .recommen-box-list .left .factors h3{
+        color: #3676BB;
+        font-weight: 400;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        line-height: 10px;
+        margin-bottom: 2px;
+        margin-top: 10px;
+      }
+      .recommen-box-list .right{
+        width: 75%;
+        padding: 0px 10px;
+      }
+      .recommen-box-list .right p{
+        /* color: #58595B; */
+        font-weight: 300;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 8px;
+        line-height: 13px;
+
+      }
+      .recommen-box-list .right p span{
+        color: #3676BB;
+      }
+      .recommen-box-list h6{
+        color: #3676BB;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: 9px;
+        margin-top: 5px;
+          border-bottom: 0.2px solid rgb(166 168 171 / .3);
+      }
+      .recommen-box-list .right h6{
+        width: 15%;
+      }
+      .recommon-ft{
+        background: #F1F2F2;
+        padding: 5px 10px;
+      }
+      .recommon-ft h2{
+        color: #404041;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 9px;
+        font-weight: 400;
+        border-bottom: 0.2px solid #A6A8AB;
+        padding-bottom: 5px;
+        width: 15%;
+
+      }
+      .recommon-ft p{
+        /* color: #404041; */
+        font-family: 'Montserrat', sans-serif;
+        font-size: 8px;
+        font-weight: 300;
+        line-height: 13px;
+
+      }
+      .page-header{
+        margin-bottom: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .page-header .text{
+        background: #F1F2F2;
+        width: 240px;
+      }
+      .page-header .text span{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        background: #fff;
+        padding: 0px 3px;
+      }
+      .page-header .text span img{
+        width: 31px;
+      }
+      .page-header .text {
+        padding: 5px 0px;
+        position: relative;
+      }
+      .page-header .text .content {
+        padding: 0px 5px;
+
+      }
+      .page-header .text .content p{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 6px;
+        font-weight: 400;
+        /* color: #77787B; */
+
+      }
+      .page-header .text .content .bottom{
+        display: flex;
+        margin-top: 5px;
+      }
+      .page-header .text .content .bottom p{
+        margin-right: 10px;
+      }
+      .page-footer{
+        margin-top: 15px;
+        text-align: left;
+      }
+      .page-footer p{
+        /* color: #BBBDBF; */
+        font-family: 'Montserrat', sans-serif;
+        font-size: 6px;
+        font-weight: 300;
+        margin-top: -14px;
+      }
+      .timeline-section{
+        border: 0.3px solid rgb(166 168 171 / .3);
+        display: flex;
+      }
+
+      .timeline-section h2{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 9px;
+        font-weight: 400;
+        color: #404041;
+        padding: 10px 5px;
+        height: 10px;
+      }
+      .timeline-section .last h1{
+        padding: 6px 0px;
+        border-top: 0.3px solid rgb(166 168 171 / .3);
+        height: 15px;
+      }
+      .timeline-section h3{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 9px;
+        font-weight: 400;
+        color: #404041;
+        padding: 5px;
+        border-top: 0.3px solid rgb(166 168 171 / .3);
+        height: 17px;
+      }
+      .timeline-section .first {
+        width: 24%;
+      }
+      .timeline-section .last {
+        width: 19%;
+        text-align: center;
+        border-left: 0.3px solid rgb(166 168 171 / .3);
+      }
+      .time-heads{
+        background: #F1F2F2;
+        padding: 5px;
+        width: 27%;
+
+      }
+      .time-heads h2{
+        color: #77787B;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 9px;
+        font-weight: 400;
+
+      }
+      .sym-head{
+        display: flex;
+        margin-top: 20px;
+      }
+      .sym-head h2{
+        background-color:#3676BB;
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 9px;
+        line-height: 20px;
+        padding: 0px 5px;
+        font-weight: 400;
+        width: 65px;
+      }
+      .sym-head .first{
+        width: 70%;
+      }
+      .sym-head .last{
+        width: 8.2%;
+        text-align: center;
+        background-color: #3676BB;
+      }
+      .sym-head span{
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 8px;
+        padding: 0px 5px;
+        font-weight: 400;
+        line-height: 20px;
+
+      }
+      .sym-sec{
+        border: 0.3px solid rgb(166 168 171 / .3);
+      }
+      .sym-section{
+        display: flex;
+
+      }
+      .sym-section:last-child .last{
+        border-bottom: none;
+      }
+      .sym-section .first{
+        width: 70%;
+      }
+      .sym-section .last{
+        width: 8%;
+        text-align: center;
+        border-left: 0.3px solid rgb(166 168 171 / .3);
+        border-bottom: 0.3px solid rgb(166 168 171 / .3);
+      }
+      .sym-section .last span{
+        color: #77787B;
+        font-size: 11px;
+        display: inline-block;
+        padding: 5px;
+      }
+
+      .sym-section span.tick-check:before{
+        content: '\2713';
+        display: inline-block;
+        padding: 1px;
+        font-size: 10px;
+        text-align: center;
+        margin-top: -2px;
+      }
+      .sym-total{
+        display: flex;
+        justify-content: flex-end;
+      }
+      .sym-total .first{
+        width: 30%;
+      }
+      .sym-total .last span{
+        color: #404041;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 9px;
+        line-height: 27px;
+        padding: 0px 5px;
+        font-weight: 300;
+      }
+      .sym-total .last{
+        width: 6.31%;
+        padding-left: 5.3px;
+        background-color: #F1F2F2;
+        height: 26px;
+        text-align: center;
+        border-left: 0.3px solid rgb(166 168 171 / .3);
+        border-bottom: 0.3px solid rgb(166 168 171 / .3);
+      }
+      .sym-total .last:last-child{
+        border-right: 0.3px solid rgb(166 168 171 / .3);
+      }
+      .sym-total h2{
+        background-color: #F1F2F2;
+        color: #404041;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 9px;
+        line-height: 27px;
+        padding: 0px 5px;
+        font-weight: 400;
+        border: 0.3px solid rgb(166 168 171 / .3);
+        border-top:0px;
+        border-right:0px;
+        height: 26px;
+      }
+      .sym-section:last-child h2{
+        border-bottom: 0px;
+      }
+      .sym-section h2{
+        color: #404041;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 8px;
+        line-height: 27px;
+        padding: 0px 5px;
+        font-weight: 400;
+        border-bottom: 0.3px solid rgb(166 168 171 / .3);
+      }
+      .resilience h2{
+        /* color: #77787B; */
+        font-family: 'Montserrat', sans-serif;
+        font-size: 10px;
+        line-height: 13px;
+        font-weight: 400;
+        }
+      .resilience{
+        background: #F1F2F2;
+        padding: 5px;
+        width: 30%;
+        margin-bottom: 10px;
+      }
+      .resilience-section {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 15px;
+        position: relative;
+      }
+      .resilience-section span.line{
+        position: absolute;
+        display: inline-block;
+        width: 0.5px;
+        height: 100%;
+        background: rgb(0 155 200 / .7);
+        right: 50%;
+      }
+      .resilience-section h2{
+        color: #3676BB;
+        font-size: 10px;
+        line-height: 13px;
+        font-weight: 400;
+        margin-bottom: 5px;
+      }
+      .resilience-section .left{
+        width: 48%;
+      }
+      .resilience-section .right{
+        width: 48%;
+      }
+      .resilience-box{
+        border: 0.15px solid rgb(167 169 172 / .3);
+      }
+      .resilience-box .box-list{
+        display: flex;
+      }
+      .resilience-box .box-list .box-left{
+        width: 70%;
+        border-right: 0.4px solid rgb(167 169 172 / .3);
+      }
+      .resilience-box .box-list .box-right{
+        width: 30%;
+        text-align: center;
+      }
+      .resilience-box .box-list:last-child h2{
+        border:none;
+      }
+      .resilience-box .box-list h2{
+        color: #0a0a0a;
+        font-size: 9px;
+        line-height: 13px;
+        font-weight: 300;
+        margin-bottom: 0px;
+        padding: 5px;
+        border-bottom: 0.15px solid rgb(167 169 172 / .3);
+        height: 13px;
+      }
+      .resilience-box .box-list h2 span{
+        color: rgb(64 64 65 / .5);
+      }
+      .resilience-level{
+        background: #F1F2F2;
+        padding: 5px 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .resilience-level-list{
+        display: flex;
+        align-items: center;
+      }
+      .resilience-level h2{
+        color: #4D4D4F;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 8px;
+        line-height: 10px;
+        font-weight: 400;
+      }
+      .resilience-level .left{
+        margin-right: 5px;
+      }
+      .resilience-level h3{
+        /* color: #58595B; */
+        font-family: 'Montserrat', sans-serif;
+        font-size: 7px;
+        line-height: 9px;
+        font-weight: 300;
+      }
+      .substance-sec h3{
+        /* color: #404041; */
+        font-family: 'Montserrat', sans-serif;
+        font-size: 7px;
+        line-height: 9px;
+        padding: 5px;
+        background: #F1F2F2;
+        font-weight: 400;
+        height: 11px;
+      }
+      .substance-sec h4{
+        /* color: #404041; */
+        font-family: 'Montserrat', sans-serif;
+        font-size: 7px;
+        line-height: 9px;
+        padding: 5px;
+        font-weight: 400;
+        height: 11px;
+      }
+      .substance-sec{
+        display: flex;
+        margin-top: 7px;
+        justify-content: space-between;
+      }
+      .substance-sec .left{
+        width: 44%;
+        display: flex;
+        border: 0.3px solid rgb(166 168 171 / .3);
+        position: relative;
+      }
+      .substance-sec .left .first{
+        width: 35%;
+      }
+      .substance-sec .left .second{
+        text-align: center;
+        width: 33%;
+        border-left: 0.3px solid rgb(166 168 171 / .3);
+      }
+      .substance-sec .left .third{
+        text-align: center;
+        width: 33%;
+        border-left: 0.3px solid rgb(166 168 171 / .3);
+      }
+      .substance-sec .right .first{
+        width: 35%;
+      }
+      .substance-sec .right .second{
+        width: 65%;
+        border-left: 0.3px solid rgb(166 168 171 / .3);
+      }
+      .substance-sec .right{
+        width: 45%;
+        border: 0.3px solid rgb(166 168 171 / .3);
+        display: flex;
+        position: relative;
+      }
+      .substance-bottom-section{
+        border: 0.3px solid rgb(166 168 171 / .3);
+        border-bottom: 0px;
+        margin-top: 8px;
+      }
+      .substance-bottom-section.bt{
+        border-bottom: 0.3px solid rgb(166 168 171 / .3);
+        margin-top:0px;
+      }
+      .substance-bottom-sec{
+        display: flex;
+        border-bottom: 0.3px solid rgb(166 168 171 / .3);
+      }
+      .substance-bottom-sec .first{
+        width: 17%;
+        border-right: 0.3px solid rgb(166 168 171 / .3);
+      }
+      .substance-bottom-sec h2{
+        color: #404041;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 8px;
+        line-height:11px;
+        font-weight: 400;
+        padding:10px 5px;
+
+      }
+      .substance-bottom-sec .first.height h2{
+        padding: 10px 5px;
+      }
+      .substance-bottom-sec h3{
+        /* color: #404041; */
+        font-family: 'Montserrat', sans-serif;
+        font-size: 7px;
+        line-height:11px;
+        font-weight: 400;
+        padding:5px;
+      }
+      .substance-bottom-sec h3 span{
+       color:#3676BB;
+      }
+      .substance-bottom-sec .last{
+        width: 80%;
+      }
+      .substance-ft{
+        background: #F1F2F2;
+        padding:5px;
+        display: flex;
+        margin-top: 7px;
+      }
+      .substance-ft h2{
+        color: #404041;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 7px;
+        line-height:11px;
+        font-weight: 400;
+        width: 100px;
+      }
+      .substance-ft h3{
+        color: #404041;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 8px;
+        line-height:11px;
+        font-weight: 400;
+      }
+      /* Chart */
+     .risk-chart-section{
+       display: flex;
+       justify-content: space-between;
+     }
+     .risk-chart{
+      padding: 5px 0px;
+      padding-bottom: 0px;
+      width: 32%;
+      text-align: center;
+     }
+     .risk-chart.bg{
+      background: rgb(230 231 232 / .2);
+
+     }
+     .risk-chart h2{
+      color: #3676BB;
+      font-size: 7px;
+      line-height:9px;
+      font-weight: 300;
+      height: 10px;
+     }
+     .risk-chart h3{
+      /* color: #404041; */
+      font-size: 8px;
+      line-height:9px;
+      font-weight: 300;
+     }
+     .risk-bar label{
+      background: #DBDCDD;
+      height: 66px;
+      width: 16px;
+      display: inline-block;
+     }
+     .risk-chart h4{
+     font-weight: 400;
+      font-size: 8px;
+      line-height:10px;
+      margin-top: 3px;
+     }
+     .risk-bar-section{
+       display: flex;
+       margin-top:10px;
+       margin-bottom: 5px;
+       justify-content: space-evenly;
+     }
+     .risk-bar-section .risk-bar label{
+      position: relative;
+     }
+     .risk-bar-section .risk-bar span{
+        display: inline-block;
+        width: 100%;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+     }
+     .risk-bar-ft{
+        background: #F1F2F2;
+        padding:5px 0px;
+     }
+     .resilience-chart h2{
+      color: #349A97;
+      font-size: 10px;
+      line-height:13px;
+      margin:10px 0px;
+      font-weight: 500;
+     }
+     .resilience-chart-line {
+       margin-left: 20px;
+       position: relative;
+       padding-bottom: 30px;
+     }
+     .resilience-chart-line ul li:first-child{
+      border-top: 0.2px solid rgb(166 168 171 / .3);
+
+     }
+     .resilience-chart-line ul li{
+      border-left: 0.2px solid rgb(166 168 171 / .3);
+      border-bottom: 0.2px solid rgb(166 168 171 / .3);
+      position: relative;
+      padding-top: 17px;
+     }
+     .resilience-chart-line ul li span{
+      /* color: #77787B; */
+      font-size: 6px;
+      line-height:6px;
+      position: absolute;
+      top: 15px;
+      left: -17px;
+     }
+     .resilience-bar-pos{
+      position: absolute;
+      width: 100%;
+      bottom: 6px;
+     }
+     .resilience-bar-section{
+       display: flex;
+       justify-content: space-around;
+     }
+     .resilience-bar-section .resilience-bar label{
+      width: 45px;
+      height: 172px;
+      background: #DBDCDD;
+      display: inline-block;
+      position: relative;
+     }
+     .resilience-bar-section .resilience-bar label span{
+      display: inline-block;
+      width: 100%;
+      position: absolute;
+      bottom: 0px;
+     }
+     .resilience-bar h6{
+      /* color: #58595B; */
+      font-weight: 400;
+      font-size: 9px;
+      line-height:11px;
+      text-align: center;
+      margin-top: 3px;
+     }
+     .resilience-bar h3{
+      /* color: #349A97; */
+      font-weight: 400;
+      font-size: 9px;
+      line-height:11px;
+      text-align: center;
+     }
+     .resilience-chart-line-level{
+      text-align: right;
+     }
+     .resilience-chart-line-level ul li{
+       display: inline-block;
+       padding: 0px 5px;
+     }
+     .resilience-chart-line-level ul li label{
+      /* color: #77787B; */
+      font-weight: 300;
+      font-size: 6px;
+      line-height:8px;
+      margin-right: 3px;
+     }
+     .resilience-chart-line-level ul li span{
+      width: 8px;
+      height: 6px;
+      display: inline-block;
+     }
+     .activity-chart-line {
+       margin-left: 50px;
+       margin-bottom: 20px;
+       position: relative;
+     }
+     .activity-chart-line ul li{
+      border-left: 0.2px solid rgb(166 168 171 / .3);
+      border-bottom: 0.2px solid rgb(166 168 171 / .3);
+      position: relative;
+      padding-top: 17px;
+     }
+     .activity-chart-line ul li h1{
+      position: absolute;
+      top: -28px;
+      left: -45px;
+     }
+     .activity-chart-line ul li label{
+      color: #77787B;
+      font-weight: 300;
+      font-size: 5px;
+      line-height: 6px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-top: 10px;
+     }
+     .activity-chart-line ul li:first-child{
+      border-top: 0.2px solid rgb(166 168 171 / .3);
+
+     }
+     .activity-bar label{
+      width: 16px;
+      height: 54px;
+      display: inline-block;
+      background: #DBDCDD;
+      position: relative;
+     }
+     .activity-bar h6{
+      /* color:#3676BB; */
+      font-size: 7px;
+      line-height: 9px;
+      text-align: center;
+      font-weight: 400;
+     }
+     .activity-bar label span{
+       display: inline-block;
+       width: 100%;
+       position: absolute;
+       bottom: 0px;
+     }
+     .activity-bar-chart{
+      display: flex;
+    justify-content: space-around;
+    width: 20%;
+     }
+     .activity-bar-section{
+      display: flex;
+    justify-content: space-between;
+     }
+     .activity-bar-pos{
+        position: absolute;
+        width: 100%;
+        left: 0px;
+        top: 0px;
+     }
+     .activity-chart-line-ft-section{
+       display: flex;
+       justify-content: space-between;
+       margin-left: 50px;
+       margin-bottom: 10px;
+     }
+     .activity-chart-line-ft{
+       text-align: center;
+       width: 20%;
+       background-color:#EDEDEE;
+       padding:3px;
+
+     }
+     .activity-chart-line-ft h2{
+      /* color: #404041; */
+      line-height: 8px;
+      font-size: 6px;
+      font-weight: 400;
+     }
+     .activity-chart-line-ft h3{
+      /* color: #404041; */
+      line-height: 8px;
+      font-size: 6px;
+      font-weight: 300;
+     }
+     .activity-chart-level-section{
+       display: flex;
+       justify-content: space-between;
+       margin-left: 50px;
+       margin-bottom: 30px;
+     }
+     .activity-chart-level-section h2{
+       /* color: #77787B; */
+       font-size: 7px;
+       line-height: 14px;
+       font-weight: 400;
+       margin-left: 20px;
+     }
+     .activity-chart-level-section h2 label{
+       width: 23%;
+       display: inline-block;
+     }
+     .activity-chart-level-section h2 span{
+       margin:0px 5px;
+     }
+     .activity-chart-level{
+       /* width: 25%; */
+       border-right: 0.2px solid rgb(166 168 171 / .3);
+       /* justify-content: space-between; */
+     }
+     .activity-chart-level:last-child{
+       border:0px;
+     }
+     .evidence-section{
+       display: flex;
+       justify-content: space-between;
+     }
+     .evidence-section.bt{
+       justify-content: flex-end;
+     }
+     .evidence-level{
+      background: #E2E3E4;
+      width: 38%;
+      padding:0px 10px;
+      height: 24px;
+     }
+     .evidence-level label{
+      color: #77787B;
+      font-size: 8px;
+      line-height: 10px;
+      font-weight: 400;
+     }
+     .evidence-level span{
+      color: #77787B;
+      font-size: 8px;
+      line-height: 10px;
+      margin-left: 10px;
+      font-weight: 400;
+     }
+     .evidence-color ul li {
+       display: inline-block;
+     }
+     .evidence-color ul li label{
+      color: #77787B;
+      font-weight: 300;
+      font-size: 7px;
+     }
+     .evidence-color ul li span{
+      width: 8px;
+      height: 12px;
+      display: inline-block;
+      vertical-align: sub;
+     }
+     .evidence-graph ul li{
+      border-bottom: 0.3px solid rgb(166 168 171 / .3);
+      position: relative;
+      padding-bottom: 15px;
+      border-left: 0.3px solid rgb(166 168 171 / .3);
+
+     }
+     .evidence-graph ul li:first-child{
+      /* border-top: 0.3px solid rgb(166 168 171 / .3); */
+
+     }
+     .evidence-graph.bt ul li{
+       padding-bottom: 20px;
+     }
+
+     .evidence-graph{
+       margin-left: 20px;
+       margin-top: 15px;
+       position: relative;
+     }
+     .evidence-graph ul.level li label{
+      color: #77787B;
+      position: absolute;
+      font-size: 5px;
+      line-height: 6px;
+      top: 13px;
+      left: -15px;
+     }
+     .evidence-graph-bar-section{
+       display: flex;
+       justify-content: space-around;
+     }
+     .evidence-graph-bar-section label{
+       height: 159px;
+       display: inline-block;
+       width: 48px;
+     }
+     .evidence-graph-bar-section label span{
+       display: inline-block;
+       width: 100%;
+
+     }
+     .evidence-graph-bar{
+      transform: rotate(180deg);
+      margin-top: -1%;
+     }
+     .evidence-pos{
+      position: absolute;
+      width: 100%;
+      top: 0px;
+     }
+     .bt .evidence-graph-bar-section label{
+      height: 126px;
+     }
+     .evidence-text h3{
+      /* color: #404041; */
+      font-size: 8px;
+      font-weight: 400;
+     }
+     .evidence-text h4{
+      color: #404041;
+      font-size: 6px;
+      font-weight: 400;
+     }
+     .evidence-text h3 span{
+      font-size: 9px;
+      font-weight: 500;
+     }
+     .evidence-text h6{
+      color: #404041;
+      /* color:#D04646; */
+      font-weight: 400;
+      font-size: 8px;
+     }
+     .evidence-text{
+       text-align: center;
+       position: relative;
+     }
+     .evidence-text-sec{
+      display: flex;
+    justify-content: space-around;
+    margin-left: 20px;
+    margin-top:10px
+     }
+     .lifetime-section{
+      margin-top: 10px;
+      display: flex;
+     }
+     .lifetime-section .left{
+       width: 20%;
+     }
+     .lifetime-section .right{
+       width: 79%;
+       border-left:0.2px solid #A6A8AB;
+       border-bottom:0.2px solid #A6A8AB;
+       position: relative;
+
+     }
+     .lifetime-section .right label{
+      background: #DBDCDD;
+      height: 20px;
+      width: 100%;
+      display: inline-block;
+      margin-bottom: 10px;
+      margin-left: 3px;
+     }
+     .lifetime-section .right label span{
+      height: 100%;
+      display: inline-block;
+      margin-left: -3.0px;
+      position: relative;
+     }
+     .lifetime-section .right h1{
+       background-color: #a6a8ab2e;
+       display: inline-block;
+       position: absolute;
+       height: 100%;
+       width: 1px;
+     }
+
+     .lifetime-section .right h1.line-1{
+      position: absolute;
+      top: 0px;
+      right: 24.3%;
+     }
+     .lifetime-section .right h1.line-2{
+      position: absolute;
+     top: 0px;
+     left: 25%;
+     }
+     .lifetime-section .right h1.line-3{
+      position: absolute;
+      top: 0px;
+      left: 50.5%;
+     }
+     .lifetime-section h2{
+      color: #77787B;
+      font-size: 8px;
+      font-weight: 400;
+      margin-bottom: 20px;
+     }
+     .lifetime-level {
+      display: flex;
+      justify-content: flex-end;
+      margin-top:10px;
+     }
+     .lifetime-level h1{
+      width: 20%;
+
+     }
+     .lifetime-level h2{
+      color: #77787B;
+      font-size: 9px;
+      text-align: center;
+      font-weight: 400;
+      padding: 5px;
+      width: 80%;
+      background: #F1F2F2;
+
+
+     }
+     .lifetime-level-line{
+       display: flex;
+       justify-content: flex-end;
+       margin-top: -9px;
+     }
+     .lifetime-level-line .left{
+      width: 20%;
+     }
+     .lifetime-level-line .right{
+      width: 80%;
+      position: relative;
+     }
+     .lifetime-level-line .right ul li label{
+      color: #77787B;
+      font-size: 5px;
+      font-weight: 400;
+     }
+     .lifetime-level-line .right ul li span{
+       display: inline-block;
+       color: #FFFFFF;
+       font-size: 6px;
+       text-align: center;
+    width: 80%;
+    margin: 0px 3%;
+     }
+     .lifetime-level-line .right ul li{
+      margin-top: -5px;
+      display: inline-block;
+      width: 24%;
+     }
+     .lifetime-level-line .hund{
+      position: absolute;
+    right: 0px;
+    top: 10px;
+     }
+     .lifetime-section h6{
+       position: absolute;
+       display: inline-block;
+       color:#fff;
+       font-size: 8px;
+       font-weight: 400;
+     }
+     .risk-arrow{
+      position: absolute;
+      z-index: 999;
+      bottom: -20%;
+      right: 39%;
+     }
+     .box-container.risk{
+        margin-bottom: 40px;
+     }
+     .arrow-user{
+      position: absolute;
+    z-index: -1;
+    top: -3px;
+    right: -3px;
+     }
+     .gray-line{
+      display: inline-block;
+      background:rgb(167 169 172 / .3);
+      width: 100%;
+      height: .3px;
+      left: 0px;
+      position: absolute;
+     }
+     .pageno{
+      position: absolute;
+      color: #fff;
+      font-size: 5px;
+      top: 12px;
+      left: 10px;
+     }
+     .graybg{
+      background: #F1F2F2;
+      width: 10px;
+      top: 0px;
+      height: 8px;
+      display: inline-block;
+      right: 27px;
+      z-index: 1;
+      position: absolute;
+     }
+     .graybg1{
+      background: #F1F2F2;
+      width: 10px;
+      bottom: 0px;
+      height: 8px;
+      display: inline-block;
+      right: 27px;
+      z-index: 1;
+      position: absolute;
+     }
+     .denial_class{
+       color: #404041;
+       font-weight: 300;
+       font-size: 7px;
+     }
+
+     .sh {
+       color: #d04646 !important;
+       font-size: 7px;
+       text-align: right;
+       margin-top: 5px;
+       float: left;
+       margin-left: 30px;
+     }
+     .activity-chart-clarifier {
+      /* color: #58595B; */
+      line-height: 8px;
+      font-size: 5px;
+      font-weight: 200;
+      margin-left: 51px;
+      margin-top: -5px;
+      margin-bottom: 5px;
+     }
+     .misuse-marker {
+       margin-left: 173px;
+       margin-top: -13px;
+       font-size: 8px;
+       color: #58595B;
+       line-height: 8px;
+       font-weight: 200;
+       margin-bottom: 5px;
+   }
+   .remote-illness {
+     font-family: 'segoe-semibold';
+     color: #3676bb;
+     font-size: 7px;
+     float: right;
+     margin-top: -12px;
+     position: relative;
+     left: 73%;
+   }
+    </style>
+  </head>
+  <body>
+    <!-- Page 1 -->
+    <div class="page-container">
+      <div class="page-header">
+        <div class="logo">
+          <img src="assets/logo.svg"/>
+        </div>
+        <div class="text">
+          <div class="content">
+            <p>Patient CMR: &nbsp;{{response.cd_CMR}}</p>
+            <div class="bottom">
+              <p>Age | Gender: {{response.cd_Age}}</p>
+              <p>Date: {{response.cd_Date|replace('\/','/')}}</p>
+              <p>Initials: {{response.cd_ABC}}</p>
+            </div>
+          </div>
+          <label class="graybg">
+
+          </label>
+          <label class="graybg1">
+
+          </label>
+         <span>
+           <label class="pageno">Pg 1 | 7</label>
+          <img src="assets/plus.svg"/>
+         </span>
+        </div>
+      </div>
+      <div class="box-container">
+        <div class="box-head">
+          <h2>COMPRIS PROFILE SUMMARY</h2>
+        </div>
+        <div class="box-inner-section">
+          <div class="left">
+            <div class="inner-box-container">
+              <div class="inner-box">
+                <div class="head" style="margin-bottom:16px !important;">
+                  <h2 style="float:left;">ADDICTION RISK STRATIFICATION</h2>
+                  <h4 class="sh">{{response.cd_SH}}</h4>
+                </div>
+                <!-- <div class="last">
+                  <h3 class="sh">{{response.cd_SH}}</h3>
+                </div> -->
+                <div class="content">
+                  <div class="first">
+                    <h2 style="white-space: nowrap;">CURRENT ADJUSTED RISK</h2>
+                  </div>
+                  <div class="middle">
+                    <h3 class="small">{{response.cd_Riskplus}}</h3>
+                  </div>
+                  <div class="last">
+                    <h4>{{response.cd_percentRiskplus}}</h4>
+                    <label><span class="smallfill" style="width: {{response.cd_percentRiskplus}};"></span></label>
+                  </div>
+                </div>
+                <div class="content">
+                  <div class="first">
+                    <h2>•&nbsp;&nbsp;Lifetime Addiction Risk</h2>
+                  </div>
+                  <div class="middle">
+                    <h3>{{response.cd_Riskdash}}</h3>
+                  </div>
+                  <div class="last">
+                    <h4>{{response.cd_percentRiskdash}}</h4>
+                    <label><span class="highfill" style="width: {{response.cd_percentRiskdash}};"></span></label>
+                  </div>
+                </div>
+                <div class="content">
+                  <div class="first">
+                    <h2>•&nbsp;&nbsp;Current Resilience</h2>
+                  </div>
+                  <div class="middle">
+                    <h3>{{response.cd_Res}}</h3>
+                  </div>
+                  <div class="last">
+                    <h4>{{response.cd_percentRes}}</h4>
+                    <label><span class="mediumfill" style="width: {{response.cd_percentRes}};"></span></label>
+                  </div>
+                </div>
+                <div class="content">
+                  <div class="first">
+                    <h2>•&nbsp;&nbsp;Sustained Remission</h2>
+                  </div>
+                  <div class="middle">
+                    <h3>{{response.cd_Remplus}}</h3>
+                  </div>
+                  <div class="last">
+                    <h4>{{response.cd_percentRemplus}}</h4>
+                    <label><span class="hardfill" style="width: {{response.cd_percentRemplus}};"></span></label>
+                  </div>
+                </div>
+              </div>
+              <div class="percent nop">
+                <h2>Trait-Specific Risk</h2>
+                <h3>{{response.cd_PersRisk}}</h3>
+              </div>
+              <div class="percent nop">
+                <h2>Substance-Specific Risk</h2>
+                <h3>{{response.cd_SubsRisk}}</h3>
+              </div>
+              <div class="inner-box">
+                <div class="head">
+                  <h2>ACUITY & SEVERITY DIAGNOSTICS</h2>
+                </div>
+                <div class="acuity-table">
+                  <div class="acuity-first">
+                      <h2>Substance</h2>
+                      <label>Current Illness</br>  30 Days</label>
+                    <label>Acute Illness</br>  1 - 3 Months</label>
+                    <label>Sub-Acute Illness</br> 4 - 11 Months</label>
+                    <label>Chronic Illness</br> 1 - 4 Years</label>
+                    <label style="white-space: nowrap;">Chronic | Remote Illness </br> 5+ Years</label>
+                  </div>
+                  <div class="acuity-last">
+                    <h2>Nicotine</h2>
+                    <h3>
+                      <span class="{% if response.cd_30dNic|int == 1 %}mild{% elif response.cd_30dNic|int == 2  %}moderate{% elif response.cd_30dNic|int == 3%}severe{% endif %}">
+                        {% if response.cd_30dNic not in '123' %}{{response.cd_30dNic}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_30dNic|int == 1 %}mild{% elif response.cd_30dNic|int == 2 %}moderate{% elif response.cd_30dNic|int == 3 %}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_3mNic|int == 1 %}mild{% elif response.cd_3mNic|int == 2  %}moderate{% elif response.cd_3mNic|int == 3%}severe{% endif %}">
+                        {% if response.cd_3mNic not in '123' %}{{response.cd_3mNic}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_3mNic|int == 1 %}mild{% elif response.cd_3mNic|int == 2 %}moderate{% elif response.cd_3mNic|int == 3%}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_12mNic|int == 1 %}mild{% elif response.cd_12mNic|int == 2  %}moderate{% elif response.cd_12mNic|int == 3%}severe{% endif %}">
+                        {% if response.cd_12mNic not in '123' %}{{response.cd_12mNic}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_12mNic|int == 1 %}mild{% elif response.cd_12mNic|int == 2 %}moderate{% elif response.cd_12mNic|int == 3%}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_1dash4yNic|int == 1 %}mild{% elif response.cd_1dash4yNic|int == 2  %}moderate{% elif response.cd_1dash4yNic|int == 3%}severe{% endif %}">
+                        {% if response.cd_1dash4yNic not in '123' %}{{response.cd_1dash4yNic}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_1dash4yNic|int == 1 %}mild{% elif response.cd_1dash4yNic|int == 2 %}moderate{% elif response.cd_1dash4yNic|int == 3%}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_5plusyNic|int == 1 %}mild{% elif response.cd_5plusyNic|int == 2  %}moderate{% elif response.cd_5plusyNic|int == 3%}severe{% endif %}">
+                        {% if response.cd_5plusyNic not in '123' %}{{response.cd_5plusyNic}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_5plusyNic|int == 1 %}mild{% elif response.cd_5plusyNic|int == 2 %}moderate{% elif response.cd_5plusyNic|int == 3%}severe{% endif %}"></span> -->
+                    </h3>
+                  </div>
+                  <div class="acuity-last">
+                    <h2>Alcohol</h2>
+                    <h3>
+                      <span class="{% if response.cd_30dAlc|int == 1 %}mild{% elif response.cd_30dAlc|int == 2  %}moderate{% elif response.cd_30dAlc|int == 3%}severe{% endif %}">
+                        {% if response.cd_30dAlc not in '123' %}{{response.cd_30dAlc}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_30dAlc|int == 1 %}mild{% elif response.cd_30dAlc|int == 2 %}moderate{% elif response.cd_30dAlc|int == 3 %}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_3mAlc|int == 1 %}mild{% elif response.cd_3mAlc|int == 2  %}moderate{% elif response.cd_3mAlc|int == 3%}severe{% endif %}">
+                        {% if response.cd_3mAlc not in '123' %}{{response.cd_3mAlc}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_3mAlc|int == 1 %}mild{% elif response.cd_3mAlc|int == 2 %}moderate{% elif response.cd_3mAlc|int == 3 %}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_12mAlc|int == 1 %}mild{% elif response.cd_12mAlc|int == 2  %}moderate{% elif response.cd_12mAlc|int == 3%}severe{% endif %}">
+                        {% if response.cd_12mAlc not in '123' %}{{response.cd_12mAlc}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_12mAlc|int == 1 %}mild{% elif response.cd_12mAlc|int == 2 %}moderate{% elif response.cd_12mAlc|int == 3 %}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_1dash4yAlc|int == 1 %}mild{% elif response.cd_1dash4yAlc|int == 2  %}moderate{% elif response.cd_1dash4yAlc|int == 3%}severe{% endif %}">
+                        {% if response.cd_1dash4yAlc not in '123' %}{{response.cd_1dash4yAlc}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_1dash4yAlc|int == 1 %}mild{% elif response.cd_1dash4yAlc|int == 2 %}moderate{% elif response.cd_1dash4yAlc|int == 3 %}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_5plusyAlc|int == 1 %}mild{% elif response.cd_5plusyAlc|int == 2  %}moderate{% elif response.cd_5plusyAlc|int == 3%}severe{% endif %}">
+                        {% if response.cd_5plusyAlc not in '123' %}{{response.cd_5plusyAlc}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_5plusyAlc|int == 1 %}mild{% elif response.cd_5plusyAlc|int == 2 %}moderate{% elif response.cd_5plusyAlc|int == 3 %}severe{% endif %}"></span> -->
+                    </h3>
+                  </div>
+                  <div class="acuity-last">
+                    <h2>Rx Meds</h2>
+                    <h3>
+                      <span class="{% if response.cd_30dRx|int == 1 %}mild{% elif response.cd_30dRx|int == 2  %}moderate{% elif response.cd_30dRx|int == 3%}severe{% endif %}">
+                        {% if response.cd_30dRx not in '123' %}{{response.cd_30dRx}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_30dRx|int == 1 %}mild{% elif response.cd_30dRx|int == 2 %}moderate{% elif response.cd_30dRx|int == 3 %}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_3mRx|int == 1 %}mild{% elif response.cd_3mRx|int == 2  %}moderate{% elif response.cd_3mRx|int == 3%}severe{% endif %}">
+                        {% if response.cd_3mRx not in '123' %}{{response.cd_3mRx}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_3mRx|int == 1 %}mild{% elif response.cd_3mRx|int == 2 %}moderate{% elif response.cd_3mRx|int == 3 %}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_12mRx|int == 1 %}mild{% elif response.cd_12mRx|int == 2  %}moderate{% elif response.cd_12mRx|int == 3%}severe{% endif %}">
+                        {% if response.cd_12mRx not in '123' %}{{response.cd_12mRx}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_12mRx|int == 1 %}mild{% elif response.cd_12mRx|int == 2 %}moderate{% elif response.cd_12mRx|int == 3 %}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_1dash4yRx|int == 1 %}mild{% elif response.cd_1dash4yRx|int == 2  %}moderate{% elif response.cd_1dash4yRx|int == 3%}severe{% endif %}">
+                        {% if response.cd_1dash4yRx not in '123' %}{{response.cd_1dash4yRx}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_1dash4yRx|int == 1  %}mild{% elif response.cd_1dash4yRx|int == 2 %}moderate{% elif response.cd_1dash4yRx|int == 3 %}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_5plusyRx|int == 1 %}mild{% elif response.cd_5plusyRx|int == 2  %}moderate{% elif response.cd_5plusyRx|int == 3%}severe{% endif %}">
+                        {% if response.cd_5plusyRx not in '123' %}{{response.cd_5plusyRx}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_5plusyRx|int == 1  %}mild{% elif response.cd_5plusyRx|int == 2 %}moderate{% elif response.cd_5plusyRx|int == 3 %}severe{% endif %}"></span> -->
+                    </h3>
+                  </div>
+                  <div class="acuity-last" style="width: 22%;">
+                    <h2>Rec Drugs</h2>
+                    <h3>
+                      <span class="{% if response.cd_30dDrg|int == 1 %}mild{% elif response.cd_30dDrg|int == 2  %}moderate{% elif response.cd_30dDrg|int == 3%}severe{% endif %}">
+                        {% if response.cd_30dDrg not in '123' %}{{response.cd_30dDrg}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_30dDrg|int == 1 %}mild{% elif response.cd_30dDrg|int == 2 %}moderate{% elif response.cd_30dDrg == '3' %}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_3mDrg|int == 1 %}mild{% elif response.cd_3mDrg|int == 2  %}moderate{% elif response.cd_3mDrg|int == 3%}severe{% endif %}">
+                        {% if response.cd_3mDrg not in '123' %}{{response.cd_3mDrg}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_3mDrg|int == 1 %}mild{% elif response.cd_3mDrg|int == 2 %}moderate{% elif response.cd_3mDrg == '3' %}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_12mDrg|int == 1 %}mild{% elif response.cd_12mDrg|int == 2  %}moderate{% elif response.cd_12mDrg|int == 3%}severe{% endif %}">
+                        {% if response.cd_12mDrg not in '123' %}{{response.cd_12mDrg}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_12mDrg|int == 1 %}mild{% elif response.cd_12mDrg|int == 2 %}moderate{% elif response.cd_12mDrg == '3' %}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_1dash4yDrg|int == 1 %}mild{% elif response.cd_1dash4yDrg|int == 2  %}moderate{% elif response.cd_1dash4yDrg|int == 3%}severe{% endif %}">
+                        {% if response.cd_1dash4yDrg not in '123' %}{{response.cd_1dash4yDrg}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_1dash4yDrg|int == 1 %}mild{% elif response.cd_1dash4yDrg|int == 2 %}moderate{% elif response.cd_1dash4yDrg == '3' %}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_5plusyDrg|int == 1 %}mild{% elif response.cd_5plusyDrg|int == 2  %}moderate{% elif response.cd_5plusyDrg|int == 3%}severe{% endif %}">
+                        {% if response.cd_5plusyDrg not in '123' %}{{response.cd_5plusyDrg}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_5plusyDrg|int == 1 %}mild{% elif response.cd_5plusyDrg|int == 2 %}moderate{% elif response.cd_5plusyDrg == '3' %}severe{% endif %}"></span> -->
+                    </h3>
+                  </div>
+                  <span class="gray-line" style="top:40px"></span>
+                <span class="gray-line" style="top:64px"></span>
+                <span class="gray-line" style="top:88px;"></span>
+                <span class="gray-line" style="top:113px;"></span>
+
+                </div>
+
+              </div>
+              <div class="acuity">
+                <div>
+                  <span class="mild"></span>
+                  <label>MILD</label>
+                </div>
+                <div>
+                  <span class="moderate"></span>
+                  <label>MODERATE</label>
+                </div>
+                <div>
+                  <span class="severe"></span>
+                  <label>SEVERE</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <div class="inner-box-container">
+              <div class="inner-box">
+                <div class="head">
+                  <h2>ENGAGEMENT</h2>
+                </div>
+                <div class="content">
+                  <div class="first">
+                    <h2>Subjective Severity</h2>
+                  </div>
+                  <div class="middle nob">
+                    <h3>{{response.cd_SSev}}</h3>
+                  </div>
+                </div>
+                <div class="content">
+                  <div class="first">
+                    <h2>Illness Denial</h2>
+                  </div>
+                  <div class="middle nob">
+                    <h3>{{response.cd_Den}}</h3>
+                  </div>
+                </div>
+                <div class="content">
+                  <div class="first">
+                    <h2>Motivation</h2>
+                  </div>
+                  <div class="middle nob">
+                    <h3>{{response.cd_Motplusdash}}</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="percent">
+                <h2 class="fullwidth">Motivation Scale
+                <h3>{{response.cd_Motpercent}}</h3>
+              </div>
+              <div class="inner-box" style="padding:5px">
+                <div class="positive-box pos">
+                  <div class="first pos">
+                    <h2>POSITIVE</h2>
+                  </div>
+                  <div class="second">
+                    <ul>
+                      <li>
+                        {% if response.cd_Motpercent| replace("%", "") | int  == 100 %}
+                          <label>10</label>
+                          <span class="greenOpacity">Never more engaged</span>
+                        {% elif response.cd_Motpercent| replace("%", "") | int  < 100 %}
+                          <label class="greenOpacity">10</label>
+                          <span>Never more engaged</span>
+                        {% else %}
+                          <label>10</label>
+                          <span>Never more engaged</span>
+                        {% endif %}
+                      </li>
+                      <li>
+
+                        {% if response.cd_Motpercent| replace("%", "") | int  == 90 %}
+                          <label>9</label>
+                          <span class="greenOpacity">Ready / engaged</span>
+                        {% elif response.cd_Motpercent| replace("%", "") | int  < 90 %}
+                          <label class="greenOpacity">9</label>
+                          <span>Ready / engaged</span>
+                        {% else %}
+                          <label>9</label>
+                          <span>Ready / engaged</span>
+                        {% endif %}
+                      </li>
+                      <li>
+
+                        {% if response.cd_Motpercent| replace("%", "") | int  == 80 %}
+                          <label>8</label>
+                          <span class="greenOpacity">Want my life back</span>
+                        {% elif response.cd_Motpercent| replace("%", "") | int  < 80 %}
+                          <label class="greenOpacity">8</label>
+                          <span>Want my life back</span>
+                        {% else %}
+                          <label>8</label>
+                          <span>Want my life back</span>
+                        {% endif %}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="positive-box con">
+                  <div class="first con">
+                    <h2>CONFLICTED</h2>
+                  </div>
+                  <div class="second">
+                    <ul>
+                      <li>
+
+                        {% if response.cd_Motpercent| replace("%", "") | int  == 70 %}
+                          <label>7</label>
+                          <span class="yellowfill">Afraid not to try</span>
+                        {% elif response.cd_Motpercent| replace("%", "") | int  < 70 %}
+                          <label class="yellowfill">7</label>
+                          <span>Afraid not to try</span>
+                        {% else %}
+                          <label>7</label>
+                          <span>Afraid not to try</span>
+                        {% endif %}
+                      </li>
+                      <li>
+
+                        {% if response.cd_Motpercent| replace("%", "") | int  == 60 %}
+                          <label>6</label>
+                          <span class="yellowfill">Tired of it all</span>
+                        {% elif response.cd_Motpercent| replace("%", "") | int  < 60 %}
+                          <label class="yellowfill">6</label>
+                          <span>Tired of it all</span>
+                        {% else %}
+                          <label>6</label>
+                          <span>Tired of it all</span>
+                        {% endif %}
+                      </li>
+                      <li>
+                        {% if response.cd_Motpercent| replace("%", "") | int  == 50 %}
+                          <label>5</label>
+                          <span class="yellowfill">Unsure</span>
+                        {% elif response.cd_Motpercent| replace("%", "") | int  < 50 %}
+                          <label class="yellowfill">5</label>
+                          <span>Unsure</span>
+                        {% else %}
+                          <label>5</label>
+                          <span>Unsure</span>
+                        {% endif %}
+                      </li>
+                      <li>
+                        {% if response.cd_Motpercent| replace("%", "") | int  == 40 %}
+                          <label>4</label>
+                          <span class="yellowfill">Afraid to try</span>
+                        {% elif response.cd_Motpercent| replace("%", "") | int  < 40 %}
+                          <label class="yellowfill">4</label>
+                          <span>Afraid to try</span>
+                        {% else %}
+                          <label>4</label>
+                          <span>Afraid to try</span>
+                        {% endif %}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="positive-box neg">
+                  <div class="first neg">
+                    <h2>NEGATIVE</h2>
+                  </div>
+                  <div class="second">
+                    <ul>
+                      <li style="margin-top: 1px;">
+                        {% if response.cd_Motpercent| replace("%", "") | int  == 30 %}
+                          <label>3</label>
+                          <span class="redfill">Feel guilty</span>
+                        {% elif response.cd_Motpercent| replace("%", "") | int  < 30 %}
+                          <label class="redfill">3</label>
+                          <span>Feel guilty</span>
+                        {% else %}
+                          <label>3</label>
+                          <span>Feel guilty</span>
+                        {% endif %}
+                      </li>
+                      <li>
+                        {% if response.cd_Motpercent| replace("%", "") | int  == 20 %}
+                          <label>2</label>
+                          <span class="redfill">Feel pressured</span>
+                        {% elif response.cd_Motpercent| replace("%", "") | int  < 20 %}
+                          <label class="redfill">2</label>
+                          <span>Feel pressured</span>
+                        {% else %}
+                          <label>2</label>
+                          <span>Feel pressured</span>
+                        {% endif %}
+                      </li>
+                      <li>
+                        {% if response.cd_Motpercent| replace("%", "") | int  == 10 %}
+                          <label>1</label>
+                          <span class="redfill">No interest</span>
+                        {% elif response.cd_Motpercent| replace("%", "") | int  < 10 %}
+                          <label class="redfill">1</label>
+                          <span>No interest</span>
+                        {% else %}
+                          <label>1</label>
+                          <span>No interest</span>
+                        {% endif %}
+                      </li>
+                      <li>
+                        <label>0</label>
+                        {% if response.cd_Motpercent| replace("%", "") | int  == 0 %}
+                        <span class="redfill">No need</span>
+                        {% else %}
+                        <span>No need</span>
+                        {% endif %}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <h2 class="denial_class">{% if response.cd_Den[-1] == '*' %}*Maximum symptoms are greater than at all reported intervals {% endif %}</h2> -->
+          </div>
+        </div>
+      </div>
+      <div class="box-container">
+        <div class="box-head">
+          <h2>THE RESILIENCE FACTOR</h2>
+        </div>
+        <div class="risk-chart-section">
+          <div class="risk-chart bg">
+            <h2>Stratified Risk : Resilience + Risk = Remission Odds</h2>
+            <div class="risk-bar-section">
+                <div class="risk-bar">
+                   <label><span style="height:{{response.cd_percentRes}};background-color:#349A97"></span></label>
+                   <h4 style="color:#349A97"> <strong>Resilience </strong></h4>
+                    <h3 style="color:#349A97"> <strong>{{response.cd_percentRes}} </strong></h3>
+                </div>
+                <div class="risk-bar">
+                  <label><span style="height:{{response.cd_percentRiskplus}};background-color:#D04646"></span></label>
+                  <h4>Risk</h4>
+                   <h3>{{response.cd_percentRiskplus}}</h3>
+               </div>
+               <div class="risk-bar">
+                <label><span style="height:{{response.cd_percentRemplus}};background-color: #8DAD3C;"></span></label>
+                 <h4>Remission</h4>
+                 <h3>{{response.cd_percentRemplus}}</h3>
+             </div>
+            </div>
+            <div class="risk-bar-ft">
+              <h3>Current Resilience</h3>
+            </div>
+          </div>
+          <div class="risk-chart">
+            <h2></h2>
+            <div class="risk-bar-section">
+              <div class="risk-bar">
+                 <label><span style="height:0%;background-color:#349A97"></span></label>
+                 <h4 style="color:#349A97"><strong> Resilience</strong></h4>
+                  <h3 style="color:#349A97"><strong>0%</strong></h3>
+              </div>
+              <div class="risk-bar">
+                <label><span style="height:{{response.cd_percentRiskdash}};background-color:#D04646"></span></label>
+                <h4>Risk</h4>
+                 <h3>{{response.cd_percentRiskdash}}</h3>
+             </div>
+             <div class="risk-bar">
+              <label><span style="height:{{response.cd_percentRemdash}};background-color: #8DAD3C;"></span></label>
+               <h4>Remission</h4>
+               <h3>{{response.cd_percentRemdash}}</h3>
+           </div>
+          </div>
+          <div class="risk-bar-ft">
+            <h3>Minimum Resilience</h3>
+          </div>
+          </div>
+          <div class="risk-chart">
+            <h2></h2>
+            <div class="risk-bar-section">
+              <div class="risk-bar">
+                 <label><span style="height:100%;background-color:#349A97"></span></label>
+                 <h4 style="color:#349A97"><strong> Resilience</strong></h4>
+                  <h3 style="color:#349A97"><strong>100%</strong></h3>
+              </div>
+              <div class="risk-bar">
+                <label><span style="height:{{response.cd_percentRiskplusplus}};background-color:#D04646"></span></label>
+                <h4>Risk</h4>
+                 <h3>{{response.cd_percentRiskplusplus}}</h3>
+             </div>
+             <div class="risk-bar">
+              <label><span style="height: {{response.cd_percentRemplusplus}};background-color: #8DAD3C;"></span></label>
+               <h4>Remission</h4>
+               <h3>{{response.cd_percentRemplusplus}}</h3>
+           </div>
+          </div>
+          <div class="risk-bar-ft">
+            <h3>Maximum Resilience</h3>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="box-container">
+        <div class="box-head">
+          <h2>PREVENTION - REMISSION GUIDE ©</h2>
+        </div>
+        <div class="prevention-ft" style="margin-top: 5px;">
+          <div class="prevention-ft-content">
+              <span class="{% if response.cd_PrevNA| int == 1 %}tick-check{% endif %}" style="{% if response.cd_PrevNA | int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
+              <h2>N/A</h2>
+          </div>
+          <div class="prevention-ft-content">
+              <span class="{% if response.cd_PrevR| int == 1 %}tick-check{% endif %}" style="{% if response.cd_PrevR | int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
+              <h2>Routine [2 and 3]</h2>
+          </div>
+          <div class="prevention-ft-content">
+            <span class="{% if response.cd_PrevI| int == 1  %}tick-check{% endif %}" style="{% if response.cd_PrevI| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
+            <h2>Increased [1 to 4]</h2>
+        </div>
+        <div class="prevention-ft-content">
+          <span class="{% if response.cd_PrevS| int == 1  %}tick-check{% endif %}" style="{% if response.cd_PrevS| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
+          <h2>Significant [1 to 5]</h2>
+      </div>
+      <div class="prevention-ft-content">
+        <span class="{% if response.cd_PrevC| int == 1  %}tick-check{% endif %}" style="{% if response.cd_PrevC| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
+        <h2>Critical [1 to 6]</h2>
+    </div>
+        </div>
+        <div class="prevention">
+            <div class="prevention-sec">
+              <div class="prevention-list">
+                <h3>1 | Annual Risk Screen</h3>
+              </div>
+              <div class="prevention-list">
+                <h3 style="margin-left: 12px;">2 | Risk-Based Education & Training</h3>
+              </div>
+              <div class="prevention-list">
+                <h3 style="margin-left: 70px;">3 | Resilience Training</h3>
+              </div>
+            </div>
+            <div class="prevention-sec">
+              <div class="prevention-list">
+                <h3>4 | Support Network</h3>
+              </div>
+              <div class="prevention-list">
+                <h3 style="margin-left: 12px;">5 | Triggers Management</h3>
+              </div>
+              <div class="prevention-list">
+                <h3 style="margin-left: 70px;">6 | Conscious Daily Living</h3>
+              </div>
+            </div>
+
+        </div>
+
+      </div>
+      <div class="box-container">
+        <div class="box-head">
+          <h2>COMPRIS TREATMENT PLAN ©</h2>
+        </div>
+        <div class="compris-top">
+          <div class="compris">
+            <div class="first">
+                <h2>Withdrawal</h2>
+                <h2>Meds</h2>
+                <h2>Support</h2>
+                <h2>MET/CBT Training</h2>
+                <h2>Other Treatment</h2>
+
+            </div>
+            <div class="second">
+              <h3>&nbsp;{{response.cd_WD}}</h3>
+              <h3>&nbsp;{{response.cd_Med}}</h3>
+              <h3>&nbsp;{{response.cd_Grp}}</h3>
+              <h3>&nbsp;{{response.cd_CBT}}</h3>
+              <h3>&nbsp;{{response.cd_OthTx}}</h3>
+            </div>
+            <div class="third">
+              <h2>Level of Care</h2>
+              <h2>Meds Duration</h2>
+              <h2 style="white-space: nowrap;">Support Duration</h2>
+              <h2>Psychiatry</h2>
+            </div>
+            <div class="four" style="margin-left: -23px;">
+              <h3 style="width: 173px;">&nbsp;{{response.cd_LC}}</h3>
+              <h3>&nbsp;{{response.cd_MedDur}}</h3>
+              <h3>&nbsp;{{response.cd_GrpDur}}</h3>
+              <h3>&nbsp;{{response.cd_Psy}}</h3>
+            </div>
+            <span class="gray-line" style="top:20px"></span>
+            <span class="gray-line" style="top:35px"></span>
+            <span class="gray-line" style="top:50px;"></span>
+            <span class="gray-line" style="top:65px;"></span>
+        </div>
+        <div class="compris-ft">
+            <h2 style="white-space:nowrap;font-size: 8px;margin-left: -3px">Patient Preference <span style="margin-left: 6px ! important;"></span>{{response.cd_Pref}}</h2>
+        </div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <p>DISCLAIMER : THIS REPORT IS INTENDED AS A GUIDE, NOT A SUBSTITUTE, FOR FACE-TO-FACE PROVIDER-PATIENT TREATMENT COLLABORATION.</p>
+        <p style="float: right;margin-top: -7px !important;margin-right: 2px;">info@compriscare.com</p>
+      </div>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="page-container">
+     <div class="page-header">
+       <div class="logo">
+         <img src="assets/logo.svg"/>
+       </div>
+       <div class="text">
+         <div class="content">
+           <p>Patient CMR: &nbsp;{{response.cd_CMR}}</p>
+           <div class="bottom">
+             <p>Age | Gender: {{response.cd_Age}}</p>
+             <p>Date: {{response.cd_Date|replace('\/','/')}}</p>
+             <p>Initials: {{response.cd_ABC}}</p>
+           </div>
+         </div>
+         <label class="graybg">
+
+         </label>
+         <label class="graybg1">
+
+         </label>
+        <span>
+          <label class="pageno">Pg 2 | 7</label>
+         <img src="assets/plus.svg"/>
+        </span>
+       </div>
+     </div>
+     <div class="box-container">
+       <div class="box-head">
+         <h2>PERSONAL SUMMARY</h2>
+       </div>
+       <div class="box-inner-section">
+       <div class="inner-box">
+         <div class="head">
+           <h2>WITH RECOMMENDATIONS</h2>
+         </div>
+         </div>
+       </div>
+       <div class="recommen-box">
+         <div class="recommen-box-list">
+
+           <div class="left">
+             <div>
+               <h2>Addiction <br>Risk Factors</h2>
+             </div>
+
+           </div>
+           <div class="right">
+             <div>
+
+             <p>{{response.cd_PS1}}</p>
+             </div>
+
+           </div>
+         </div>
+         <div class="recommen-box-list">
+           <div class="left">
+             <div>
+               <h2>Resilience & <br>Addiction Odds</h2>
+             </div>
+
+           </div>
+           <div class="right">
+             <div>
+
+             <p>{{response.cd_PS2}}</p>
+           </div>
+
+           </div>
+         </div>
+         <div class="recommen-box-list">
+           <div class="left">
+             <div class="six">
+
+               <h2>Resilience<br/>Improvement Options</h2>
+             </div>
+
+           </div>
+           <div class="right">
+             <div>
+
+              <p>{{response.cd_PS3}}</p>
+           </div>
+
+           </div>
+         </div>
+         <div class="recommen-box-list">
+           <div class="left">
+             <div class="eight">
+
+               <h2>Substance Use History<br/>& Prevention Strategies</h2>
+             </div>
+
+           </div>
+           <div class="right">
+             <div>
+
+             <p>{{response.cd_PS4}}</p>
+           </div>
+
+           </div>
+         </div>
+         <div class="recommen-box-list">
+           <div class="left">
+             <div>
+
+               <h2>Managing Motivation</h2>
+             </div>
+
+           </div>
+           <div class="right">
+             <div>
+
+             <p>{{response.cd_PS5}}</p>
+           </div>
+
+           </div>
+         </div>
+
+       </div>
+       <div class="recommon-ft">
+           <h2>Next Steps</h2>
+           <p>{{response.cd_PS6}}</p>
+           <p style="margin-top: 4px;">Thanks for including Compris's input as you take your NEXT POSITIVE STEP…and the one after that.</p>
+         </div>
+     </div>
+     <div class="page-footer">
+       <p>DISCLAIMER : THIS REPORT IS INTENDED AS A GUIDE, NOT A SUBSTITUTE, FOR FACE-TO-FACE PROVIDER-PATIENT TREATMENT COLLABORATION.</p>
+       <p style="float: right;margin-top: -7px !important;margin-right: 2px;">info@compriscare.com</p>
+     </div>
+   </div>
+
+
+
+     <!-- Page 3 -->
+    <div class="page-container">
+      <div class="page-header">
+        <div class="logo">
+          <img src="assets/logo.svg"/>
+        </div>
+        <div class="text">
+          <div class="content">
+            <p>Patient CMR: &nbsp;{{response.cd_CMR}}</p>
+            <div class="bottom">
+              <p>Age | Gender: {{response.cd_Age}}</p>
+              <p>Date: {{response.cd_Date|replace('\/','/')}}</p>
+              <p>Initials: {{response.cd_ABC}}</p>
+            </div>
+          </div>
+          <label class="graybg">
+
+          </label>
+          <label class="graybg1">
+
+          </label>
+         <span>
+           <label class="pageno">Pg 3 | 7</label>
+          <img src="assets/plus.svg"/>
+         </span>
+        </div>
+      </div>
+    <div class="box-container">
+      <div class="box-head">
+        <h2>COMPRIS RISK BUILD ©</h2>
+      </div>
+      <div class="box-inner-section">
+      <div class="inner-box">
+        <div class="head">
+          <h2>DETAILED ADDICTION RISK HISTORY</h2>
+        </div>
+        </div>
+      </div>
+      <div class="recommen-box risk">
+
+        <div class="recommen-box-list">
+          <div class="left">
+            <h6>RANKED FACTORS </h6>
+
+              <div class="factors">
+                <h1>1<sup>st</sup></h1>
+                <h2>{{response.cd_1stRF[0:1]}}<span>{{response.cd_1stRF[1:]}}</span></h2>
+                <h3>{{response.cd_1stpercent}}</h3>
+                <h4><span>{{response.cd_1stNoSig}}</span></h4>
+
+              </div>
+
+          </div>
+          <div class="right">
+            <h6>ANALYSIS</h6>
+
+            <div>
+               <p>{{response.cd_1stTxt}}</p>
+            </div>
+
+          </div>
+        </div>
+        <div class="recommen-box-list">
+          <div class="left">
+
+
+            <div class="factors">
+              <h1>2<sup>nd</sup></h1>
+              <h2>{{response.cd_2ndRF[0:1]}}<span>{{response.cd_2ndRF[1:]}}</span></h2>
+              <h3>{{response.cd_2ndpercent}}</h3>
+              <h4><span>{{response.cd_2ndNoSig}}</span></h4>
+
+            </div>
+
+
+          </div>
+          <div class="right">
+            <div>
+              <p>{{response.cd_2ndTxt}}</p>
+            </div>
+
+          </div>
+        </div>
+        <div class="recommen-box-list">
+          <div class="left">
+
+
+            <div class="factors">
+              <h1>3<sup>rd</sup></h1>
+              <h2>{{response.cd_3rdRF[0:1]}}<span>{{response.cd_3rdRF[1:]}}</span></h2>
+              <h3>{{response.cd_3rdpercent}}</h3>
+              <h4><span>{{response.cd_3rdNoSig}}</span></h4>
+
+            </div>
+
+
+          </div>
+          <div class="right">
+            <div>
+              <p>{{response.cd_3rdTxt}}</p>
+            </div>
+
+          </div>
+        </div>
+        <div class="recommen-box-list">
+          <div class="left">
+
+
+            <div class="factors">
+              <h1>4<sup>th</sup></h1>
+              <h2>{{response.cd_4thRF[0:1]}}<span>{{response.cd_4thRF[1:]}}</span></h2>
+              <h3>{{response.cd_4thpercent}}</h3>
+              <h4><span>{{response.cd_4thNoSig}}</span></h4>
+
+            </div>
+
+
+          </div>
+          <div class="right">
+      <div>
+        <p>{{response.cd_4thTxt}}</p>
+      </div>
+
+
+          </div>
+        </div>
+        <div class="recommen-box-list">
+          <div class="left">
+
+
+            <div class="factors">
+              <h1>5<sup>th</sup></h1>
+              <h2>{{response.cd_5thRF[0:1]}}<span>{{response.cd_5thRF[1:]}}</span></h2>
+              <h3>{{response.cd_5thpercent}}</h3>
+              <h4><span>{{response.cd_5thNoSig}}</span></h4>
+
+            </div>
+
+
+          </div>
+          <div class="right">
+            <div>
+              <p>{{response.cd_5thTxt}}</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="page-footer">
+      <p>DISCLAIMER : THIS REPORT IS INTENDED AS A GUIDE, NOT A SUBSTITUTE, FOR FACE-TO-FACE PROVIDER-PATIENT TREATMENT COLLABORATION.</p>
+      <p style="float: right;margin-top: -7px !important;margin-right: 2px;">info@compriscare.com</p>
+    </div>
+    </div>
+
+    <!-- Page 4 -->
+    <div class="page-container">
+      <div class="page-header">
+        <div class="logo">
+          <img src="assets/logo.svg"/>
+        </div>
+        <div class="text">
+          <div class="content">
+            <p>Patient CMR: &nbsp;{{response.cd_CMR}}</p>
+            <div class="bottom">
+              <p>Age | Gender: {{response.cd_Age}}</p>
+              <p>Date: {{response.cd_Date|replace('\/','/')}}</p>
+              <p>Initials: {{response.cd_ABC}}</p>
+            </div>
+          </div>
+          <label class="graybg">
+
+          </label>
+          <label class="graybg1">
+
+          </label>
+         <span>
+           <label class="pageno">Pg 4 | 7</label>
+          <img src="assets/plus.svg"/>
+         </span>
+        </div>
+      </div>
+      <div class="box-container">
+        <div class="box-head">
+          <h2>COMPRIS RESILIENCE PROFILE ©</h2>
+        </div>
+        <div class="box-inner-section">
+        <div class="inner-box">
+          <div class="head">
+            <h2>RESILIENCE: The positive things in your life that help manage the rest.</h2>
+          </div>
+          </div>
+        </div>
+        <div class="resilience">
+          <h2>{{response.cd_percentRes}} | Current Resources</h2>
+        </div>
+        <div class="resilience-section">
+          <span class="line"></span>
+          <div class="left">
+              <h2>OBJECTIVE RESILIENCE</h2>
+              <div class="resilience-box">
+                  <div class="box-list">
+                   <div class="box-left">
+                      <h2>1 | safe living environment </h2>
+                   </div>
+                   <div class="box-right">
+                     <h2><span class="{% if response.cd_O1|int == 1 %}mild{% elif response.cd_O1|int == 2 %}moderate{% elif response.cd_O1|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                   </div>
+                  </div>
+                  <div class="box-list">
+                    <div class="box-left">
+                       <h2>2 | healthy food and nutrition</h2>
+                    </div>
+                    <div class="box-right">
+                      <h2><span class="{% if response.cd_O2|int == 1 %}mild{% elif response.cd_O2|int == 2 %}moderate{% elif response.cd_O2|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                    </div>
+                   </div>
+                   <div class="box-list">
+                     <div class="box-left">
+                        <h2>3 | routine exercise program</h2>
+                     </div>
+                     <div class="box-right">
+                       <h2><span class="{% if response.cd_O3|int == 1 %}mild{% elif response.cd_O3|int == 2 %}moderate{% elif response.cd_O3|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                     </div>
+                    </div>
+                    <div class="box-list">
+                      <div class="box-left">
+                         <h2>4 | 7+ hours of sleep daily</h2>
+                      </div>
+                      <div class="box-right">
+                        <h2><span class="{% if response.cd_O4|int == 1 %}mild{% elif response.cd_O4|int == 2 %}moderate{% elif response.cd_O4|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                      </div>
+                    </div>
+                     <div class="box-list">
+                       <div class="box-left">
+                          <h2>5 | stable income vs expenses</h2>
+                       </div>
+                       <div class="box-right">
+                         <h2><span class="{% if response.cd_O5|int == 1 %}mild{% elif response.cd_O5|int == 2 %}moderate{% elif response.cd_O5|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                       </div>
+                    </div>
+                    <div class="box-list">
+                      <div class="box-left">
+                         <h2>6 | substance-free home</h2>
+                      </div>
+                      <div class="box-right">
+                        <h2><span class="{% if response.cd_O6|int == 1 %}mild{% elif response.cd_O6|int == 2 %}moderate{% elif response.cd_O6|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                      </div>
+                    </div>
+                    <div class="box-list">
+                      <div class="box-left">
+                         <h2>{{response.cd_O7A}}</h2>
+                      </div>
+                      <div class="box-right">
+                        <h2><span class="{% if response.cd_O7|int == 1 %}mild{% elif response.cd_O7|int == 2 %}moderate{% elif response.cd_O7|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                      </div>
+                    </div>
+              </div>
+          </div>
+          <div class="right">
+            <h2>PERSONAL RESILIENCE</h2>
+            <div class="resilience-box">
+              <div class="box-list">
+                <div class="box-left">
+                   <h2>1 | meaning and purpose</h2>
+                </div>
+                <div class="box-right">
+                  <h2><span class="{% if response.cd_P1|int == 1 %}mild{% elif response.cd_P1|int == 2 %}moderate{% elif response.cd_P1|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                </div>
+              </div>
+              <div class="box-list">
+                <div class="box-left">
+                   <h2>2 | clear values / spirituality</h2>
+                </div>
+                <div class="box-right">
+                  <h2><span class="{% if response.cd_P2|int == 1 %}mild{% elif response.cd_P2|int == 2 %}moderate{% elif response.cd_P2|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                </div>
+              </div>
+              <div class="box-list">
+                <div class="box-left">
+                   <h2>3 | positive attitude / gratitude</h2>
+                </div>
+                <div class="box-right">
+                  <h2><span class="{% if response.cd_P3|int == 1 %}mild{% elif response.cd_P3|int == 2 %}moderate{% elif response.cd_P3|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                </div>
+              </div>
+              <div class="box-list">
+                <div class="box-left">
+                   <h2>4 | face fears and challenges</h2>
+                </div>
+                <div class="box-right">
+                  <h2><span class="{% if response.cd_P4|int == 1 %}mild{% elif response.cd_P4|int == 2 %}moderate{% elif response.cd_P4|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                </div>
+              </div>
+              <div class="box-list">
+                <div class="box-left">
+                   <h2>{{response.cd_P5A}}</h2>
+                </div>
+                <div class="box-right">
+                  <h2><span class="{% if response.cd_P5|int == 1 %}mild{% elif response.cd_P5|int == 2 %}moderate{% elif response.cd_P5|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                </div>
+              </div>
+              <div class="box-list">
+                <div class="box-left">
+                   <h2>6 | forgive self and others</h2>
+                </div>
+                <div class="box-right">
+                  <h2><span class="{% if response.cd_P6|int == 1 %}mild{% elif response.cd_P6|int == 2 %}moderate{% elif response.cd_P6|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                </div>
+              </div>
+              <div class="box-list">
+                <div class="box-left">
+                   <h2>7 | good sense of humor</h2>
+                </div>
+                <div class="box-right">
+                  <h2><span class="{% if response.cd_P7|int == 1 %}mild{% elif response.cd_P7|int == 2 %}moderate{% elif response.cd_P7|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                </div>
+              </div>
+           </div>
+          </div>
+        </div>
+        <div class="resilience-section">
+          <span class="line"></span>
+          <div class="left">
+              <h2>RELATIONAL RESILIENCE</h2>
+              <div class="resilience-box">
+                <div class="box-list">
+                  <div class="box-left">
+                     <h2>{{response.cd_R1A}}</h2>
+                  </div>
+                  <div class="box-right">
+                    <h2><span class="{% if response.cd_R1|int == 1 %}mild{% elif response.cd_R1|int == 2 %}moderate{% elif response.cd_R1|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                  </div>
+                </div>
+                <div class="box-list">
+                  <div class="box-left">
+                     <h2>{{response.cd_R2A}}</h2>
+                  </div>
+                  <div class="box-right">
+                    <h2><span class="{% if response.cd_R2|int == 1 %}mild{% elif response.cd_R2|int == 2 %}moderate{% elif response.cd_R2|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                  </div>
+                </div>
+                <div class="box-list">
+                  <div class="box-left">
+                     <h2>3 | belong to supportive community</h2>
+                  </div>
+                  <div class="box-right">
+                    <h2><span class="{% if response.cd_R3|int == 1 %}mild{% elif response.cd_R3|int == 2 %}moderate{% elif response.cd_R3|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                  </div>
+                </div>
+                <div class="box-list">
+                  <div class="box-left">
+                     <h2>4 | trusted healthcare provider</h2>
+                  </div>
+                  <div class="box-right">
+                    <h2><span class="{% if response.cd_R4|int == 1 %}mild{% elif response.cd_R4|int == 2 %}moderate{% elif response.cd_R4|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                  </div>
+                </div>
+                <div class="box-list">
+                  <div class="box-left">
+                     <h2>5 | positive role model(s)</h2>
+                  </div>
+                  <div class="box-right">
+                    <h2><span class="{% if response.cd_R5|int == 1 %}mild{% elif response.cd_R5|int == 2 %}moderate{% elif response.cd_R5|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                  </div>
+                </div>
+                <div class="box-list">
+                  <div class="box-left">
+                     <h2>6 | honest and open sharing</h2>
+                  </div>
+                  <div class="box-right">
+                    <h2><span class="{% if response.cd_R6|int == 1 %}mild{% elif response.cd_R6|int == 2 %}moderate{% elif response.cd_R6|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                  </div>
+                </div>
+                <div class="box-list">
+                  <div class="box-left">
+                     <h2>7 | kind and helpful to others</h2>
+                  </div>
+                  <div class="box-right">
+                    <h2><span class="{% if response.cd_R7|int == 1 %}mild{% elif response.cd_R7|int == 2 %}moderate{% elif response.cd_R7|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                  </div>
+                </div>
+              </div>
+           </div>
+          <div class="right">
+            <h2>ACTIVE RESILIENCE</h2>
+            <div class="resilience-box">
+              <div class="box-list">
+                <div class="box-left">
+                   <h2>1 | many interests / hobbies</h2>
+                </div>
+                <div class="box-right">
+                  <h2><span class="{% if response.cd_F1|int == 1 %}mild{% elif response.cd_F1|int == 2 %}moderate{% elif response.cd_F1|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+                </div>
+              </div>
+            <div class="box-list">
+              <div class="box-left">
+                 <h2>2 | know and use strengths</h2>
+              </div>
+              <div class="box-right">
+                <h2><span class="{% if response.cd_F2|int == 1 %}mild{% elif response.cd_F2|int == 2 %}moderate{% elif response.cd_F2|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+              </div>
+            </div>
+             <div class="box-list">
+             <div class="box-left">
+               <h2>3 | productive / achievements</h2>
+            </div>
+            <div class="box-right">
+              <h2><span class="{% if response.cd_F3|int == 1 %}mild{% elif response.cd_F3|int == 2 %}moderate{% elif response.cd_F3|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+            </div>
+           </div>
+          <div class="box-list">
+            <div class="box-left">
+               <h2>4 | communication skills</h2>
+            </div>
+            <div class="box-right">
+              <h2><span class="{% if response.cd_F4|int == 1 %}mild{% elif response.cd_F4|int == 2 %}moderate{% elif response.cd_F4|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+            </div>
+            </div>
+          <div class="box-list">
+            <div class="box-left">
+               <h2>5 | problem-solving skills</h2>
+            </div>
+            <div class="box-right">
+              <h2><span class="{% if response.cd_F5|int == 1 %}mild{% elif response.cd_F5|int == 2 %}moderate{% elif response.cd_F5|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+            </div>
+            </div>
+          <div class="box-list">
+            <div class="box-left">
+               <h2>6 | stress management skills</h2>
+            </div>
+            <div class="box-right">
+              <h2><span class="{% if response.cd_F6|int == 1 %}mild{% elif response.cd_F6|int == 2 %}moderate{% elif response.cd_F6|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+            </div>
+           </div>
+          <div class="box-list">
+            <div class="box-left">
+               <h2>7 | mindfulness / meditation</h2>
+            </div>
+            <div class="box-right">
+              <h2><span class="{% if response.cd_F7|int == 1 %}mild{% elif response.cd_F7|int == 2 %}moderate{% elif response.cd_F7|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="resilience-level">
+          <div class="resilience-level-list">
+            <div class="left">
+                <h1><span class="mild"></span></h1>
+            </div>
+            <div class="right">
+              <h2>Great Resource</h2>
+              <h3>Be grateful</h3>
+            </div>
+          </div>
+          <div class="resilience-level-list">
+            <div class="left">
+                <h1><span class="moderate"></span></h1>
+            </div>
+            <div class="right">
+              <h2>Good Resource</h2>
+              <h3>Improve It</h3>
+            </div>
+          </div>
+          <div class="resilience-level-list">
+            <div class="left">
+                <h1><span class="severe"></span></h1>
+            </div>
+            <div class="right">
+              <h2>Poor Resource</h2>
+              <h3>Develop It</h3>
+            </div>
+          </div>
+          <div class="resilience-level-list">
+            <div class="left">
+                <h1><span class="severe poor"></span></h1>
+            </div>
+            <div class="right">
+              <h2>Missing Resource</h2>
+              <h3>Consider It</h3>
+            </div>
+          </div>
+
+        </div>
+        <div class="resilience-chart">
+          <h2>CURRENT RESOURCES | {{response.cd_hashRes}} of 28</h2>
+          <div class="resilience-chart-line">
+            <ul>
+              <li>
+                <span>90%</span>
+              </li>
+              <li>
+                <span>80%</span>
+              </li>
+              <li>
+                <span>70%</span>
+              </li>
+              <li>
+                <span>60%</span>
+              </li>
+              <li>
+                <span>50%</span>
+              </li>
+              <li>
+                <span>40%</span>
+              </li>
+              <li>
+                <span>30%</span>
+              </li>
+              <li>
+                <span>20%</span>
+              </li>
+              <li>
+                <span>10%</span>
+              </li>
+              <li>
+                <span>0</span>
+              </li>
+            </ul>
+            <div class="resilience-bar-pos">
+
+            <div class="resilience-bar-section">
+              <div class="resilience-bar">
+                <label>
+                   <span style="height:{{response.cd_percentObj}};background-color: #349A97;"></span>
+                </label>
+                <h6>Objective</h6>
+                <h3>{{response.cd_hashObj}} | {{response.cd_percentObj}}</h3>
+              </div>
+              <div class="resilience-bar">
+                <label>
+                   <span style="height:{{response.cd_percentPers}};background-color: #349A97;"></span>
+                </label>
+                <h6>Personal</h6>
+                <h3>{{response.cd_hashPers}} | {{response.cd_percentPers}}</h3>
+              </div>
+              <div class="resilience-bar">
+                <label>
+                   <span style="height:{{response.cd_percentRel}};background-color: #349A97;"></span>
+                </label>
+                <h6>Relational</h6>
+                <h3>{{response.cd_hashRel}} | {{response.cd_percentRel}}</h3>
+              </div>
+              <div class="resilience-bar">
+                <label>
+                   <span style="height:{{response.cd_percentFunc}};background-color: #349A97;"></span>
+                </label>
+                <h6>Active</h6>
+                <h3>{{response.cd_hashFunc}} | {{response.cd_percentFunc}}</h3>
+              </div>
+            </div>
+          </div>
+
+          </div>
+          <div class="resilience-chart-line-level">
+              <ul>
+                <li>
+                  <span style="background-color: #349A97;"></span>
+                  <label>Current Resources</label>
+                </li>
+                <li>
+                  <span style="background-color: #DBDCDD;"></span>
+                  <label>Missing Resources</label>
+                </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+      <div class="page-footer">
+        <p>DISCLAIMER : THIS REPORT IS INTENDED AS A GUIDE, NOT A SUBSTITUTE, FOR FACE-TO-FACE PROVIDER-PATIENT TREATMENT COLLABORATION.</p>
+        <p style="float: right;margin-top: -7px !important;margin-right: 2px;">info@compriscare.com</p>
+      </div>
+    </div>
+
+
+    <!-- Page 5 -->
+    <div class="page-container">
+      <div class="page-header">
+        <div class="logo">
+          <img src="assets/logo.svg"/>
+        </div>
+        <div class="text">
+          <div class="content">
+            <p>Patient CMR: &nbsp;{{response.cd_CMR}}</p>
+            <div class="bottom">
+              <p>Age | Gender: {{response.cd_Age}}</p>
+              <p>Date: {{response.cd_Date|replace('\/','/')}}</p>
+              <p>Initials: {{response.cd_ABC}}</p>
+            </div>
+          </div>
+          <label class="graybg">
+
+          </label>
+          <label class="graybg1">
+
+          </label>
+         <span>
+           <label class="pageno">Pg 5 | 7</label>
+          <img src="assets/plus.svg"/>
+         </span>
+        </div>
+      </div>
+      <div class="box-container">
+        <div class="box-head">
+          <h2>SUBSTANCE ILLNESS DIAGNOSTICS</h2>
+        </div>
+        <div class="box-inner-section">
+          <div class="inner-box">
+            <div class="head">
+              <h2>ACUITY, SEVERITY, MISUSE MARKERS & CO-OCCURRING CONDITIONS</h2>
+              <h3 style="right: 26px;position:absolute;color:#121213;font-size: 6px;">{{response.cd_5plusChron}}</h3>
+            </div>
+            <h2 class="remote-illness">{{response.cd_5plusRem}}</h2>
+            </div>
+          </div>
+          <div class="activity-chart-line">
+            <ul>
+              <li>
+                <h1>
+                  <span class="severe"></span>
+                  <label>Severe</label>
+                </h1>
+              </li>
+              <li>
+                <h1>
+                  <span class="moderate"></span>
+                  <label>Moderate</label>
+                </h1>
+              </li>
+              <li>
+                <h1>
+                  <span class="mild"></span>
+                  <label>mild</label>
+                </h1>
+              </li>
+            </ul>
+            <div class="activity-bar-pos">
+              <div class="activity-bar-section">
+                <div class="activity-bar-chart">
+                  <div class="activity-bar">
+                      <label><span style="background-color: #3676BB;height: {{response.cd_30dNic|int * 33.3}}%;"></span></label>
+                      <h6>NIC</h6>
+                  </div>
+                  <div class="activity-bar">
+                    <label><span style="background-color: #3676BB;height: {{response.cd_30dAlc|int * 33.3}}%;"></span></label>
+                    <h6>ALC</h6>
+                  </div>
+                  <div class="activity-bar">
+                      <label><span style="background-color: #3676BB;height: {{response.cd_30dRx|int * 33.3}}%;"></span></label>
+                      <h6>RX</h6>
+                  </div>
+                  <div class="activity-bar">
+                    <label><span style="background-color: #3676BB;height: {{response.cd_30dDrg|int * 33.3}}%;"></span></label>
+                    <h6>DRG</h6>
+                </div>
+                </div>
+                <div class="activity-bar-chart">
+                  <div class="activity-bar">
+                      <label><span style="background-color: #3676BB;height: {{response.cd_3mNic|int * 33.3}}%;"></span></label>
+                      <h6>NIC</h6>
+                  </div>
+                  <div class="activity-bar">
+                    <label><span style="background-color: #3676BB;height: {{response.cd_3mAlc|int * 33.3}}%;"></span></label>
+                    <h6>ALC</h6>
+                  </div>
+                  <div class="activity-bar">
+                      <label><span style="background-color: #3676BB;height: {{response.cd_3mRx|int * 33.3}}%;"></span></label>
+                      <h6>RX</h6>
+                  </div>
+                  <div class="activity-bar">
+                    <label><span style="background-color: #3676BB;height: {{response.cd_3mDrg|int * 33.3}}%;"></span></label>
+                    <h6>DRG</h6>
+                </div>
+                </div>
+                <div class="activity-bar-chart">
+                  <div class="activity-bar">
+                      <label><span style="background-color: #3676BB;height: {{response.cd_12mNic|int * 33.3}}%;"></span></label>
+                      <h6>NIC</h6>
+                  </div>
+                  <div class="activity-bar">
+                    <label><span style="background-color: #3676BB;height: {{response.cd_12mAlc|int * 33.3}}%;"></span></label>
+                    <h6>ALC</h6>
+                  </div>
+                  <div class="activity-bar">
+                      <label><span style="background-color: #3676BB;height: {{response.cd_12mRx|int * 33.3}}%;"></span></label>
+                      <h6>RX</h6>
+                  </div>
+                  <div class="activity-bar">
+                    <label><span style="background-color: #3676BB;height: {{response.cd_12mDrg|int * 33.3}}%;"></span></label>
+                    <h6>DRG</h6>
+                </div>
+                </div>
+                <div class="activity-bar-chart">
+                  <div class="activity-bar">
+                      <label><span style="background-color: #3676BB;height: {{response.cd_1dash4yNic|int * 33.3}}%;"></span></label>
+                      <h6>NIC</h6>
+                  </div>
+                  <div class="activity-bar">
+                    <label><span style="background-color: #3676BB;height: {{response.cd_1dash4yAlc|int * 33.3}}%;"></span></label>
+                    <h6>ALC</h6>
+                  </div>
+                  <div class="activity-bar">
+                      <label><span style="background-color: #3676BB;height: {{response.cd_1dash4yRx|int * 33.3}}%;"></span></label>
+                      <h6>RX</h6>
+                  </div>
+                  <div class="activity-bar">
+                    <label><span style="background-color: #3676BB;height: {{response.cd_1dash4yDrg|int * 33.3}}%;"></span></label>
+                    <h6>DRG</h6>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="activity-chart-line-ft-section">
+            <div class="activity-chart-line-ft">
+                <h2>CURRENT ILLNESS</h2>
+                <h3>30 days</h3>
+            </div>
+            <div class="activity-chart-line-ft">
+              <h2>ACUTE ILLNESS</h2>
+              <h3>1 - 3 months</h3>
+          </div>
+          <div class="activity-chart-line-ft">
+            <h2>SUB-ACUTE ILLNESS</h2>
+            <h3>4 - 11 months</h3>
+        </div>
+        <div class="activity-chart-line-ft">
+          <h2>CHRONIC ILLNESS</h2>
+          <h3>1 - 4 years</h3>
+      </div>
+          </div>
+          <h2 class="activity-chart-clarifier">Substance Misuse Markers : &nbsp;(+) weekly use or 2-3x/month &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(++) more than weekly use &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nicotine: &nbsp;(+) 1-4 cigs /day (1 mg vaped) &nbsp;&nbsp;&nbsp;&nbsp;(++) 5-10 cigs /day (2mg vaped) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alcohol: &nbsp;(+) 2-3x/week &nbsp;&nbsp;&nbsp;&nbsp;(++) daily or most days</h2>
+          <div class="activity-chart-level-section">
+            <div class="activity-chart-level" style="width: 23%;margin-left: 5px;">
+              <h2 style="margin-left:0px;white-space: nowrap; !important;"><label>{{response.cd_30d1}}</label><span class="{% if response.cd_30d1Sev|int == 3  %}severe{% elif response.cd_30d1Sev|int == 2  %}moderate{% elif response.cd_30d1Sev|int == 1  %}mild{% else %}none{% endif %}">{% if response.cd_30d1Sev not in '0123' %}{{response.cd_30d1Sev}}{% endif %}</span><label>{{response.cd_30d1Sub}}</label></h2>
+              <h2 style="margin-left:0px;white-space: nowrap; !important;"><label>{{response.cd_30d2}}</label><span class="{% if response.cd_30d2Sev|int == 3  %}severe{% elif response.cd_30d2Sev|int == 2  %}moderate{% elif response.cd_30d2Sev|int == 1  %}mild{% else %}none{% endif %}">{% if response.cd_30d2Sev not in '0123' %}{{response.cd_30d2Sev}}{% endif %}</span><label>{{response.cd_30d2Sub}}</label></h2>
+              <h2 style="margin-left:0px;white-space: nowrap; !important;"><label>{{response.cd_30d3}}</label><span class="{% if response.cd_30d3Sev|int == 3  %}severe{% elif response.cd_30d3Sev|int == 2  %}moderate{% elif response.cd_30d3Sev|int == 1  %}mild{% else %}none{% endif %}">{% if response.cd_30d3Sev not in '0123' %}{{response.cd_30d3Sev}}{% endif %}</span><label>{{response.cd_30d3Sub}}</label></h2>
+              <h2 style="margin-left:0px;white-space: nowrap; !important;"><label>{{response.cd_30d4}}</label><span class="{% if response.cd_30d4Sev|int == 3  %}severe{% elif response.cd_30d4Sev|int == 2  %}moderate{% elif response.cd_30d4Sev|int == 1  %}mild{% else %}none{% endif %}">{% if response.cd_30d4Sev not in '0123' %}{{response.cd_30d4Sev}}{% endif %}</span><label>{{response.cd_30d4Sub}}</label></h2>
+              <h2 style="margin-left:0px;white-space: nowrap; !important;"><label>{{response.cd_30d5}}</label><span class="{% if response.cd_30d5Sev|int == 3  %}severe{% elif response.cd_30d5Sev|int == 2  %}moderate{% elif response.cd_30d5Sev|int == 1  %}mild{% else %}none{% endif %}">{% if response.cd_30d5Sev not in '0123' %}{{response.cd_30d5Sev}}{% endif %}</span><label>{{response.cd_30d5Sub}}</label></h2>
+              <h2 style="margin-left:0px;white-space: nowrap; !important;"><label>{{response.cd_30d6}}</label><span class="{% if response.cd_30d6Sev|int == 3  %}severe{% elif response.cd_30d6Sev|int == 2  %}moderate{% elif response.cd_30d6Sev|int == 1  %}mild{% else %}none{% endif %}">{% if response.cd_30d6Sev not in '0123' %}{{response.cd_30d6Sev}}{% endif %}</span><label>{{response.cd_30d6Sub}}</label></h2>
+              <h2 style="margin-left:0px;white-space: nowrap; !important;"><label>{{response.cd_30d7}}</label><span class="{% if response.cd_30d7Sev|int == 3  %}severe{% elif response.cd_30d7Sev|int == 2  %}moderate{% elif response.cd_30d7Sev|int == 1  %}mild{% else %}none{% endif %}">{% if response.cd_30d7Sev not in '0123' %}{{response.cd_30d7Sev}}{% endif %}</span><label>{{response.cd_30d7Sub}}</label></h2>
+              <h2 style="margin-left:0px;white-space: nowrap; !important;"><label>{{response.cd_30d8}}</label><span class="{% if response.cd_30d8Sev|int == 3  %}severe{% elif response.cd_30d8Sev|int == 2  %}moderate{% elif response.cd_30d8Sev|int == 1  %}mild{% else %}none{% endif %}">{% if response.cd_30d8Sev not in '0123' %}{{response.cd_30d8Sev}}{% endif %}</span><label>{{response.cd_30d8Sub}}</label></h2>
+              <h2 style="margin-left:0px;white-space: nowrap; !important;"><label>{{response.cd_30d9}}</label><span class="{% if response.cd_30d9Sev|int == 3  %}severe{% elif response.cd_30d9Sev|int == 2 %}moderate{% elif response.cd_30d9Sev|int == 1  %}mild{% else %}none{% endif %}">{% if response.cd_30d9Sev not in '0123' %}{{response.cd_30d9Sev}}{% endif %}</span><label>{{response.cd_30d9Sub}}</label></h2>
+
+            </div>
+            <div class="activity-chart-level" style="width: 26%;margin-left: -5px;">
+              <h2 style="white-space: nowrap;"><label>{{response.cd_3m1}}</label><span class="{% if response.cd_3m1Sev|int == 3  %}severe{% elif response.cd_3m1Sev|int == 2 %}moderate{% elif response.cd_3m1Sev|int == 1  %}mild{% endif %}">{% if response.cd_3m1Sev not in '0123' %}{{response.cd_3m1Sev}}{% endif %}</span><label>{{response.cd_3m1Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_3m2}}</label><span class="{% if response.cd_3m2Sev|int == 3  %}severe{% elif response.cd_3m2Sev|int == 2 %}moderate{% elif response.cd_3m2Sev|int == 1  %}mild{% endif %}">{% if response.cd_3m2Sev not in '0123' %}{{response.cd_3m2Sev}}{% endif %}</span><label>{{response.cd_3m2Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_3m3}}</label><span class="{% if response.cd_3m3Sev|int == 3  %}severe{% elif response.cd_3m3Sev|int == 2 %}moderate{% elif response.cd_3m3Sev|int == 1  %}mild{% endif %}">{% if response.cd_3m3Sev not in '0123' %}{{response.cd_3m3Sev}}{% endif %}</span><label>{{response.cd_3m3Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_3m4}}</label><span class="{% if response.cd_3m4Sev|int == 3  %}severe{% elif response.cd_3m4Sev|int == 2 %}moderate{% elif response.cd_3m4Sev|int == 1  %}mild{% endif %}">{% if response.cd_3m4Sev not in '0123' %}{{response.cd_3m4Sev}}{% endif %}</span><label>{{response.cd_3m4Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_3m5}}</label><span class="{% if response.cd_3m5Sev|int == 3  %}severe{% elif response.cd_3m5Sev|int == 2 %}moderate{% elif response.cd_3m5Sev|int == 1  %}mild{% endif %}">{% if response.cd_3m5Sev not in '0123' %}{{response.cd_3m5Sev}}{% endif %}</span><label>{{response.cd_3m5Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_3m6}}</label><span class="{% if response.cd_3m6Sev|int == 3  %}severe{% elif response.cd_3m6Sev|int == 2 %}moderate{% elif response.cd_3m6Sev|int == 1  %}mild{% endif %}">{% if response.cd_3m6Sev not in '0123' %}{{response.cd_3m6Sev}}{% endif %}</span><label>{{response.cd_3m6Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_3m7}}</label><span class="{% if response.cd_3m7Sev|int == 3  %}severe{% elif response.cd_3m7Sev|int == 2 %}moderate{% elif response.cd_3m7Sev|int == 1  %}mild{% endif %}">{% if response.cd_3m7Sev not in '0123' %}{{response.cd_3m7Sev}}{% endif %}</span><label>{{response.cd_3m7Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_3m8}}</label><span class="{% if response.cd_3m8Sev|int == 3  %}severe{% elif response.cd_3m8Sev|int == 2 %}moderate{% elif response.cd_3m8Sev|int == 1  %}mild{% endif %}">{% if response.cd_3m8Sev not in '0123' %}{{response.cd_3m8Sev}}{% endif %}</span><label>{{response.cd_3m8Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_3m9}}</label><span class="{% if response.cd_3m9Sev|int == 3  %}severe{% elif response.cd_3m9Sev|int == 2 %}moderate{% elif response.cd_3m9Sev|int == 1  %}mild{% endif %}">{% if response.cd_3m9Sev not in '0123' %}{{response.cd_3m9Sev}}{% endif %}</span><label>{{response.cd_3m9Sub}}</label></h2>
+              </div>
+            <div class="activity-chart-level" style="width: 26%;">
+              <h2 style="white-space: nowrap;"><label>{{response.cd_12m1}}</label><span class="{% if response.cd_12m1Sev|int == 3  %}severe{% elif response.cd_12m1Sev|int == 2 %}moderate{% elif response.cd_12m1Sev|int == 1  %}mild{% endif %}">{% if response.cd_12m1Sev not in '0123' %}{{response.cd_12m1Sev}}{% endif %}</span><label>{{response.cd_12m1Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_12m2}}</label><span class="{% if response.cd_12m2Sev|int == 3  %}severe{% elif response.cd_12m2Sev|int == 2 %}moderate{% elif response.cd_12m2Sev|int == 1  %}mild{% endif %}">{% if response.cd_12m2Sev not in '0123' %}{{response.cd_12m2Sev}}{% endif %}</span><label>{{response.cd_12m2Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_12m3}}</label><span class="{% if response.cd_12m3Sev|int == 3  %}severe{% elif response.cd_12m3Sev|int == 2 %}moderate{% elif response.cd_12m3Sev|int == 1  %}mild{% endif %}">{% if response.cd_12m3Sev not in '0123' %}{{response.cd_12m3Sev}}{% endif %}</span><label>{{response.cd_12m3Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_12m4}}</label><span class="{% if response.cd_12m4Sev|int == 3  %}severe{% elif response.cd_12m4Sev|int == 2 %}moderate{% elif response.cd_12m4Sev|int == 1  %}mild{% endif %}">{% if response.cd_12m4Sev not in '0123' %}{{response.cd_12m4Sev}}{% endif %}</span><label>{{response.cd_12m4Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_12m5}}</label><span class="{% if response.cd_12m5Sev|int == 3  %}severe{% elif response.cd_12m5Sev|int == 2 %}moderate{% elif response.cd_12m5Sev|int == 1  %}mild{% endif %}">{% if response.cd_12m5Sev not in '0123' %}{{response.cd_12m5Sev}}{% endif %}</span><label>{{response.cd_12m5Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_12m6}}</label><span class="{% if response.cd_12m6Sev|int == 3  %}severe{% elif response.cd_12m6Sev|int == 2 %}moderate{% elif response.cd_12m6Sev|int == 1  %}mild{% endif %}">{% if response.cd_12m6Sev not in '0123' %}{{response.cd_12m6Sev}}{% endif %}</span><label>{{response.cd_12m6Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_12m7}}</label><span class="{% if response.cd_12m7Sev|int == 3  %}severe{% elif response.cd_12m7Sev|int == 2 %}moderate{% elif response.cd_12m7Sev|int == 1  %}mild{% endif %}">{% if response.cd_12m7Sev not in '0123' %}{{response.cd_12m7Sev}}{% endif %}</span><label>{{response.cd_12m7Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_12m8}}</label><span class="{% if response.cd_12m8Sev|int == 3  %}severe{% elif response.cd_12m8Sev|int == 2 %}moderate{% elif response.cd_12m8Sev|int == 1  %}mild{% endif %}">{% if response.cd_12m8Sev not in '0123' %}{{response.cd_12m8Sev}}{% endif %}</span><label>{{response.cd_12m8Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_12m9}}</label><span class="{% if response.cd_12m9Sev|int == 3  %}severe{% elif response.cd_12m9Sev|int == 2 %}moderate{% elif response.cd_12m9Sev|int == 1  %}mild{% endif %}">{% if response.cd_12m9Sev not in '0123' %}{{response.cd_12m9Sev}}{% endif %}</span><label>{{response.cd_12m9Sub}}</label></h2>
+            </div>
+            <div class="activity-chart-level" style="width: 24%;">
+              <h2 style="white-space: nowrap;"><label>{{response.cd_12plusm1}}</label><span class="{% if response.cd_12plusm1Sev|int == 3  %}severe{% elif response.cd_12plusm1Sev|int == 2 %}moderate{% elif response.cd_12plusm1Sev|int == 1  %}mild{% endif %}">{% if response.cd_12plusm1Sev not in '0123' %}{{response.cd_12plusm1Sev}}{% endif %}</span><label>{{response.cd_12plusm1Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_12plusm2}}</label><span class="{% if response.cd_12plusm2Sev|int == 3  %}severe{% elif response.cd_12plusm2Sev|int == 2 %}moderate{% elif response.cd_12plusm2Sev|int == 1  %}mild{% endif %}">{% if response.cd_12plusm2Sev not in '0123' %}{{response.cd_12plusm2Sev}}{% endif %}</span><label>{{response.cd_12plusm2Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_12plusm3}}</label><span class="{% if response.cd_12plusm3Sev|int == 3  %}severe{% elif response.cd_12plusm3Sev|int == 2 %}moderate{% elif response.cd_12plusm3Sev|int == 1  %}mild{% endif %}">{% if response.cd_12plusm3Sev not in '0123' %}{{response.cd_12plusm3Sev}}{% endif %}</span><label>{{response.cd_12plusm3Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_12plusm4}}</label><span class="{% if response.cd_12plusm4Sev|int == 3  %}severe{% elif response.cd_12plusm4Sev|int == 2 %}moderate{% elif response.cd_12plusm4Sev|int == 1  %}mild{% endif %}">{% if response.cd_12plusm4Sev not in '0123' %}{{response.cd_12plusm4Sev}}{% endif %}</span><label>{{response.cd_12plusm4Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_12plusm5}}</label><span class="{% if response.cd_12plusm5Sev|int == 3  %}severe{% elif response.cd_12plusm5Sev|int == 2 %}moderate{% elif response.cd_12plusm5Sev|int == 1  %}mild{% endif %}">{% if response.cd_12plusm5Sev not in '0123' %}{{response.cd_12plusm5Sev}}{% endif %}</span><label>{{response.cd_12plusm5Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_12plusm6}}</label><span class="{% if response.cd_12plusm6Sev|int == 3  %}severe{% elif response.cd_12plusm6Sev|int == 2 %}moderate{% elif response.cd_12plusm6Sev|int == 1  %}mild{% endif %}">{% if response.cd_12plusm6Sev not in '0123' %}{{response.cd_12plusm6Sev}}{% endif %}</span><label>{{response.cd_12plusm6Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_12plusm7}}</label><span class="{% if response.cd_12plusm7Sev|int == 3  %}severe{% elif response.cd_12plusm7Sev|int == 2 %}moderate{% elif response.cd_12plusm7Sev|int == 1  %}mild{% endif %}">{% if response.cd_12plusm7Sev not in '0123' %}{{response.cd_12plusm7Sev}}{% endif %}</span><label>{{response.cd_12plusm7Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_12plusm8}}</label><span class="{% if response.cd_12plusm8Sev|int == 3  %}severe{% elif response.cd_12plusm8Sev|int == 2 %}moderate{% elif response.cd_12plusm8Sev|int == 1  %}mild{% endif %}">{% if response.cd_12plusm8Sev not in '0123' %}{{response.cd_12plusm8Sev}}{% endif %}</span><label>{{response.cd_12plusm8Sub}}</label></h2>
+              <h2 style="white-space: nowrap;"><label>{{response.cd_12plusm9}}</label><span class="{% if response.cd_12plusm9Sev|int == 3  %}severe{% elif response.cd_12plusm9Sev|int == 2 %}moderate{% elif response.cd_12plusm9Sev|int == 1  %}mild{% endif %}">{% if response.cd_12plusm9Sev not in '0123' %}{{response.cd_12plusm9Sev}}{% endif %}</span><label>{{response.cd_12plusm9Sub}}</label></h2>
+            </div>
+          </div>
+        <div class="substance-bottom-section bt">
+        <div class="substance-bottom-sec">
+          <div class="first">
+            <h2>Withdrawal</h2>
+          </div>
+          <div class="last">
+            <h3>{{response.cd_WDSubsSub}}</h3>
+          </div>
+        </div>
+        <div class="substance-bottom-sec">
+          <div class="first">
+            <h2 style="white-space:nowrap;">Current Remission</h2>
+          </div>
+          <div class="last">
+            <h3><span>Early Remission ( 3 - 11 months ): </span>{{response.cd_ERem}}<br> <span>{{response.cd_Sust}}</span> {{response.cd_SRem}}</h3>
+            </div>
+        </div>
+        <div class="substance-bottom-sec">
+          <div class="first">
+            <h2>Co-occurring</h2>
+          </div>
+          <div class="last">
+            <h3>{{response.cd_CoO}}</h3>
+          </div>
+        </div>
+        <div class="substance-bottom-sec">
+          <div class="first">
+            <h2>Medical History</h2>
+          </div>
+          <div class="last">
+            <h3>{{response.cd_MedHx}}</h3>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="box-container">
+        <div class="box-head width">
+          <h2>SUBSTANCE USE / TREATMENT HISTORY</h2>
+        </div>
+        <div class="substance-sec">
+          <div class="left">
+            <div class="first">
+              <h3>Substance</h3>
+              <h4>Nicotine</h4>
+              <h4>Alcohol</h4>
+              <h4>Rx Meds</h4>
+              <h4>Rec Drugs</h4>
+            </div>
+            <div class="second">
+              <h3>Age 1st Used</h3>
+              <h4>{{response.cd_N1stUse}}</h4>
+              <h4>{{response.cd_A1stUse}}</h4>
+              <h4>{{response.cd_Rx1stUse}}</h4>
+              <h4>{{response.cd_D1stUse}}</h4>
+          </div>
+          <div class="third">
+            <h3>Number of Dep Yrs</h3>
+            <h4>{{response.cd_NDepY}}</h4>
+            <h4>{{response.cd_ADepY}}</h4>
+            <h4>{{response.cd_RxDepY}}</h4>
+            <h4>{{response.cd_DDepY}}</h4>
+          </div>
+          <span class="gray-line" style="top:40px"></span>
+          <span class="gray-line" style="top:60px"></span>
+          <span class="gray-line" style="top:80px;"></span>
+          </div>
+          <div class="right">
+          <div class="first">
+            <h3>Substance Use History</h3>
+            <h4>Prior Cutbacks</h4>
+            <h4>Prior Remissions</h4>
+            <h4>Prior Quits</h4>
+            <h4 style="white-space:nowrap;">Relapses While on Meds</h4>
+          </div>
+          <div class="second">
+            <h3></h3>
+            <h4>{{response.cd_CutBacks}}</h4>
+            <h4>{{response.cd_Remiss}}</h4>
+            <h4>{{response.cd_Quits}}</h4>
+            <h4>{{response.cd_RlpMAT}}</h4>
+        </div>
+        <span class="gray-line" style="top:40px"></span>
+        <span class="gray-line" style="top:60px"></span>
+        <span class="gray-line" style="top:80px;"></span>
+        </div>
+        </div>
+        <div class="substance-ft">
+          <div class="substance-ft-list">
+            <h2>7-Day Use</h2>
+            <h2>30-Day Use</h2>
+            <h2>12-Month Use</h2>
+          </div>
+          <div class="substance-ft-list">
+            <h3>{{response.cd_7dUse}}</h3>
+            <h3>{{response.cd_30dUse}}</h3>
+            <h3 style="white-space: break-spaces;">{{response.cd_12mUse}}</h3>
+          </div>
+        </div>
+        <div class="substance-bottom-section">
+        <div class="substance-bottom-sec">
+          <div class="first">
+            <h2>Help Received</h2>
+          </div>
+          <div class="last">
+            <h3>{{response.cd_Help}}</h3>
+          </div>
+        </div>
+        <div class="substance-bottom-sec">
+          <div class="first height">
+            <h2 style="white-space:nowrap;">Treatment Duration</h2>
+          </div>
+          <div class="last">
+            <h3>{{response.cd_TxDur}}</h3>
+            </div>
+        </div>
+        <div class="substance-bottom-sec">
+          <div class="first height">
+            <h2>Meds Taken</h2>
+          </div>
+          <div class="last">
+            <h3>{{response.cd_MAT}}</h3>
+          </div>
+        </div>
+        <div class="substance-bottom-sec">
+          <div class="first height">
+            <h2 style="white-space:nowrap;">Last 30 Days</h2>
+          </div>
+          <div class="last">
+            <h3>{{response.cd_30dTx}}</h3>
+          </div>
+        </div>
+      </div>
+
+      </div>
+      <div class="page-footer">
+        <p>DISCLAIMER : THIS REPORT IS INTENDED AS A GUIDE, NOT A SUBSTITUTE, FOR FACE-TO-FACE PROVIDER-PATIENT TREATMENT COLLABORATION.</p>
+        <p style="float: right;margin-top: -7px !important;margin-right: 2px;">info@compriscare.com</p>
+      </div>
+    </div>
+    <!-- Page 6 -->
+    <div class="page-container">
+      <div class="page-header">
+        <div class="logo">
+          <img src="assets/logo.svg"/>
+        </div>
+        <div class="text">
+          <div class="content">
+            <p>Patient CMR: &nbsp;{{response.cd_CMR}}</p>
+            <div class="bottom">
+              <p>Age | Gender: {{response.cd_Age}}</p>
+              <p>Date: {{response.cd_Date|replace('\/','/')}}</p>
+              <p>Initials: {{response.cd_ABC}}</p>
+            </div>
+          </div>
+          <label class="graybg">
+
+          </label>
+          <label class="graybg1">
+
+          </label>
+         <span>
+           <label class="pageno">Pg 6 | 7</label>
+          <img src="assets/plus.svg"/>
+         </span>
+        </div>
+      </div>
+      <div class="box-container">
+        <div class="box-head width">
+          <h2>DSM-5 SUBSTANCE USE DISORDER SYMPTOMS</h2>
+        </div>
+        <div class="sym-head">
+          <div class="first">
+            <h2>Symptoms</h2>
+            </div>
+          <div class="last">
+            <span>30d</span>
+          </div>
+          <div class="last">
+            <span>1-3m</span>
+          </div>
+          <div class="last">
+            <span>4-11m</span>
+          </div>
+          <div class="last">
+            <span>1-4y</span>
+          </div>
+          <div class="last">
+            <span>5+y</span>
+          </div>
+        </div>
+        <div class="sym-sec">
+        <div class="sym-section">
+            <div class="first">
+              <h2>Used more or longer than intended at times </h2>
+            </div>
+            <div class="last">
+              <span class="{% if response.cd_30dhash1| int == 1 %}tick-check{% endif %}"></span>
+            </div>
+            <div class="last">
+              <span class="{% if response.cd_1dash3mhash1| int == 1 %}tick-check{% endif %}"></span>
+            </div>
+            <div class="last">
+              <span class="{% if response.cd_4dash11mhash1| int == 1 %}tick-check{% endif %}"></span>
+            </div>
+            <div class="last">
+              <span class="{% if response.cd_1dash4yhash1| int == 1 %}tick-check{% endif %}"></span>
+            </div>
+            <div class="last">
+              <span class="{% if response.cd_5plusyhash1| int == 1 %}tick-check{% endif %}"></span>
+            </div>
+        </div>
+        <div class="sym-section">
+          <div class="first">
+            <h2>Tried and failed more than once to cut down or stop using</h2>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_30dhash2| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_1dash3mhash2| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_4dash11mhash2| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_1dash4yhash2| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_5plusyhash2| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+        </div>
+        <div class="sym-section">
+            <div class="first">
+              <h2>Spent a lot of time using or dealing with after-effects </h2>
+            </div>
+            <div class="last">
+              <span class="{% if response.cd_30dhash3| int == 1 %}tick-check{% endif %}"></span>
+            </div>
+            <div class="last">
+              <span class="{% if response.cd_1dash3mhash3| int == 1 %}tick-check{% endif %}"></span>
+            </div>
+            <div class="last">
+              <span class="{% if response.cd_4dash11mhash3| int == 1 %}tick-check{% endif %}"></span>
+            </div>
+            <div class="last">
+              <span class="{% if response.cd_1dash4yhash3| int == 1 %}tick-check{% endif %}"></span>
+            </div>
+            <div class="last">
+              <span class="{% if response.cd_5plusyhash3| int == 1 %}tick-check{% endif %}"></span>
+            </div>
+        </div>
+        <div class="sym-section">
+          <div class="first">
+            <h2>Experienced a strong desire or craving to use </h2>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_30dhash4| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_1dash3mhash4| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_4dash11mhash4| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_1dash4yhash4| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_5plusyhash4| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+         </div>
+        <div class="sym-section">
+        <div class="first">
+          <h2>Using interfered with taking care of home, family, job or school </h2>
+        </div>
+        <div class="last">
+          <span class="{% if response.cd_30dhash5| int == 1 %}tick-check{% endif %}"></span>
+        </div>
+        <div class="last">
+          <span class="{% if response.cd_1dash3mhash5| int == 1 %}tick-check{% endif %}"></span>
+        </div>
+        <div class="last">
+          <span class="{% if response.cd_4dash11mhash5| int == 1 %}tick-check{% endif %}"></span>
+        </div>
+        <div class="last">
+          <span class="{% if response.cd_1dash4yhash5| int == 1 %}tick-check{% endif %}"></span>
+        </div>
+        <div class="last">
+          <span class="{% if response.cd_5plusyhash5| int == 1 %}tick-check{% endif %}"></span>
+        </div>
+        </div>
+        <div class="sym-section">
+          <div class="first">
+            <h2>Kept using despite concerns of family or friends</h2>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_30dhash6| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_1dash3mhash6| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_4dash11mhash6| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_1dash4yhash6| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_5plusyhash6| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+        </div>
+        <div class="sym-section">
+          <div class="first">
+            <h2>Using took the place of other valued interests or pleasures</h2>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_30dhash7| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_1dash3mhash7| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_4dash11mhash7| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_1dash4yhash7| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_5plusyhash7| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+        </div>
+        <div class="sym-section">
+          <div class="first">
+            <h2>Got into risky situations while using (accidents, sex, crime, disease)</h2>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_30dhash8| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_1dash3mhash8| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_4dash11mhash8| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_1dash4yhash8| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_5plusyhash8| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+        </div>
+        <div class="sym-section">
+          <div class="first">
+            <h2 style="white-space: nowrap;">Continued using despite feeling depressed / anxious, memory blackouts or health risks </h2>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_30dhash9| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_1dash3mhash9| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_4dash11mhash9| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_1dash4yhash9| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_5plusyhash9| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+        </div>
+        <div class="sym-section">
+          <div class="first">
+            <h2>Needed to use more to get the same or less results</h2>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_30dhash10| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_1dash3mhash10| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_4dash11mhash10| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_1dash4yhash10| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_5plusyhash10| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+        </div>
+        <div class="sym-section">
+          <div class="first">
+            <h2>Stopping led to: sleep loss, shaky, irritable, anxious, depressed, sick, sweats, hallucinations</h2>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_30dhash11| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_1dash3mhash11| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_4dash11mhash11| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_1dash4yhash11| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+          <div class="last">
+            <span class="{% if response.cd_5plusyhash11| int == 1 %}tick-check{% endif %}"></span>
+          </div>
+        </div>
+      </div>
+      <div class="sym-total">
+        <div class="first">
+          <h2>Maximum Number of Symptoms</h2>
+          </div>
+        <div class="last">
+          <span>{{response.cd_30dMaxhash}}</span>
+        </div>
+        <div class="last">
+          <span>{{response.cd_1dash3mMaxhash}}</span>
+        </div>
+        <div class="last">
+          <span>{{response.cd_4dash11mMaxhash}}</span>
+        </div>
+        <div class="last">
+          <span>{{response.cd_1dash4yMaxhash}}</span>
+        </div>
+        <div class="last">
+          <span>{{response.cd_5plusyMaxhash}}</span>
+        </div>
+      </div>
+        <div class="box-inner-section time">
+        <div class="inner-box">
+          <div class="head">
+            <h2>TIMELINE OF SYMPTOMS</h2>
+          </div>
+          </div>
+
+        </div>
+        <div class="timeline-section mb">
+          <div class="first">
+              <h2>Substance</h2>
+              <h3>Alcohol</h3>
+              <h3>Rx Meds</h3>
+              <h3>Rec Drugs</h3>
+          </div>
+          <div class="last">
+            <h2>30 Days</h2>
+            <h3>
+              <span class="{% if response.cd_A30d|int == 1 %}mild{% elif response.cd_A30d|int == 2  %}moderate{% elif response.cd_A30d|int == 3%}severe{% endif %}">
+                {% if response.cd_A30d not in '123' %}{{response.cd_A30d}}{% endif %}</span>
+              <!-- <span class="{% if response.cd_A30d|int == 1 %}mild{% elif response.cd_A30d|int == 2  %}moderate{% elif response.cd_A30d|int == 3%}severe{% endif %}"></span> -->
+            </h3>
+            <h3>
+              <span class="{% if response.cd_Rx30d|int == 1 %}mild{% elif response.cd_Rx30d|int == 2  %}moderate{% elif response.cd_Rx30d|int == 3%}severe{% endif %}">
+                {% if response.cd_Rx30d not in '123' %}{{response.cd_Rx30d}}{% endif %}</span>
+              <!-- <span class="{% if response.cd_Rx30d|int == 1 %}mild{% elif response.cd_Rx30d|int == 2  %}moderate{% elif response.cd_Rx30d|int == 3%}severe{% endif %}"></span> -->
+            </h3>
+            <h3>
+              <span class="{% if response.cd_D30d|int == 1 %}mild{% elif response.cd_D30d|int == 2  %}moderate{% elif response.cd_D30d|int == 3%}severe{% endif %}">
+                {% if response.cd_D30d not in '123' %}{{response.cd_D30d}}{% endif %}</span>
+              <!-- <span class="{% if response.cd_D30d|int == 1 %}mild{% elif response.cd_D30d|int == 2  %}moderate{% elif response.cd_D30d|int == 3%}severe{% endif %}"></span> -->
+            </h3>
+        </div>
+        <div class="last">
+          <h2>1 - 3 Months</h2>
+          <h3>
+            <span class="{% if response.cd_A3m|int == 1 %}mild{% elif response.cd_A3m|int == 2  %}moderate{% elif response.cd_A3m|int == 3%}severe{% endif %}">
+              {% if response.cd_A3m not in '123' %}{{response.cd_A3m}}{% endif %}</span>
+            <!-- <span class="{% if response.cd_A3m|int == 1 %}mild{% elif response.cd_A3m|int == 2  %}moderate{% elif response.cd_A3m|int == 3%}severe{% endif %}"></span> -->
+          </h3>
+          <h3>
+            <span class="{% if response.cd_Rx3m|int == 1 %}mild{% elif response.cd_Rx3m|int == 2  %}moderate{% elif response.cd_Rx3m|int == 3%}severe{% endif %}">
+              {% if response.cd_Rx3m not in '123' %}{{response.cd_Rx3m}}{% endif %}</span>
+            <!-- <span class="{% if response.cd_Rx3m|int == 1 %}mild{% elif response.cd_Rx3m|int == 2  %}moderate{% elif response.cd_Rx3m|int == 3%}severe{% endif %}"></span> -->
+          </h3>
+          <h3>
+            <span class="{% if response.cd_D3m|int == 1 %}mild{% elif response.cd_D3m|int == 2  %}moderate{% elif response.cd_D3m|int == 3%}severe{% endif %}">
+              {% if response.cd_D3m not in '123' %}{{response.cd_D3m}}{% endif %}</span>
+            <!-- <span class="{% if response.cd_D3m|int == 1 %}mild{% elif response.cd_D3m|int == 2  %}moderate{% elif response.cd_D3m|int == 3%}severe{% endif %}"></span> -->
+          </h3>
+      </div>
+      <div class="last">
+        <h2>4 - 11 Months</h2>
+
+        <h3>
+          <span class="{% if response.cd_A12m|int == 1 %}mild{% elif response.cd_A12m|int == 2  %}moderate{% elif response.cd_A12m|int == 3%}severe{% endif %}">
+            {% if response.cd_A12m not in '123' %}{{response.cd_A12m}}{% endif %}</span>
+          <!-- <span class="{% if response.cd_A12m|int == 1 %}mild{% elif response.cd_A12m|int == 2  %}moderate{% elif response.cd_A12m|int == 3%}severe{% endif %}"></span> -->
+        </h3>
+        <h3>
+          <span class="{% if response.cd_Rx12m|int == 1 %}mild{% elif response.cd_Rx12m|int == 2  %}moderate{% elif response.cd_Rx12m|int == 3%}severe{% endif %}">
+            {% if response.cd_Rx12m not in '123' %}{{response.cd_Rx12m}}{% endif %}</span>
+          <!-- <span class="{% if response.cd_Rx12m|int == 1 %}mild{% elif response.cd_Rx12m|int == 2  %}moderate{% elif response.cd_Rx12m|int == 3%}severe{% endif %}"></span> -->
+        </h3>
+        <h3>
+          <span class="{% if response.cd_D12m|int == 1 %}mild{% elif response.cd_D12m|int == 2  %}moderate{% elif response.cd_D12m|int == 3%}severe{% endif %}">
+            {% if response.cd_D12m not in '123' %}{{response.cd_D12m}}{% endif %}</span>
+          <!-- <span class="{% if response.cd_D12m|int == 1 %}mild{% elif response.cd_D12m|int == 2  %}moderate{% elif response.cd_D12m|int == 3%}severe{% endif %}"></span> -->
+        </h3>
+
+    </div>
+    <div class="last">
+      <h2>1 - 4 Years</h2>
+
+      <h3>
+        <span class="{% if response.cd_A1dash4y|int == 1 %}mild{% elif response.cd_A1dash4y|int == 2  %}moderate{% elif response.cd_A1dash4y|int == 3%}severe{% endif %}">
+          {% if response.cd_A1dash4y not in '123' %}{{response.cd_A1dash4y}}{% endif %}</span>
+        <!-- <span class="{% if response.cd_A1dash4y|int == 1 %}mild{% elif response.cd_A1dash4y|int == 2  %}moderate{% elif response.cd_A1dash4y|int == 3%}severe{% endif %}"></span> -->
+      </h3>
+      <h3>
+        <span class="{% if response.cd_Rx1dash4y|int == 1 %}mild{% elif response.cd_Rx1dash4y|int == 2  %}moderate{% elif response.cd_Rx1dash4y|int == 3%}severe{% endif %}">
+          {% if response.cd_Rx1dash4y not in '123' %}{{response.cd_Rx1dash4y}}{% endif %}</span>
+        <!-- <span class="{% if response.cd_Rx1dash4y|int == 1 %}mild{% elif response.cd_Rx1dash4y|int == 2  %}moderate{% elif response.cd_Rx1dash4y|int == 3%}severe{% endif %}"></span> -->
+      </h3>
+      <h3>
+        <span class="{% if response.cd_D1dash4y|int == 1 %}mild{% elif response.cd_D1dash4y|int == 2  %}moderate{% elif response.cd_D1dash4y|int == 3%}severe{% endif %}">
+          {% if response.cd_D1dash4y not in '123' %}{{response.cd_D1dash4y}}{% endif %}</span>
+        <!-- <span class="{% if response.cd_D1dash4y|int == 1 %}mild{% elif response.cd_D1dash4y|int == 2  %}moderate{% elif response.cd_D1dash4y|int == 3%}severe{% endif %}"></span> -->
+      </h3>
+
+  </div>
+  <div class="last">
+      <h2>5+ Years</h2>
+
+      <h3>
+        <span class="{% if response.cd_A5plusy|int == 1 %}mild{% elif response.cd_A5plusy|int == 2  %}moderate{% elif response.cd_A5plusy|int == 3%}severe{% endif %}">
+          {% if response.cd_A5plusy not in '123' %}{{response.cd_A5plusy}}{% endif %}</span>
+        <!-- <span class="{% if response.cd_A5plusy|int == 1 %}mild{% elif response.cd_A5plusy|int == 2  %}moderate{% elif response.cd_A5plusy|int == 3%}severe{% endif %}"></span> -->
+      </h3>
+      <h3>
+        <span class="{% if response.cd_Rx5plusy|int == 1 %}mild{% elif response.cd_Rx5plusy|int == 2  %}moderate{% elif response.cd_Rx5plusy|int == 3%}severe{% endif %}">
+          {% if response.cd_Rx5plusy not in '123' %}{{response.cd_Rx5plusy}}{% endif %}</span>
+        <!-- <span class="{% if response.cd_Rx5plusy|int == 1 %}mild{% elif response.cd_Rx5plusy|int == 2  %}moderate{% elif response.cd_Rx5plusy|int == 3%}severe{% endif %}"></span> -->
+      </h3>
+      <h3>
+        <span class="{% if response.cd_D5plusy|int == 1 %}mild{% elif response.cd_D5plusy|int == 2  %}moderate{% elif response.cd_D5plusy|int == 3%}severe{% endif %}">
+          {% if response.cd_D5plusy not in '123' %}{{response.cd_D5plusy}}{% endif %}</span>
+        <!-- <span class="{% if response.cd_D5plusy|int == 1 %}mild{% elif response.cd_D5plusy|int == 2  %}moderate{% elif response.cd_D5plusy|int == 3%}severe{% endif %}"></span> -->
+      </h3>
+
+  </div>
+      </div>
+      <div class="acuity time">
+        <div style="margin-left: -22px;">
+          <label>ILLNESS SEVERITY (# of symptoms)</label>
+        </div>
+        <div>
+          <label>NONE [0-1]</label>
+        </div>
+        <div>
+          <span class="mild"></span>
+          <label>MILD [2-3]</label>
+        </div>
+        <div>
+          <span class="moderate"></span>
+          <label>MODERATE [4-5]</label>
+        </div>
+        <div style="margin-right: -16px;">
+          <span class="severe"></span>
+          <label>SEVERE [6-11]</label>
+        </div>
+      </div>
+      <div class="box-inner-section time">
+        <div class="inner-box">
+          <div class="head">
+            <h2>NICOTINE DEPENDENCE</h2>
+          </div>
+          </div>
+        </div>
+        <div class="time-heads">
+          <h2>HSI | Heaviness of Smoking Index</h2>
+        </div>
+        <h2 class="misuse-marker">Nicotine Misuse Markers: &nbsp;(+) 1-4 cigs / day OR 1 mg vaped / day &nbsp;(++) 5-10 cigs / day OR 2mg vaped / day</h2>
+      <div class="timeline-section">
+        <div class="first">
+            <h2>Nicotine Use</h2>
+            <h3 style="white-space: nowrap;">Daily #&nbsp;&nbsp;&&nbsp;&nbsp;mg/ml vaped</h3>
+            <h3 style="white-space: nowrap;">How soon after awake</h3>
+            <h3 style="white-space: nowrap;">Dependence</h3>
+        </div>
+        <div class="last">
+          <h2>30 Days</h2>
+         <h3>{{response.cd_Nhash30d|replace('\/','/')}}</h3>
+         <h3>{{response.cd_NT30d|replace('\/','/')}}</h3>
+         <h3>
+           <span class="{% if response.cd_ND30d|replace('\/','/')|int == 1 %}mild{% elif response.cd_ND30d|replace('\/','/')|int == 2  %}moderate{% elif response.cd_ND30d|replace('\/','/')|int == 3%}severe{% endif %}">
+             {% if response.cd_ND30d|replace('\/','/') not in '123' %}{{response.cd_ND30d}}{% endif %}</span>
+           <!-- <span>{{response.cd_ND30d}}</span> -->
+         </h3>
+
+      </div>
+      <div class="last">
+        <h2>1 - 3 Months</h2>
+        <h3>{{response.cd_Nhash3m|replace('\/','/')}}</h3>
+        <h3>{{response.cd_NT3m|replace('\/','/')}}</h3>
+        <h3>
+          <span class="{% if response.cd_ND3m|replace('\/','/')|int == 1 %}mild{% elif response.cd_ND3m|replace('\/','/')|int == 2  %}moderate{% elif response.cd_ND3m|replace('\/','/')|int == 3%}severe{% endif %}">
+          {% if response.cd_ND3m|replace('\/','/') not in '123' %}{{response.cd_ND3m}}{% endif %}</span>
+          <!-- <span>{{response.cd_ND3m}}</span> -->
+        </h3>
+
+    </div>
+    <div class="last">
+      <h2>4 - 11 Months</h2>
+      <h3>{{response.cd_Nhash12m|replace('\/','/')}}</h3>
+      <h3>{{response.cd_NT12m|replace('\/','/')}}</h3>
+      <h3>
+        <span class="{% if response.cd_ND12m|replace('\/','/')|int == 1 %}mild{% elif response.cd_ND12m|replace('\/','/')|int == 2  %}moderate{% elif response.cd_ND12m|replace('\/','/')|int == 3%}severe{% endif %}">
+        {% if response.cd_ND12m|replace('\/','/') not in '123' %}{{response.cd_ND12m}}{% endif %}</span>
+      </h3>
+
+
+  </div>
+  <div class="last">
+    <h2>1 - 4 Years</h2>
+    <h3>{{response.cd_Nhash1dash4y|replace('\/','/')}}</h3>
+    <h3>{{response.cd_NT1dash4y|replace('\/','/')}}</h3>
+    <h3>
+      <!-- <span>{{response.cd_ND1dash4y}}</span> -->
+      <span class="{% if response.cd_ND1dash4y|replace('\/','/')|int == 1 %}mild{% elif response.cd_ND1dash4y|replace('\/','/')|int == 2  %}moderate{% elif response.cd_ND1dash4y|replace('\/','/')|int == 3%}severe{% endif %}">
+      {% if response.cd_ND1dash4y|replace('\/','/') not in '123' %}{{response.cd_ND1dash4y}}{% endif %}</span>
+    </h3>
+
+  </div>
+  <div class="last">
+    <h2>5+ Years</h2>
+    <h3>{{response.cd_Nhash5plusy|replace('\/','/')}}</h3>
+    <h3>{{response.cd_NT5plusy|replace('\/','/')}}</h3>
+    <h3>
+      <span class="{% if response.cd_ND5plusy|replace('\/','/')|int == 1 %}mild{% elif response.cd_ND5plusy|replace('\/','/')|int == 2  %}moderate{% elif response.cd_ND5plusy|replace('\/','/')|int == 3%}severe{% endif %}">
+      {% if response.cd_ND5plusy|replace('\/','/') not in '123' %}{{response.cd_ND5plusy}}{% endif %}</span>
+    </h3>
+
+  </div>
+    </div>
+      </div>
+      <div class="page-footer">
+        <p>DISCLAIMER : THIS REPORT IS INTENDED AS A GUIDE, NOT A SUBSTITUTE, FOR FACE-TO-FACE PROVIDER-PATIENT TREATMENT COLLABORATION.</p>
+        <p style="float: right;margin-top: -7px !important;margin-right: 2px;">info@compriscare.com</p>
+      </div>
+    </div>
+
+
+    <!-- Page 7 -->
+    <div class="page-container">
+     <div class="page-header">
+       <div class="logo">
+         <img src="assets/logo.svg"/>
+       </div>
+       <div class="text">
+         <div class="content">
+           <p>Patient CMR: &nbsp;{{response.cd_CMR}}</p>
+           <div class="bottom">
+             <p>Age | Gender: {{response.cd_Age}}</p>
+             <p>Date: {{response.cd_Date|replace('\/','/')}}</p>
+             <p>Initials: {{response.cd_ABC}}</p>
+           </div>
+         </div>
+         <label class="graybg">
+
+         </label>
+         <label class="graybg1">
+
+         </label>
+        <span>
+          <label class="pageno">Pg 7 | 7</label>
+         <img src="assets/plus.svg"/>
+        </span>
+       </div>
+     </div>
+     <div class="box-container risk">
+
+       <div class="box-head">
+         <h2>REDUCING ADDICTION RISK</h2>
+       </div>
+       <div class="box-inner-section">
+       <div class="inner-box">
+         <div class="head">
+           <h2>BY ADDING RESILIENCE</h2>
+         </div>
+         </div>
+       </div>
+       <div class="lifetime-section">
+         <div class="left">
+             <h2 style="white-space: nowrap;">Minimum Resilience | 0%</h2>
+             <h2>Current Profile | {{response.cd_percentRes}}</h2>
+             <h2 style="white-space: nowrap;">Maximum Resilience | 100%</h2>
+         </div>
+         <div class="right">
+             <label>
+
+               {% if response.cd_MinResmore25| int < 25 %}
+                 <span style="width: {{response.cd_MinResmore25| int}}%;background-color:#8DAD3C;">
+                   <h6 style="{% if response.cd_MinResmore25| int < 11 %}left:0px;{% else %}right: 15px;{% endif %}white-space: nowrap;
+                   top: 5px;">Risk | {{response.cd_MinResmore25| int + response.cd_MinRes25dash49| int + response.cd_MinRes50dash74| int  + response.cd_MinRes75plus| int}}%</h6>
+                 </span>
+                 <span style="width: {{25 - response.cd_MinResmore25| int}}%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% else %}
+               <span style="width: 25%;background-color:#8DAD3C;">
+                 <h6 style="right: 15px;
+                 top: 5px;"></h6>
+               </span>
+               {% endif %}
+
+               {% if response.cd_MinRes25dash49| int == 0 %}
+                 <span style="width: 25%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% elif (response.cd_MinRes25dash49| int < 25 and response.cd_MinRes25dash49| int > 0) or (response.cd_MinRes25dash49| int == 25 and response.cd_MinRes50dash74| int == 0) %}
+                 <span style="width: {{response.cd_MinRes25dash49| int}}%;background-color:#FCC528;">
+                   <h6 style="right: 15px;white-space: nowrap;
+                   top: 5px;">Risk | {{response.cd_MinResmore25| int + response.cd_MinRes25dash49| int + response.cd_MinRes50dash74| int  + response.cd_MinRes75plus| int}}%</h6>
+                 </span>
+                 <span style="width: {{25 - response.cd_MinRes25dash49| int}}%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% else %}
+                 <span style="width: 25%;background-color:#FCC528;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% endif %}
+
+
+               {% if response.cd_MinRes50dash74| int == 0 %}
+                 <span style="width: 25%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% elif (response.cd_MinRes50dash74| int < 25 and response.cd_MinRes50dash74| int > 0) or (response.cd_MinRes50dash74| int == 25 and response.cd_MinRes75plus| int == 0) %}
+                 <span style="width: {{response.cd_MinRes50dash74| int}}%;background-color:#F07B22;">
+                   <h6 style="right: 15px;white-space: nowrap;
+                   top: 5px;">Risk | {{response.cd_MinResmore25| int + response.cd_MinRes25dash49| int + response.cd_MinRes50dash74| int + response.cd_MinRes75plus| int }}%</h6>
+                 </span>
+                 <span style="width: {{25 - response.cd_MinRes50dash74| int}}%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% else %}
+                 <span style="width: 25%;background-color:#F07B22;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% endif %}
+
+
+               {% if response.cd_MinRes75plus| int == 0 %}
+                 <span style="width: 25%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% elif response.cd_MinRes75plus| int < 25 %}
+                 <span style="width: {{response.cd_MinRes75plus| int}}%;background-color:#D04646;">
+                   <h6 style="right: 15px;white-space: nowrap;
+                   top: 5px;">Risk | {{response.cd_MinResmore25| int + response.cd_MinRes25dash49| int + response.cd_MinRes50dash74| int + response.cd_MinRes75plus| int }}%</h6>
+                 </span>
+                 <span style="width: {{25 - response.cd_MinRes75plus| int}}%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% else %}
+                 <span style="width: 25%;background-color:#D04646;">
+                   <h6 style="right: 15px;white-space: nowrap;
+                   top: 5px;">Risk | {{response.cd_MinResmore25| int + response.cd_MinRes25dash49| int + response.cd_MinRes50dash74| int + response.cd_MinRes75plus| int }}%</h6>
+                 </span>
+               {% endif %}
+
+             </label>
+
+             <label>
+               {% if response.cd_CurResmore25| int < 25 %}
+                 <span style="width: {{response.cd_CurResmore25| int}}%;background-color:#8DAD3C;">
+                   <h6 style="{% if response.cd_CurResmore25| int < 11 %}left:0px;{% else %}right: 15px;{% endif %}right: 15px;white-space: nowrap;
+                   top: 5px;">Risk | {{response.cd_CurResmore25| int + response.cd_CurRes25dash49| int + response.cd_CurRes50dash74| int + response.cd_CurRes75plus| int }}%</h6>
+                 </span>
+                 <span style="width: {{25 - response.cd_CurResmore25| int}}%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% else %}
+               <span style="width: 25%;background-color:#8DAD3C;">
+                 <h6 style="right: 15px;
+                 top: 5px;"></h6>
+               </span>
+               {% endif %}
+
+               {% if response.cd_CurRes25dash49| int == 0 %}
+                 <span style="width: 25%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% elif (response.cd_CurRes25dash49| int < 25 and response.cd_CurRes25dash49| int > 0) or (response.cd_CurRes25dash49| int == 25 and response.cd_CurRes50dash74| int == 0) %}
+                 <span style="width: {{response.cd_CurRes25dash49| int}}%;background-color:#FCC528;">
+                   <h6 style="right: 15px;white-space: nowrap;
+                   top: 5px;">Risk | {{response.cd_CurResmore25| int + response.cd_CurRes25dash49| int + response.cd_CurRes50dash74| int  + response.cd_CurRes75plus| int }}%</h6>
+                 </span>
+                 <span style="width: {{25 - response.cd_CurRes25dash49| int}}%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% else %}
+                 <span style="width: 25%;background-color:#FCC528;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% endif %}
+
+               {% if response.cd_CurRes50dash74| int == 0 %}
+                 <span style="width: 25%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% elif (response.cd_CurRes50dash74| int < 25 and response.cd_CurRes50dash74| int > 0) or (response.cd_CurRes50dash74| int == 25 and response.cd_CurRes75plus| int == 0) %}
+                 <span style="width: {{response.cd_CurRes50dash74| int}}%;background-color:#F07B22;">
+                   <h6 style="right: 15px;white-space: nowrap;
+                   top: 5px;">Risk | {{response.cd_CurResmore25| int + response.cd_CurRes25dash49| int + response.cd_CurRes50dash74| int  + response.cd_CurRes75plus| int }}%</h6>
+                 </span>
+                 <span style="width: {{25 - response.cd_CurRes50dash74| int}}%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% else %}
+                 <span style="width: 25%;background-color:#F07B22;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% endif %}
+
+
+               {% if response.cd_CurRes75plus| int == 0 %}
+                 <span style="width: 25%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% elif response.cd_CurRes75plus| int < 25 %}
+                 <span style="width: {{response.cd_CurRes75plus| int}}%;background-color:#D04646;">
+                   <h6 style="right: 15px;white-space: nowrap;
+                   top: 5px;">Risk | {{response.cd_CurResmore25| int + response.cd_CurRes25dash49| int + response.cd_CurRes50dash74| int  + response.cd_CurRes75plus| int }}%</h6>
+                 </span>
+                 <span style="width: {{25 - response.cd_CurRes75plus| int}}%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% else %}
+                 <span style="width: 25%;background-color:#D04646;">
+                   <h6 style="right: 15px;white-space: nowrap;
+                   top: 5px;">Risk | {{response.cd_CurResmore25| int + response.cd_CurRes25dash49| int + response.cd_CurRes50dash74| int  + response.cd_CurRes75plus| int }}%</h6>
+                 </span>
+               {% endif %}
+
+             </label>
+
+             <label>
+
+               {% if response.cd_MaxResmore25| int < 25 %}
+                 <span style="width: {{response.cd_MaxResmore25| int}}%;background-color:#8DAD3C;">
+                   <h6 style="{% if response.cd_MaxResmore25| int < 11 %}left:0px;{% else %}right: 15px;{% endif %}right: 15px;white-space: nowrap;
+                   top: 5px;">Risk | {{response.cd_MaxResmore25| int + response.cd_MaxRes25dash49| int + response.cd_MaxRes50dash74| int  + response.cd_MaxRes75plus| int }}%</h6>
+                 </span>
+                 <span style="width: {{25 - response.cd_MaxResmore25| int}}%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% else %}
+               <span style="width: 25%;background-color:#8DAD3C;">
+                 <h6 style="right: 15px;
+                 top: 5px;"></h6>
+               </span>
+               {% endif %}
+
+               {% if response.cd_MaxRes25dash49| int == 0 %}
+                 <span style="width: 25%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% elif (response.cd_MaxRes25dash49| int < 25 and response.cd_MaxRes25dash49| int > 0) or (response.cd_MaxRes25dash49| int == 25 and response.cd_MaxRes50dash74| int == 0) %}
+                 <span style="width: {{response.cd_MaxRes25dash49| int}}%;background-color:#FCC528;">
+                   <h6 style="right: 15px; white-space: nowrap;
+                   top: 5px;">Risk | {{response.cd_MaxResmore25| int + response.cd_MaxRes25dash49| int + response.cd_MaxRes50dash74| int  + response.cd_MaxRes75plus| int }}%</h6>
+                 </span>
+                 <span style="width: {{25 - response.cd_MaxRes25dash49| int}}%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% else %}
+                 <span style="width: 25%;background-color:#FCC528;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% endif %}
+
+               {% if response.cd_MaxRes50dash74| int == 0 %}
+                 <span style="width: 25%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% elif (response.cd_MaxRes50dash74| int < 25 and response.cd_MaxRes50dash74| int > 0) or (response.cd_MaxRes50dash74| int == 25 and response.cd_MaxRes75plus| int == 0) %}
+                 <span style="width: {{response.cd_MaxRes50dash74| int}}%;background-color:#F07B22;">
+                   <h6 style="right: 15px;white-space: nowrap;
+                   top: 5px;">Risk | {{response.cd_MaxResmore25| int + response.cd_MaxRes25dash49| int + response.cd_MaxRes50dash74| int  + response.cd_MaxRes75plus| int }}%</h6>
+                 </span>
+                 <span style="width: {{25 - response.cd_MaxRes50dash74| int}}%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% else %}
+                 <span style="width: 25%;background-color:#F07B22;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% endif %}
+
+
+               {% if response.cd_MaxRes75plus| int == 0 %}
+                 <span style="width: 25%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% elif response.cd_MaxRes75plus| int < 25 %}
+                 <span style="width: {{response.cd_MaxRes75plus| int}}%;background-color:#D04646;">
+                   <h6 style="right: 15px;white-space: nowrap;
+                   top: 5px;">Risk | {{response.cd_MaxResmore25| int + response.cd_MaxRes25dash49| int + response.cd_MaxRes50dash74| int  + response.cd_MaxRes75plus| int }}%</h6>
+                 </span>
+                 <span style="width: {{25 - response.cd_MaxRes75plus| int}}%;">
+                   <h6 style="right: 15px;
+                   top: 5px;"></h6>
+                 </span>
+               {% else %}
+                 <span style="width: 25%;background-color:#D04646;">
+                   <h6 style="right: 15px;white-space: nowrap;
+                   top: 5px;">Risk | {{response.cd_MaxResmore25| int + response.cd_MaxRes25dash49| int + response.cd_MaxRes50dash74| int  + response.cd_MaxRes75plus| int }}%</h6>
+                 </span>
+               {% endif %}
+
+
+             </label>
+             <h1 class="line-1"></h1>
+             <h1 class="line-2"></h1>
+             <h1 class="line-3"></h1>
+         </div>
+       </div>
+       <div class="lifetime-level-line">
+         <div class="left">
+
+         </div>
+         <div class="right">
+           <ul>
+             <li>
+               <label>0</label>
+               <span style="background: #8DAD3C;">Low</span>
+             </li>
+             <li>
+               <label>25</label>
+               <span style="background:#FCC528;">Moderate</span>
+             </li>
+             <li>
+               <label>50</label>
+               <span style="background:#F07B22;">High</span>
+             </li>
+             <li>
+               <label>75</label>
+               <span style="background:#D04646;">Very High</span>
+               <label class="hund">100</label>
+
+             </li>
+           </ul>
+
+         </div>
+       </div>
+       <div class="lifetime-level">
+         <h1>
+         <h2>Risk Level</h2>
+       </div>
+       <div class="risk-arrow">
+         <img src="./assets/risk.svg"/>
+       </div>
+     </div>
+     <div class="box-container risk">
+       <div class="box-head">
+         <h2>COMPRIS RISK BUILD ©</h2>
+       </div>
+       <div class="box-inner-section">
+       <div class="inner-box">
+         <div class="head">
+           <h2>EVIDENCE-BASED RISK FACTORS</h2>
+         </div>
+         </div>
+       </div>
+       <div class="evidence-section">
+         <div class="evidence-level">
+           <label>INDEX: &nbsp;&nbsp;&nbsp;1.5+ = At Risk</label>
+           <span>3.0+ = Significant Risk</span>
+         </div>
+         <div class="evidence-color">
+           <ul>
+             <li>
+               <span style="background-color: #8DAD3C;"></span>
+               <label>Low Risk</label>
+             </li>
+             <li>
+               <span style="background-color: #FCC528;"></span>
+               <label>At Risk</label>
+             </li>
+             <li>
+               <span style="background-color: #D04646;"></span>
+               <label>Significant Risk</label>
+             </li>
+           </ul>
+         </div>
+
+       </div>
+       <div class="evidence-graph">
+         <ul class="level">
+           <li style="border-left:0px;!important">
+             <label>13.5</label>
+           </li>
+           <li>
+             <label>12.0</label>
+           </li>
+           <li>
+             <label>10.5</label>
+           </li>
+           <li>
+             <label>9.0</label>
+           </li>
+           <li>
+             <label>7.5</label>
+           </li>
+           <li>
+             <label>6.0</label>
+           </li>
+           <li>
+             <label>4.5</label>
+           </li>
+           <li>
+             <label>3.0</label>
+           </li>
+           <li>
+             <label>1.5</label>
+           </li>
+           <li>
+             <label>0</label>
+           </li>
+         </ul>
+         <div class="evidence-pos">
+           <div class="evidence-graph-bar-section">
+             <div class="evidence-graph-bar">
+               <label>
+                 <span style="height: {{response.cd_B|float * 6.45}}%;background-color: #8DAD3C;"></span>
+                 <span style="height: {{response.cd_Bar|float * 6.45}}%;background-color: #FCC528;"></span>
+                 <span style="height: {{response.cd_Bsr|float * 6.45}}%;background-color: #D04646;"></span>
+               </label>
+             </div>
+             <div class="evidence-graph-bar">
+               <label>
+                 <span style="height: {{response.cd_U|float * 6.45}}%;background-color: #8DAD3C;"></span>
+                 <span style="height: {{response.cd_Uar|float * 6.45}}%;background-color: #FCC528;"></span>
+                 <span style="height: {{response.cd_Usr|float * 6.45}}%;background-color: #D04646;"></span>
+               </label>
+             </div><div class="evidence-graph-bar">
+               <label>
+                 <span style="height: {{response.cd_I|float * 6.45}}%;background-color: #8DAD3C;"></span>
+                 <span style="height: {{response.cd_Iar|float * 6.45}}%;background-color: #FCC528;"></span>
+                 <span style="height: {{response.cd_Isr|float * 6.45}}%;background-color: #D04646;"></span>
+               </label>
+             </div>
+             <div class="evidence-graph-bar">
+               <label>
+                 <span style="height: {{response.cd_L|float * 6.45}}%;background-color: #8DAD3C;"></span>
+                 <span style="height: {{response.cd_Lar|float * 6.45}}%;background-color: #FCC528;"></span>
+                 <span style="height: {{response.cd_Lsr|float * 6.45}}%;background-color: #D04646;"></span>
+               </label>
+             </div>
+             <div class="evidence-graph-bar">
+               <label>
+                 <span style="height: {{response.cd_D|float * 6.45}}%;background-color: #8DAD3C;"></span>
+                 <span style="height: {{response.cd_Dar|float * 6.45}}%;background-color: #FCC528;"></span>
+                 <span style="height: {{response.cd_Dsr|float * 6.45}}%;background-color: #D04646;"></span>
+               </label>
+             </div>
+           </div>
+         </div>
+       </div>
+       <div class="evidence-text-sec">
+         <div class="evidence-text">
+              <h3><span>B</span>lueprint (Epi/Genetics) </h3>
+             <h6>{{response.cd_Bi}}</h6>
+         </div>
+         <div class="evidence-text">
+           <div class="arrow-user">
+             <img src="assets/user.svg">
+
+           </div>
+           <h3><span>U</span>ser Traits</h3>
+           <h6>{{response.cd_Ui}}</h6>
+       </div>
+       <div class="evidence-text">
+          <h3><span>I</span>njured Developing Brain </h3>
+         <h6>{{response.cd_Ii}}</h6>
+     </div>
+     <div class="evidence-text">
+       <h3><span>L</span>ife Stress & Trauma </h3>
+       <h6>{{response.cd_Li}}</h6>
+    </div>
+    <div class="evidence-text">
+     <h3><span>D</span>amage from Use</h3>
+     <h6>{{response.cd_Di}}</h6>
+   </div>
+       </div>
+     </div>
+     <div class="box-container">
+       <div class="box-head">
+         <h2>PERSONALITY RISK TRAITS</h2>
+       </div>
+        <div class="box-inner-section" style="height:10px;">
+       <div class="inner-box">
+         <div class="head">
+           <h2>SUBSTANCE USE RISK PROFILE SCALE (SURPS)*</h2>
+           <h3>*Used with permission</h3>
+         </div>
+         </div>
+       </div>
+       <div class="evidence-section bt">
+         <div class="evidence-color">
+           <ul>
+             <li>
+               <span style="background-color: #8DAD3C;"></span>
+               <label>Low Risk</label>
+             </li>
+             <li>
+               <span style="background-color: #FCC528;"></span>
+               <label>At Risk</label>
+             </li>
+             <li>
+               <span style="background-color: #D04646;"></span>
+               <label>Significant Risk</label>
+             </li>
+           </ul>
+         </div>
+
+       </div>
+       <div class="evidence-graph bt">
+         <ul class="level">
+           <li style="border-left:0px;!important">
+             <label>100</label>
+           </li>
+           <li>
+             <label>80</label>
+           </li>
+           <li>
+             <label>60</label>
+           </li>
+           <li>
+             <label>40</label>
+           </li>
+           <li>
+             <label>20</label>
+           </li>
+           <li>
+             <label>0</label>
+           </li>
+         </ul>
+         <div class="evidence-pos bt">
+           <div class="evidence-graph-bar-section">
+             <div class="evidence-graph-bar" style="margin-top:-0.6% !important;">
+               <label>
+                 <span style="height: {{response.cd_Navg|float * 0.8}}%;background-color: #8DAD3C;"></span>
+                 <span style="height: {{response.cd_Nplus|float * 0.8}}%;background-color: #FCC528;"></span>
+                 <span style="height: {{response.cd_NplusSD|float * 0.8}}%;background-color: #D04646;"></span>
+               </label>
+             </div>
+             <div class="evidence-graph-bar" style="margin-top:-0.6% !important;">
+               <label>
+                 <span style="height: {{response.cd_Aavg|float * 0.8}}%;background-color: #8DAD3C;"></span>
+                 <span style="height: {{response.cd_Aplus|float * 0.8}}%;background-color: #FCC528;"></span>
+                 <span style="height: {{response.cd_AplusSD|float * 0.8}}%;background-color: #D04646;"></span>
+               </label>
+             </div><div class="evidence-graph-bar" style="margin-top:-0.6% !important;">
+               <label>
+                 <span style="height: {{response.cd_Iavg|float * 0.8}}%;background-color: #8DAD3C;"></span>
+                 <span style="height: {{response.cd_Iplus|float * 0.8}}%;background-color: #FCC528;"></span>
+                 <span style="height: {{response.cd_IplusSD|float * 0.8}}%;background-color: #D04646;"></span>
+               </label>
+             </div>
+             <div class="evidence-graph-bar" style="margin-top:-0.6% !important;">
+               <label>
+                 <span style="height: {{response.cd_Savg|float * 0.8}}%;background-color: #8DAD3C;"></span>
+                 <span style="height: {{response.cd_Splus|float * 0.8}}%;background-color: #FCC528;"></span>
+                 <span style="height: {{response.cd_SplusSD|float * 0.8}}%;background-color: #D04646;"></span>
+               </label>
+             </div>
+
+           </div>
+         </div>
+       </div>
+       <div class="evidence-text-sec">
+         <div class="evidence-text">
+             <h3>Negative Thinking </h3>
+             <h6>{{response.cd_Negpercent}}</h6>
+             <h4>{{response.cd_NegSubs}}</h4>
+         </div>
+         <div class="evidence-text">
+           <h3>Anxious Feelings</h3>
+           <h6>{{response.cd_Anxpercent}}</h6>
+           <h4>{{response.cd_AnxSubs}}</h4>
+       </div>
+       <div class="evidence-text">
+         <h3>Impulsive Behavior</h3>
+         <h6>{{response.cd_Imppercent}}</h6>
+         <h4>{{response.cd_ImpSubs}}</h4>
+     </div>
+     <div class="evidence-text">
+       <h3>Sensation-Seeking</h3>
+       <h6>{{response.cd_Senspercent}}</h6>
+       <h4>{{response.cd_SensSubs}}</h4>
+    </div>
+
+       </div>
+     </div>
+     <div class="page-footer">
+       <p>DISCLAIMER : THIS REPORT IS INTENDED AS A GUIDE, NOT A SUBSTITUTE, FOR FACE-TO-FACE PROVIDER-PATIENT TREATMENT COLLABORATION.</p>
+       <p style="float: right;margin-top: -7px !important;margin-right: 2px;">info@compriscare.com</p>
+     </div>
+   </div>
+
+
+  </body>
+</html>
