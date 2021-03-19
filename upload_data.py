@@ -25,10 +25,6 @@ print(df)
 df.to_sql('marketing_mix_modeling_master', con=engine, if_exists='append', index=False  )
 #engine.execute("SELECT * FROM marketing_mix_modeling_master").fetchall()
 
-
-
-
-
 # df = df[df['Product_Group'].notna()]
 # df.rename(columns={'Product_Group': 'PRODUCT_CATEGORY', 'Advertiser': 'ADVERTISER', 'varient ': 'VARIENT', 'Channel': 'CHANNEL', 'Program': 'PROGRAM'
 # , 'Day': 'DAY', 'Advt_time': 'ADVT_TIME', 'Lng': 'LANGUAGE', 'Dur': 'DURATION', 'Actual Spend': 'ACTUAL_SPEND', 'Monitored Spend ': 'MONITORED_SPEND'}, inplace=True)
