@@ -377,7 +377,7 @@
         width: 7px;
         height: 7px;
         width: 0;
-	      height: 0;
+        height: 0;
         border-left: 4px solid transparent;
         border-right: 4px solid transparent;
         border-bottom: 8px solid #FCC528;
@@ -407,21 +407,23 @@
         position: relative;
       }
       .acuity-table .acuity-first{
-        width: 37%;
+        width: 30%;
       }
       .acuity-table .acuity-last{
-        width: 18%;
+        width: 16%;
         text-align: center;
         border-left: 0.4px solid rgb(167 169 172 / .3);
       }
       .acuity-table h2{
         color: #404041;
-        font-size: 10px;
+        font-size: 8px;
         line-height: 13px;
         font-weight: 500;
         font-family: 'Montserrat', sans-serif;
         margin-bottom: 5px;
+        height: 13px;
       }
+
       /* .acuity-table h3{
         margin-top: 17px;
         height: 8px;
@@ -776,6 +778,9 @@
         padding: 10px 5px;
         height: 10px;
       }
+      .bg{
+        background: #F1F2F2;
+      }
       .timeline-section .last h1{
         padding: 6px 0px;
         border-top: 0.3px solid rgb(166 168 171 / .3);
@@ -789,6 +794,9 @@
         padding: 5px;
         border-top: 0.3px solid rgb(166 168 171 / .3);
         height: 17px;
+      }
+      .timeline-section h3 span{
+        margin-top:  3px;
       }
       .timeline-section .first {
         width: 24%;
@@ -997,6 +1005,7 @@
       }
       .resilience-box .box-list h2 span{
         color: rgb(64 64 65 / .5);
+        margin-top: 2px;
       }
       .resilience-level{
         background: #F1F2F2;
@@ -1850,13 +1859,45 @@
                 </div>
                 <div class="acuity-table">
                   <div class="acuity-first">
-                      <h2>Substance</h2>
+                      <h2></h2>
                       <label>Current Illness</br>  30 Days</label>
                     <label>Acute Illness</br>  1 - 3 Months</label>
                     <label>Sub-Acute Illness</br> 4 - 11 Months</label>
                     <label>Chronic Illness</br> 1 - 4 Years</label>
-                    <label style="white-space: nowrap;">Chronic | Remote Illness </br> 5+ Years</label>
+                    <label style="white-space: nowrap;">Chronic | <small>Remote <br> Illness</small></br> 5+ Years</label>
                   </div>
+
+                  {% if response.cd_SympSev not in [None, ""] %}
+                  <div class="acuity-last">
+                    <h2>{{response.cd_SympSev}}</h2>
+                    <h3>
+                      <span class="{% if response.cd_30dMax|int == 1 %}mild{% elif response.cd_30dMax|int == 2  %}moderate{% elif response.cd_30dMax|int == 3%}severe{% endif %}">
+                        {% if response.cd_30dMax not in '123' %}{{response.cd_30dMax}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_30dMax|int == 1 %}mild{% elif response.cd_30dMax|int == 2 %}moderate{% elif response.cd_30dMax|int == 3 %}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_3mMax|int == 1 %}mild{% elif response.cd_3mMax|int == 2  %}moderate{% elif response.cd_3mMax|int == 3%}severe{% endif %}">
+                        {% if response.cd_3mMax not in '123' %}{{response.cd_3mMax}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_3mMax|int == 1 %}mild{% elif response.cd_3mMax|int == 2 %}moderate{% elif response.cd_3mMax|int == 3%}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_12mMax|int == 1 %}mild{% elif response.cd_12mMax|int == 2  %}moderate{% elif response.cd_12mMax|int == 3%}severe{% endif %}">
+                        {% if response.cd_12mMax not in '123' %}{{response.cd_12mMax}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_12mMax|int == 1 %}mild{% elif response.cd_12mMax|int == 2 %}moderate{% elif response.cd_12mMax|int == 3%}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_1dash4yMax|int == 1 %}mild{% elif response.cd_1dash4yMax|int == 2  %}moderate{% elif response.cd_1dash4yMax|int == 3%}severe{% endif %}">
+                        {% if response.cd_1dash4yMax not in '123' %}{{response.cd_1dash4yMax}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_1dash4yMax|int == 1 %}mild{% elif response.cd_1dash4yMax|int == 2 %}moderate{% elif response.cd_1dash4yMax|int == 3%}severe{% endif %}"></span> -->
+                    </h3>
+                    <h3>
+                      <span class="{% if response.cd_5plusyMax|int == 1 %}mild{% elif response.cd_5plusyMax|int == 2  %}moderate{% elif response.cd_5plusyMax|int == 3%}severe{% endif %}">
+                        {% if response.cd_5plusyMax not in '123' %}{{response.cd_5plusyMax}}{% endif %}</span>
+                      <!-- <span class="{% if response.cd_5plusyMax|int == 1 %}mild{% elif response.cd_5plusyMax|int == 2 %}moderate{% elif response.cd_5plusyMax|int == 3%}severe{% endif %}"></span> -->
+                    </h3>
+                  </div>
+                  {% endif %}
+
                   <div class="acuity-last">
                     <h2>Nicotine</h2>
                     <h3>
@@ -1989,6 +2030,10 @@
                 <div>
                   <span class="severe"></span>
                   <label>SEVERE</label>
+                </div>
+                <div style="padding-top: 6px;">
+                  <span class=""></span>
+                  <label>+/++ MISUSE MARKERS</label>
                 </div>
               </div>
             </div>
@@ -2413,7 +2458,7 @@
        <div class="recommen-box">
          <div class="recommen-box-list">
 
-           <div class="left">
+           <div class="left" style="height: 100px;">
              <div>
                <h2>Addiction <br>Risk Factors</h2>
              </div>
@@ -3729,111 +3774,143 @@
         </div>
         <div class="timeline-section mb">
           <div class="first">
-              <h2>Substance</h2>
-              <h3>Alcohol</h3>
+              <h2 class="bg">Time Period</h2>
+              {% if response.cd_SympSev not in [None,''] %} 
+                <h3>{{response.cd_SympSev}}</h2>
+              {% endif %}
+              <h3 style="border-top: transparent;">Alcohol</h3>
               <h3>Rx Meds</h3>
               <h3>Rec Drugs</h3>
           </div>
           <div class="last">
-            <h2>30 Days</h2>
-            <h3>
-              <span class="{% if response.cd_A30d|int == 1 %}mild{% elif response.cd_A30d|int == 2  %}moderate{% elif response.cd_A30d|int == 3%}severe{% endif %}">
-                {% if response.cd_A30d not in '123' %}{{response.cd_A30d}}{% endif %}</span>
-              <!-- <span class="{% if response.cd_A30d|int == 1 %}mild{% elif response.cd_A30d|int == 2  %}moderate{% elif response.cd_A30d|int == 3%}severe{% endif %}"></span> -->
+            <h2 class="bg">30 Days</h2>
+              {% if response.cd_SympSev not in [None,''] %} 
+                <h3>
+                  <span class="{% if response.cd_30dMax|int == 1 %}mild{% elif response.cd_30dMax|int == 2  %}moderate{% elif response.cd_30dMax|int == 3%}severe{% endif %}">
+                    {% if response.cd_30dMax not in '123' %}{{response.cd_30dMax}}{% endif %}</span>
+                  <!-- <span class="{% if response.cd_30dMax|int == 1 %}mild{% elif response.cd_30dMax|int == 2  %}moderate{% elif response.cd_30dMax|int == 3%}severe{% endif %}"></span> -->
+                </h3>
+              {% endif %}
+            <h3 style="border-top: transparent;">
+              <span class="{% if response.cd_30dAlc|int == 1 %}mild{% elif response.cd_30dAlc|int == 2  %}moderate{% elif response.cd_30dAlc|int == 3%}severe{% endif %}">
+                {% if response.cd_30dAlc not in '123' %}{{response.cd_30dAlc}}{% endif %}</span>
+              <!-- <span class="{% if response.cd_30dAlc|int == 1 %}mild{% elif response.cd_30dAlc|int == 2  %}moderate{% elif response.cd_30dAlc|int == 3%}severe{% endif %}"></span> -->
             </h3>
             <h3>
-              <span class="{% if response.cd_Rx30d|int == 1 %}mild{% elif response.cd_Rx30d|int == 2  %}moderate{% elif response.cd_Rx30d|int == 3%}severe{% endif %}">
-                {% if response.cd_Rx30d not in '123' %}{{response.cd_Rx30d}}{% endif %}</span>
-              <!-- <span class="{% if response.cd_Rx30d|int == 1 %}mild{% elif response.cd_Rx30d|int == 2  %}moderate{% elif response.cd_Rx30d|int == 3%}severe{% endif %}"></span> -->
+              <span class="{% if response.cd_30dRx|int == 1 %}mild{% elif response.cd_30dRx|int == 2  %}moderate{% elif response.cd_30dRx|int == 3%}severe{% endif %}">
+                {% if response.cd_30dRx not in '123' %}{{response.cd_30dRx}}{% endif %}</span>
+              <!-- <span class="{% if response.cd_30dRx|int == 1 %}mild{% elif response.cd_30dRx|int == 2  %}moderate{% elif response.cd_30dRx|int == 3%}severe{% endif %}"></span> -->
             </h3>
             <h3>
-              <span class="{% if response.cd_D30d|int == 1 %}mild{% elif response.cd_D30d|int == 2  %}moderate{% elif response.cd_D30d|int == 3%}severe{% endif %}">
-                {% if response.cd_D30d not in '123' %}{{response.cd_D30d}}{% endif %}</span>
-              <!-- <span class="{% if response.cd_D30d|int == 1 %}mild{% elif response.cd_D30d|int == 2  %}moderate{% elif response.cd_D30d|int == 3%}severe{% endif %}"></span> -->
+              <span class="{% if response.cd_30dDrg|int == 1 %}mild{% elif response.cd_30dDrg|int == 2  %}moderate{% elif response.cd_30dDrg|int == 3%}severe{% endif %}">
+                {% if response.cd_30dDrg not in '123' %}{{response.cd_30dDrg}}{% endif %}</span>
+              <!-- <span class="{% if response.cd_30dDrg|int == 1 %}mild{% elif response.cd_30dDrg|int == 2  %}moderate{% elif response.cd_30dDrg|int == 3%}severe{% endif %}"></span> -->
             </h3>
         </div>
         <div class="last">
-          <h2>1 - 3 Months</h2>
-          <h3>
-            <span class="{% if response.cd_A3m|int == 1 %}mild{% elif response.cd_A3m|int == 2  %}moderate{% elif response.cd_A3m|int == 3%}severe{% endif %}">
-              {% if response.cd_A3m not in '123' %}{{response.cd_A3m}}{% endif %}</span>
-            <!-- <span class="{% if response.cd_A3m|int == 1 %}mild{% elif response.cd_A3m|int == 2  %}moderate{% elif response.cd_A3m|int == 3%}severe{% endif %}"></span> -->
+          <h2 class="bg">1 - 3 Months</h2>
+            {% if response.cd_SympSev not in [None,''] %} 
+                <h3>
+                  <span class="{% if response.cd_3mMax|int == 1 %}mild{% elif response.cd_3mMax|int == 2  %}moderate{% elif response.cd_3mMax|int == 3%}severe{% endif %}">
+                    {% if response.cd_3mMax not in '123' %}{{response.cd_3mMax}}{% endif %}</span>
+                  <!-- <span class="{% if response.cd_3mMax|int == 1 %}mild{% elif response.cd_3mMax|int == 2  %}moderate{% elif response.cd_3mMax|int == 3%}severe{% endif %}"></span> -->
+                </h3>
+            {% endif %}
+          <h3 style="border-top: transparent;">
+            <span class="{% if response.cd_3mAlc|int == 1 %}mild{% elif response.cd_3mAlc|int == 2  %}moderate{% elif response.cd_3mAlc|int == 3%}severe{% endif %}">
+              {% if response.cd_3mAlc not in '123' %}{{response.cd_3mAlc}}{% endif %}</span>
+            <!-- <span class="{% if response.cd_3mAlc|int == 1 %}mild{% elif response.cd_3mAlc|int == 2  %}moderate{% elif response.cd_3mAlc|int == 3%}severe{% endif %}"></span> -->
           </h3>
           <h3>
-            <span class="{% if response.cd_Rx3m|int == 1 %}mild{% elif response.cd_Rx3m|int == 2  %}moderate{% elif response.cd_Rx3m|int == 3%}severe{% endif %}">
-              {% if response.cd_Rx3m not in '123' %}{{response.cd_Rx3m}}{% endif %}</span>
-            <!-- <span class="{% if response.cd_Rx3m|int == 1 %}mild{% elif response.cd_Rx3m|int == 2  %}moderate{% elif response.cd_Rx3m|int == 3%}severe{% endif %}"></span> -->
+            <span class="{% if response.cd_3mRx|int == 1 %}mild{% elif response.cd_3mRx|int == 2  %}moderate{% elif response.cd_3mRx|int == 3%}severe{% endif %}">
+              {% if response.cd_3mRx not in '123' %}{{response.cd_3mRx}}{% endif %}</span>
+            <!-- <span class="{% if response.cd_3mRx|int == 1 %}mild{% elif response.cd_3mRx|int == 2  %}moderate{% elif response.cd_3mRx|int == 3%}severe{% endif %}"></span> -->
           </h3>
           <h3>
-            <span class="{% if response.cd_D3m|int == 1 %}mild{% elif response.cd_D3m|int == 2  %}moderate{% elif response.cd_D3m|int == 3%}severe{% endif %}">
-              {% if response.cd_D3m not in '123' %}{{response.cd_D3m}}{% endif %}</span>
-            <!-- <span class="{% if response.cd_D3m|int == 1 %}mild{% elif response.cd_D3m|int == 2  %}moderate{% elif response.cd_D3m|int == 3%}severe{% endif %}"></span> -->
+            <span class="{% if response.cd_3mDrg|int == 1 %}mild{% elif response.cd_3mDrg|int == 2  %}moderate{% elif response.cd_3mDrg|int == 3%}severe{% endif %}">
+              {% if response.cd_3mDrg not in '123' %}{{response.cd_3mDrg}}{% endif %}</span>
+            <!-- <span class="{% if response.cd_3mDrg|int == 1 %}mild{% elif response.cd_3mDrg|int == 2  %}moderate{% elif response.cd_3mDrg|int == 3%}severe{% endif %}"></span> -->
           </h3>
       </div>
       <div class="last">
-        <h2>4 - 11 Months</h2>
-
-        <h3>
-          <span class="{% if response.cd_A12m|int == 1 %}mild{% elif response.cd_A12m|int == 2  %}moderate{% elif response.cd_A12m|int == 3%}severe{% endif %}">
-            {% if response.cd_A12m not in '123' %}{{response.cd_A12m}}{% endif %}</span>
-          <!-- <span class="{% if response.cd_A12m|int == 1 %}mild{% elif response.cd_A12m|int == 2  %}moderate{% elif response.cd_A12m|int == 3%}severe{% endif %}"></span> -->
+        <h2 class="bg">4 - 11 Months</h2>
+        {% if response.cd_SympSev not in [None,''] %} 
+            <h3>
+              <span class="{% if response.cd_12mMax|int == 1 %}mild{% elif response.cd_12mMax|int == 2  %}moderate{% elif response.cd_12mMax|int == 3%}severe{% endif %}">
+                {% if response.cd_12mMax not in '123' %}{{response.cd_12mMax}}{% endif %}</span>
+              <!-- <span class="{% if response.cd_12mMax|int == 1 %}mild{% elif response.cd_12mMax|int == 2  %}moderate{% elif response.cd_12mMax|int == 3%}severe{% endif %}"></span> -->
+            </h3>
+        {% endif %}
+        <h3 style="border-top: transparent;">
+          <span class="{% if response.cd_12mAlc|int == 1 %}mild{% elif response.cd_12mAlc|int == 2  %}moderate{% elif response.cd_12mAlc|int == 3%}severe{% endif %}">
+            {% if response.cd_12mAlc not in '123' %}{{response.cd_12mAlc}}{% endif %}</span>
+          <!-- <span class="{% if response.cd_12mAlc|int == 1 %}mild{% elif response.cd_12mAlc|int == 2  %}moderate{% elif response.cd_12mAlc|int == 3%}severe{% endif %}"></span> -->
         </h3>
         <h3>
-          <span class="{% if response.cd_Rx12m|int == 1 %}mild{% elif response.cd_Rx12m|int == 2  %}moderate{% elif response.cd_Rx12m|int == 3%}severe{% endif %}">
-            {% if response.cd_Rx12m not in '123' %}{{response.cd_Rx12m}}{% endif %}</span>
-          <!-- <span class="{% if response.cd_Rx12m|int == 1 %}mild{% elif response.cd_Rx12m|int == 2  %}moderate{% elif response.cd_Rx12m|int == 3%}severe{% endif %}"></span> -->
+          <span class="{% if response.cd_12mRx|int == 1 %}mild{% elif response.cd_12mRx|int == 2  %}moderate{% elif response.cd_12mRx|int == 3%}severe{% endif %}">
+            {% if response.cd_12mRx not in '123' %}{{response.cd_12mRx}}{% endif %}</span>
+          <!-- <span class="{% if response.cd_12mRx|int == 1 %}mild{% elif response.cd_12mRx|int == 2  %}moderate{% elif response.cd_12mRx|int == 3%}severe{% endif %}"></span> -->
         </h3>
         <h3>
-          <span class="{% if response.cd_D12m|int == 1 %}mild{% elif response.cd_D12m|int == 2  %}moderate{% elif response.cd_D12m|int == 3%}severe{% endif %}">
-            {% if response.cd_D12m not in '123' %}{{response.cd_D12m}}{% endif %}</span>
-          <!-- <span class="{% if response.cd_D12m|int == 1 %}mild{% elif response.cd_D12m|int == 2  %}moderate{% elif response.cd_D12m|int == 3%}severe{% endif %}"></span> -->
+          <span class="{% if response.cd_12mDrg|int == 1 %}mild{% elif response.cd_12mDrg|int == 2  %}moderate{% elif response.cd_12mDrg|int == 3%}severe{% endif %}">
+            {% if response.cd_12mDrg not in '123' %}{{response.cd_12mDrg}}{% endif %}</span>
+          <!-- <span class="{% if response.cd_12mDrg|int == 1 %}mild{% elif response.cd_12mDrg|int == 2  %}moderate{% elif response.cd_12mDrg|int == 3%}severe{% endif %}"></span> -->
         </h3>
-
     </div>
     <div class="last">
-      <h2>1 - 4 Years</h2>
-
-      <h3>
-        <span class="{% if response.cd_A1dash4y|int == 1 %}mild{% elif response.cd_A1dash4y|int == 2  %}moderate{% elif response.cd_A1dash4y|int == 3%}severe{% endif %}">
-          {% if response.cd_A1dash4y not in '123' %}{{response.cd_A1dash4y}}{% endif %}</span>
-        <!-- <span class="{% if response.cd_A1dash4y|int == 1 %}mild{% elif response.cd_A1dash4y|int == 2  %}moderate{% elif response.cd_A1dash4y|int == 3%}severe{% endif %}"></span> -->
+      <h2 class="bg">1 - 4 Years</h2>
+      {% if response.cd_SympSev not in [None,''] %} 
+          <h3>
+            <span class="{% if response.cd_1dash4yMax|int == 1 %}mild{% elif response.cd_1dash4yMax|int == 2  %}moderate{% elif response.cd_1dash4yMax|int == 3%}severe{% endif %}">
+              {% if response.cd_1dash4yMax not in '123' %}{{response.cd_1dash4yMax}}{% endif %}</span>
+            <!-- <span class="{% if response.cd_1dash4yMax|int == 1 %}mild{% elif response.cd_1dash4yMax|int == 2  %}moderate{% elif response.cd_1dash4yMax|int == 3%}severe{% endif %}"></span> -->
+          </h3>
+      {% endif %}
+      <h3 style="border-top: transparent;">
+        <span class="{% if response.cd_1dash4yAlc|int == 1 %}mild{% elif response.cd_1dash4yAlc|int == 2  %}moderate{% elif response.cd_1dash4yAlc|int == 3%}severe{% endif %}">
+          {% if response.cd_1dash4yAlc not in '123' %}{{response.cd_1dash4yAlc}}{% endif %}</span>
+        <!-- <span class="{% if response.cd_1dash4yAlc|int == 1 %}mild{% elif response.cd_1dash4yAlc|int == 2  %}moderate{% elif response.cd_1dash4yAlc|int == 3%}severe{% endif %}"></span> -->
       </h3>
       <h3>
-        <span class="{% if response.cd_Rx1dash4y|int == 1 %}mild{% elif response.cd_Rx1dash4y|int == 2  %}moderate{% elif response.cd_Rx1dash4y|int == 3%}severe{% endif %}">
-          {% if response.cd_Rx1dash4y not in '123' %}{{response.cd_Rx1dash4y}}{% endif %}</span>
-        <!-- <span class="{% if response.cd_Rx1dash4y|int == 1 %}mild{% elif response.cd_Rx1dash4y|int == 2  %}moderate{% elif response.cd_Rx1dash4y|int == 3%}severe{% endif %}"></span> -->
+        <span class="{% if response.cd_1dash4yRx|int == 1 %}mild{% elif response.cd_1dash4yRx|int == 2  %}moderate{% elif response.cd_1dash4yRx|int == 3%}severe{% endif %}">
+          {% if response.cd_1dash4yRx not in '123' %}{{response.cd_1dash4yRx}}{% endif %}</span>
+        <!-- <span class="{% if response.cd_1dash4yRx|int == 1 %}mild{% elif response.cd_1dash4yRx|int == 2  %}moderate{% elif response.cd_1dash4yRx|int == 3%}severe{% endif %}"></span> -->
       </h3>
       <h3>
-        <span class="{% if response.cd_D1dash4y|int == 1 %}mild{% elif response.cd_D1dash4y|int == 2  %}moderate{% elif response.cd_D1dash4y|int == 3%}severe{% endif %}">
-          {% if response.cd_D1dash4y not in '123' %}{{response.cd_D1dash4y}}{% endif %}</span>
-        <!-- <span class="{% if response.cd_D1dash4y|int == 1 %}mild{% elif response.cd_D1dash4y|int == 2  %}moderate{% elif response.cd_D1dash4y|int == 3%}severe{% endif %}"></span> -->
+        <span class="{% if response.cd_1dash4yDrg|int == 1 %}mild{% elif response.cd_1dash4yDrg|int == 2  %}moderate{% elif response.cd_1dash4yDrg|int == 3%}severe{% endif %}">
+          {% if response.cd_1dash4yDrg not in '123' %}{{response.cd_1dash4yDrg}}{% endif %}</span>
+        <!-- <span class="{% if response.cd_1dash4yDrg|int == 1 %}mild{% elif response.cd_1dash4yDrg|int == 2  %}moderate{% elif response.cd_1dash4yDrg|int == 3%}severe{% endif %}"></span> -->
       </h3>
-
   </div>
   <div class="last">
-      <h2>5+ Years</h2>
-
-      <h3>
-        <span class="{% if response.cd_A5plusy|int == 1 %}mild{% elif response.cd_A5plusy|int == 2  %}moderate{% elif response.cd_A5plusy|int == 3%}severe{% endif %}">
-          {% if response.cd_A5plusy not in '123' %}{{response.cd_A5plusy}}{% endif %}</span>
-        <!-- <span class="{% if response.cd_A5plusy|int == 1 %}mild{% elif response.cd_A5plusy|int == 2  %}moderate{% elif response.cd_A5plusy|int == 3%}severe{% endif %}"></span> -->
+      <h2 class="bg">5+ Years</h2>
+      {% if response.cd_SympSev not in [None,''] %} 
+        <h3>
+          <span class="{% if response.cd_5plusyMax|int == 1 %}mild{% elif response.cd_5plusyMax|int == 2  %}moderate{% elif response.cd_5plusyMax|int == 3%}severe{% endif %}">
+            {% if response.cd_5plusyMax not in '123' %}{{response.cd_5plusyMax}}{% endif %}</span>
+          <!-- <span class="{% if response.cd_5plusyMax|int == 1 %}mild{% elif response.cd_5plusyMax|int == 2  %}moderate{% elif response.cd_5plusyMax|int == 3%}severe{% endif %}"></span> -->
+        </h3>
+      {% endif %}
+      <h3 style="border-top: transparent;">
+        <span class="{% if response.cd_5plusyAlc|int == 1 %}mild{% elif response.cd_5plusyAlc|int == 2  %}moderate{% elif response.cd_5plusyAlc|int == 3%}severe{% endif %}">
+          {% if response.cd_5plusyAlc not in '123' %}{{response.cd_5plusyAlc}}{% endif %}</span>
+        <!-- <span class="{% if response.cd_5plusyAlc|int == 1 %}mild{% elif response.cd_5plusyAlc|int == 2  %}moderate{% elif response.cd_5plusyAlc|int == 3%}severe{% endif %}"></span> -->
       </h3>
       <h3>
-        <span class="{% if response.cd_Rx5plusy|int == 1 %}mild{% elif response.cd_Rx5plusy|int == 2  %}moderate{% elif response.cd_Rx5plusy|int == 3%}severe{% endif %}">
-          {% if response.cd_Rx5plusy not in '123' %}{{response.cd_Rx5plusy}}{% endif %}</span>
-        <!-- <span class="{% if response.cd_Rx5plusy|int == 1 %}mild{% elif response.cd_Rx5plusy|int == 2  %}moderate{% elif response.cd_Rx5plusy|int == 3%}severe{% endif %}"></span> -->
+        <span class="{% if response.cd_5plusyRx|int == 1 %}mild{% elif response.cd_5plusyRx|int == 2  %}moderate{% elif response.cd_5plusyRx|int == 3%}severe{% endif %}">
+          {% if response.cd_5plusyRx not in '123' %}{{response.cd_5plusyRx}}{% endif %}</span>
+        <!-- <span class="{% if response.cd_5plusyRx|int == 1 %}mild{% elif response.cd_5plusyRx|int == 2  %}moderate{% elif response.cd_5plusyRx|int == 3%}severe{% endif %}"></span> -->
       </h3>
       <h3>
-        <span class="{% if response.cd_D5plusy|int == 1 %}mild{% elif response.cd_D5plusy|int == 2  %}moderate{% elif response.cd_D5plusy|int == 3%}severe{% endif %}">
-          {% if response.cd_D5plusy not in '123' %}{{response.cd_D5plusy}}{% endif %}</span>
-        <!-- <span class="{% if response.cd_D5plusy|int == 1 %}mild{% elif response.cd_D5plusy|int == 2  %}moderate{% elif response.cd_D5plusy|int == 3%}severe{% endif %}"></span> -->
+        <span class="{% if response.cd_5plusyDrg|int == 1 %}mild{% elif response.cd_5plusyDrg|int == 2  %}moderate{% elif response.cd_5plusyDrg|int == 3%}severe{% endif %}">
+          {% if response.cd_5plusyDrg not in '123' %}{{response.cd_5plusyDrg}}{% endif %}</span>
+        <!-- <span class="{% if response.cd_5plusyDrg|int == 1 %}mild{% elif response.cd_5plusyDrg|int == 2  %}moderate{% elif response.cd_5plusyDrg|int == 3%}severe{% endif %}"></span> -->
       </h3>
-
   </div>
       </div>
       <div class="acuity time">
         <div style="margin-left: -22px;">
-          <label>ILLNESS SEVERITY (# of symptoms)</label>
+          <label>ILLNESS SEVERITY (# of symptoms):</label>
         </div>
         <div>
           <label>NONE [0-1]</label>
@@ -3846,9 +3923,12 @@
           <span class="moderate"></span>
           <label>MODERATE [4-5]</label>
         </div>
-        <div style="margin-right: -16px;">
+        <div style="margin-right: -7px;">
           <span class="severe"></span>
           <label>SEVERE [6-11]</label>
+        </div>
+        <div style="margin-right: -16px;padding-top: 5px;">
+          <label>+/++ MISUSE MARKERS</label>
         </div>
       </div>
       <div class="box-inner-section time">
@@ -4521,4 +4601,4 @@
 
 
   </body>
-</html>
+</html> 
