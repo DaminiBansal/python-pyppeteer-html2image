@@ -1759,7 +1759,7 @@
     <div class="page-container">
       <div class="page-header">
         <div class="logo">
-          <img src="assets/logo.png" style="height:35px;width:114px;"/>
+          <img src="assets/logo.png" style="height:35px;width:145px;"/>
         </div>
         <div class="text">
           <div class="content">
@@ -2376,7 +2376,7 @@
         <div class="compris-top">
           <div class="compris">
             <div class="first">
-                <h2>Withdrawal</h2>
+                <h2>Withdrawal (WM)</h2>
                 <h2>Meds</h2>
                 <h2>Support</h2>
                 <h2>MET/CBT Training</h2>
@@ -2422,7 +2422,7 @@
     <div class="page-container">
      <div class="page-header">
        <div class="logo">
-        <img src="assets/logo.png" style="height:35px;width:114px;"/>
+        <img src="assets/logo.png" style="height:35px;width:145px;"/>
        </div>
        <div class="text">
          <div class="content">
@@ -2556,7 +2556,7 @@
     <div class="page-container">
       <div class="page-header">
         <div class="logo">
-          <img src="assets/logo.png" style="height:35px;width:114px;"/>
+          <img src="assets/logo.png" style="height:35px;width:145px;"/>
         </div>
         <div class="text">
           <div class="content">
@@ -2712,7 +2712,7 @@
     <div class="page-container">
       <div class="page-header">
         <div class="logo">
-          <img src="assets/logo.png" style="height:35px;width:114px;"/>
+          <img src="assets/logo.png" style="height:35px;width:145px;"/>
         </div>
         <div class="text">
           <div class="content">
@@ -3006,7 +3006,7 @@
             </div>
             <div class="right">
               <h2>Great Resource</h2>
-              <h3>Be grateful</h3>
+              <h3>Be Grateful</h3>
             </div>
           </div>
           <div class="resilience-level-list">
@@ -3133,7 +3133,7 @@
     <div class="page-container">
       <div class="page-header">
         <div class="logo">
-          <img src="assets/logo.png" style="height:35px;width:114px;"/>
+          <img src="assets/logo.png" style="height:35px;width:145px;"/>
         </div>
         <div class="text">
           <div class="content">
@@ -3476,7 +3476,7 @@
     <div class="page-container">
       <div class="page-header">
         <div class="logo">
-          <img src="assets/logo.png" style="height:35px;width:114px;"/>
+          <img src="assets/logo.png" style="height:35px;width:145px;"/>
         </div>
         <div class="text">
           <div class="content">
@@ -3955,9 +3955,9 @@
          <h3>{{response.cd_Nhash30d|replace('\/','/')}}</h3>
          <h3>{{response.cd_NT30d|replace('\/','/')}}</h3>
          <h3>
-           <span class="{% if response.cd_ND30d|replace('\/','/')|int == 1 %}mild{% elif response.cd_ND30d|replace('\/','/')|int == 2  %}moderate{% elif response.cd_ND30d|replace('\/','/')|int == 3%}severe{% endif %}">
-             {% if response.cd_ND30d|replace('\/','/') not in '123' %}{{response.cd_ND30d}}{% endif %}</span>
-           <!-- <span>{{response.cd_ND30d}}</span> -->
+           <span class="{% if response.cd_30dNic|replace('\/','/')|int == 1 %}mild{% elif response.cd_30dNic|replace('\/','/')|int == 2  %}moderate{% elif response.cd_30dNic|replace('\/','/')|int == 3%}severe{% endif %}">
+             {% if response.cd_30dNic|replace('\/','/') not in '123' %}{{response.cd_30dNic}}{% endif %}</span>
+           <!-- <span>{{response.cd_30dNic}}</span> -->
          </h3>
 
       </div>
@@ -3966,9 +3966,9 @@
         <h3>{{response.cd_Nhash3m|replace('\/','/')}}</h3>
         <h3>{{response.cd_NT3m|replace('\/','/')}}</h3>
         <h3>
-          <span class="{% if response.cd_ND3m|replace('\/','/')|int == 1 %}mild{% elif response.cd_ND3m|replace('\/','/')|int == 2  %}moderate{% elif response.cd_ND3m|replace('\/','/')|int == 3%}severe{% endif %}">
-          {% if response.cd_ND3m|replace('\/','/') not in '123' %}{{response.cd_ND3m}}{% endif %}</span>
-          <!-- <span>{{response.cd_ND3m}}</span> -->
+          <span class="{% if response.cd_3mNic|replace('\/','/')|int == 1 %}mild{% elif response.cd_3mNic|replace('\/','/')|int == 2  %}moderate{% elif response.cd_3mNic|replace('\/','/')|int == 3%}severe{% endif %}">
+          {% if response.cd_3mNic|replace('\/','/') not in '123' %}{{response.cd_3mNic}}{% endif %}</span>
+          <!-- <span>{{response.cd_3mNic}}</span> -->
         </h3>
 
     </div>
@@ -3977,8 +3977,8 @@
       <h3>{{response.cd_Nhash12m|replace('\/','/')}}</h3>
       <h3>{{response.cd_NT12m|replace('\/','/')}}</h3>
       <h3>
-        <span class="{% if response.cd_ND12m|replace('\/','/')|int == 1 %}mild{% elif response.cd_ND12m|replace('\/','/')|int == 2  %}moderate{% elif response.cd_ND12m|replace('\/','/')|int == 3%}severe{% endif %}">
-        {% if response.cd_ND12m|replace('\/','/') not in '123' %}{{response.cd_ND12m}}{% endif %}</span>
+        <span class="{% if response.cd_12mNic|replace('\/','/')|int == 1 %}mild{% elif response.cd_12mNic|replace('\/','/')|int == 2  %}moderate{% elif response.cd_12mNic|replace('\/','/')|int == 3%}severe{% endif %}">
+        {% if response.cd_12mNic|replace('\/','/') not in '123' %}{{response.cd_12mNic}}{% endif %}</span>
       </h3>
 
 
@@ -3988,9 +3988,9 @@
     <h3>{{response.cd_Nhash1dash4y|replace('\/','/')}}</h3>
     <h3>{{response.cd_NT1dash4y|replace('\/','/')}}</h3>
     <h3>
-      <!-- <span>{{response.cd_ND1dash4y}}</span> -->
-      <span class="{% if response.cd_ND1dash4y|replace('\/','/')|int == 1 %}mild{% elif response.cd_ND1dash4y|replace('\/','/')|int == 2  %}moderate{% elif response.cd_ND1dash4y|replace('\/','/')|int == 3%}severe{% endif %}">
-      {% if response.cd_ND1dash4y|replace('\/','/') not in '123' %}{{response.cd_ND1dash4y}}{% endif %}</span>
+      <!-- <span>{{response.cd_1dash4yNic}}</span> -->
+      <span class="{% if response.cd_1dash4yNic|replace('\/','/')|int == 1 %}mild{% elif response.cd_1dash4yNic|replace('\/','/')|int == 2  %}moderate{% elif response.cd_1dash4yNic|replace('\/','/')|int == 3%}severe{% endif %}">
+      {% if response.cd_1dash4yNic|replace('\/','/') not in '123' %}{{response.cd_1dash4yNic}}{% endif %}</span>
     </h3>
 
   </div>
@@ -3999,8 +3999,8 @@
     <h3>{{response.cd_Nhash5plusy|replace('\/','/')}}</h3>
     <h3>{{response.cd_NT5plusy|replace('\/','/')}}</h3>
     <h3>
-      <span class="{% if response.cd_ND5plusy|replace('\/','/')|int == 1 %}mild{% elif response.cd_ND5plusy|replace('\/','/')|int == 2  %}moderate{% elif response.cd_ND5plusy|replace('\/','/')|int == 3%}severe{% endif %}">
-      {% if response.cd_ND5plusy|replace('\/','/') not in '123' %}{{response.cd_ND5plusy}}{% endif %}</span>
+      <span class="{% if response.cd_5plusyNic|replace('\/','/')|int == 1 %}mild{% elif response.cd_5plusyNic|replace('\/','/')|int == 2  %}moderate{% elif response.cd_5plusyNic|replace('\/','/')|int == 3%}severe{% endif %}">
+      {% if response.cd_5plusyNic|replace('\/','/') not in '123' %}{{response.cd_5plusyNic}}{% endif %}</span>
     </h3>
 
   </div>
@@ -4017,7 +4017,7 @@
     <div class="page-container">
      <div class="page-header">
        <div class="logo">
-        <img src="assets/logo.png" style="height:35px;width:114px;"/>
+        <img src="assets/logo.png" style="height:35px;width:145px;"/>
        </div>
        <div class="text">
          <div class="content">
