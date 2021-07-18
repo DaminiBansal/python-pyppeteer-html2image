@@ -467,6 +467,8 @@
       }
       .prevention-list{
         width: 33%;
+        display: flex;
+        align-items: center;
       }
       .prevention-sec{
         margin-bottom: 5px;
@@ -495,6 +497,22 @@
         margin-right: 4px;
       }
       .prevention-ft-content span.tick-check:before{
+        content: '\2713';
+        display: inline-block;
+        color: #fff;
+        padding: 1px;
+        font-size: 10px;
+        text-align: center;
+        margin-top: -2px;
+      }
+      .prevention-list span{
+        width: 9px;
+        height: 9px;
+        display: inline-block;
+        margin-right: 4px;
+        margin-top: -4px;
+      }
+      .prevention-list span.tick-check:before{
         content: '\2713';
         display: inline-block;
         color: #fff;
@@ -2327,42 +2345,56 @@
           </div>
           <div class="prevention-ft-content">
               <span class="{% if response.cd_PrevR| int == 1 %}tick-check{% endif %}" style="{% if response.cd_PrevR | int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
-              <h2>Routine [2 and 3]</h2>
+              <!-- <h2>Routine [2 and 3]</h2> -->
+              <h2>ROUTINE</h2>
           </div>
           <div class="prevention-ft-content">
             <span class="{% if response.cd_PrevI| int == 1  %}tick-check{% endif %}" style="{% if response.cd_PrevI| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
-            <h2>Increased [1 to 4]</h2>
+            <!-- <h2>Increased [1 to 4]</h2> -->
+            <h2>INCREASED</h2>
         </div>
         <div class="prevention-ft-content">
           <span class="{% if response.cd_PrevS| int == 1  %}tick-check{% endif %}" style="{% if response.cd_PrevS| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
-          <h2>Significant [1 to 5]</h2>
+          <!-- <h2>Significant [1 to 5]</h2> -->
+          <h2>SIGNIFICANT</h2>
       </div>
       <div class="prevention-ft-content">
         <span class="{% if response.cd_PrevC| int == 1  %}tick-check{% endif %}" style="{% if response.cd_PrevC| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
-        <h2>Critical [1 to 6]</h2>
+        <!-- <h2>Critical [1 to 6]</h2> -->
+        <h2>CRITICAL</h2>
     </div>
         </div>
         <div class="prevention">
             <div class="prevention-sec">
               <div class="prevention-list">
-                <h3>1 | Annual Risk Screen</h3>
+                <span class="{% if response.cd_Prev1| int == 1  %}tick-check{% endif %}" style="{% if response.cd_Prev1| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
+                  <h3>Risk-Based Education & Training</h3>
               </div>
-              <div class="prevention-list">
-                <h3 style="margin-left: 12px;">2 | Risk-Based Education & Training</h3>
+              <div class="prevention-list" style="margin-left: 75px;">
+                <span class="{% if response.cd_Prev2| int == 1  %}tick-check{% endif %}" style="{% if response.cd_Prev2| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
+                  <h3>Annual Risk Screen</h3>
+                <!-- <h3 style="margin-left: 12px;">2 | Annual Risk Screen</h3> -->
               </div>
-              <div class="prevention-list">
-                <h3 style="margin-left: 70px;">3 | Resilience Training</h3>
+              <div class="prevention-list" style="margin-left: 10px;">
+                <span class="{% if response.cd_Prev3| int == 1  %}tick-check{% endif %}" style="{% if response.cd_Prev3| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
+                  <h3>Triggers Management</h3>
+                <!-- <h3 style="margin-left: 70px;">3 | Resilience Training</h3> -->
               </div>
             </div>
             <div class="prevention-sec">
               <div class="prevention-list">
-                <h3>4 | Support Network</h3>
+                <span class="{% if response.cd_Prev4| int == 1  %}tick-check{% endif %}" style="{% if response.cd_Prev4| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
+                  <h3>Resilience Training</h3>
               </div>
-              <div class="prevention-list">
-                <h3 style="margin-left: 12px;">5 | Triggers Management</h3>
+              <div class="prevention-list" style="margin-left: 75px;">
+                <span class="{% if response.cd_Prev5| int == 1  %}tick-check{% endif %}" style="{% if response.cd_Prev5| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
+                  <h3>Support Network</h3>
+                <!-- <h3 style="margin-left: 12px;">2 | Annual Risk Screen</h3> -->
               </div>
-              <div class="prevention-list">
-                <h3 style="margin-left: 70px;">6 | Conscious Daily Living</h3>
+              <div class="prevention-list" style="margin-left: 10px;">
+                <span class="{% if response.cd_Prev6| int == 1  %}tick-check{% endif %}" style="{% if response.cd_Prev6| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
+                  <h3>Conscious Daily Living</h3>
+                <!-- <h3 style="margin-left: 70px;">3 | Resilience Training</h3> -->
               </div>
             </div>
 
