@@ -203,7 +203,7 @@
 
       .percent {
         background-color: #f1f2f2;
-        padding:3px 5px;
+        padding:0px 5px;
         display: flex;
       }
       .percent.nop {
@@ -1078,33 +1078,33 @@
         justify-content: space-between;
       }
       .substance-sec .left{
-        width: 44%;
+        width: 62%;
         display: flex;
         border: 0.3px solid rgb(166 168 171 / .3);
         position: relative;
       }
       .substance-sec .left .first{
-        width: 35%;
+        width: 23%;
       }
       .substance-sec .left .second{
         text-align: center;
-        width: 33%;
+        width: 27%;
         border-left: 0.3px solid rgb(166 168 171 / .3);
       }
       .substance-sec .left .third{
         text-align: center;
-        width: 33%;
+        width: 40%;
         border-left: 0.3px solid rgb(166 168 171 / .3);
       }
       .substance-sec .right .first{
-        width: 35%;
+        width: 50%;
       }
       .substance-sec .right .second{
-        width: 65%;
+        width: 50%;
         border-left: 0.3px solid rgb(166 168 171 / .3);
       }
       .substance-sec .right{
-        width: 45%;
+        width: 37%;
         border: 0.3px solid rgb(166 168 171 / .3);
         display: flex;
         position: relative;
@@ -1974,7 +1974,7 @@
                     </h3>
                   </div>
                   <div class="acuity-last">
-                    <h2>Rx Meds</h2>
+                    <h2>Opioids</h2>
                     <h3>
                       <span class="{% if response.cd_30dRx|int == 1 %}mild{% elif response.cd_30dRx|int == 2  %}moderate{% elif response.cd_30dRx|int == 3%}severe{% endif %}">
                         {% if response.cd_30dRx not in '123' %}{{response.cd_30dRx}}{% endif %}</span>
@@ -2002,7 +2002,7 @@
                     </h3>
                   </div>
                   <div class="acuity-last" style="width: 22%;">
-                    <h2>Rec Drugs</h2>
+                    <h2>Other Drugs</h2>
                     <h3>
                       <span class="{% if response.cd_30dDrg|int == 1 %}mild{% elif response.cd_30dDrg|int == 2  %}moderate{% elif response.cd_30dDrg|int == 3%}severe{% endif %}">
                         {% if response.cd_30dDrg not in '123' %}{{response.cd_30dDrg}}{% endif %}</span>
@@ -2060,7 +2060,7 @@
           <div class="right">
             <div class="inner-box-container">
               <div class="inner-box">
-                <div class="head">
+                <div class="head" style="margin-bottom:1px;">
                   <h2>ENGAGEMENT</h2>
                 </div>
                 <div class="content">
@@ -2077,6 +2077,14 @@
                   </div>
                   <div class="middle nob">
                     <h3>{{response.cd_Den}}</h3>
+                  </div>
+                </div>
+                <div class="content">
+                  <div class="first">
+                    <h2>Motivators {{response.cd_MBTI}}</h2>
+                  </div>
+                  <div class="middle nob">
+                    <h3>{{response.cd_Style}}</h3>
                   </div>
                 </div>
                 <div class="content">
@@ -2102,13 +2110,13 @@
                       <li>
                         {% if response.cd_Motpercent| replace("%", "") | int  == 100 %}
                           <label>10</label>
-                          <span class="greenOpacity">Never more engaged</span>
+                          <span class="greenOpacity">Never more committed</span>
                         {% elif response.cd_Motpercent| replace("%", "") | int  < 100 %}
                           <label class="greenOpacity">10</label>
-                          <span>Never more engaged</span>
+                          <span>Never more committed</span>
                         {% else %}
                           <label>10</label>
-                          <span>Never more engaged</span>
+                          <span>Never more committed</span>
                         {% endif %}
                       </li>
                       <li>
@@ -3235,11 +3243,11 @@
                   </div>
                   <div class="activity-bar">
                       <label><span style="background-color: #3676BB;height: {{response.cd_30dRx|int * 33.3}}%;"></span></label>
-                      <h6>RX</h6>
+                      <h6>OP</h6>
                   </div>
                   <div class="activity-bar">
                     <label><span style="background-color: #3676BB;height: {{response.cd_30dDrg|int * 33.3}}%;"></span></label>
-                    <h6>DRG</h6>
+                    <h6>OTH</h6>
                 </div>
                 </div>
                 <div class="activity-bar-chart">
@@ -3253,11 +3261,11 @@
                   </div>
                   <div class="activity-bar">
                       <label><span style="background-color: #3676BB;height: {{response.cd_3mRx|int * 33.3}}%;"></span></label>
-                      <h6>RX</h6>
+                      <h6>OP</h6>
                   </div>
                   <div class="activity-bar">
                     <label><span style="background-color: #3676BB;height: {{response.cd_3mDrg|int * 33.3}}%;"></span></label>
-                    <h6>DRG</h6>
+                    <h6>OTH</h6>
                 </div>
                 </div>
                 <div class="activity-bar-chart">
@@ -3271,11 +3279,11 @@
                   </div>
                   <div class="activity-bar">
                       <label><span style="background-color: #3676BB;height: {{response.cd_12mRx|int * 33.3}}%;"></span></label>
-                      <h6>RX</h6>
+                      <h6>OP</h6>
                   </div>
                   <div class="activity-bar">
                     <label><span style="background-color: #3676BB;height: {{response.cd_12mDrg|int * 33.3}}%;"></span></label>
-                    <h6>DRG</h6>
+                    <h6>OTH</h6>
                 </div>
                 </div>
                 <div class="activity-bar-chart">
@@ -3289,11 +3297,11 @@
                   </div>
                   <div class="activity-bar">
                       <label><span style="background-color: #3676BB;height: {{response.cd_1dash4yRx|int * 33.3}}%;"></span></label>
-                      <h6>RX</h6>
+                      <h6>OP</h6>
                   </div>
                   <div class="activity-bar">
                     <label><span style="background-color: #3676BB;height: {{response.cd_1dash4yDrg|int * 33.3}}%;"></span></label>
-                    <h6>DRG</h6>
+                    <h6>OTH</h6>
                 </div>
                 </div>
               </div>
@@ -3420,8 +3428,15 @@
               <h4>{{response.cd_Rx1stUse}}</h4>
               <h4>{{response.cd_D1stUse}}</h4>
           </div>
+          <div class="second">
+              <h3>Age 1st Dependent</h3>
+              <h4>{{response.cd_N1stDep}}</h4>
+              <h4>{{response.cd_A1stDep}}</h4>
+              <h4>{{response.cd_Rx1stDep}}</h4>
+              <h4>{{response.cd_D1stDep}}</h4>
+          </div>
           <div class="third">
-            <h3>Number of Dep Yrs</h3>
+            <h3>Number of Dependent Years</h3>
             <h4>{{response.cd_NDepY}}</h4>
             <h4>{{response.cd_ADepY}}</h4>
             <h4>{{response.cd_RxDepY}}</h4>
