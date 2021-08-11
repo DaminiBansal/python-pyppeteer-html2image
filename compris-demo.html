@@ -538,6 +538,7 @@
         margin-bottom: 5px;
         font-family: 'Montserrat', sans-serif;
         font-weight: 400;
+        margin-top: 3px;
       }
       .compris h3{
         /* color: #404041; */
@@ -554,15 +555,18 @@
         width: 14%;
       }
       .compris .second{
-        border-right: 0.3px solid rgb(0 155 200 / .7);
+        /*border-right: 0.3px solid rgb(0 155 200 / .7);*/
         width: 40%;
-        margin-left:-26px;
+        margin-left:-18px;
       }
       .compris .third{
         border-right: 0.3px solid rgb(167 169 172 / .3);
         width: 14%;
         /* margin-left: -11px; */
         margin-left: -22px;
+        max-height: 60px;
+        padding-left: 7px;
+        border-left: 0.3px solid rgb(0 155 200 / .7);
       }
       .compris-ft{
         background: #F1F2F2;
@@ -1703,9 +1707,9 @@
      }
      .arrow-user{
       position: absolute;
-    z-index: -1;
-    top: -3px;
-    right: -3px;
+      z-index: -1;
+      top: -5px;
+      right: -3px;
      }
      .gray-line{
       display: inline-block;
@@ -2404,7 +2408,7 @@
               <h3>&nbsp;{{response.cd_Med}}</h3>
               <h3>&nbsp;{{response.cd_Grp}}</h3>
               <h3>&nbsp;{{response.cd_CBT}}</h3>
-              <h3>&nbsp;{{response.cd_OthTx}}</h3>
+              <h3 style="width:486px;">&nbsp;{{response.cd_OthTx}}</h3>
             </div>
             <div class="third">
               <h2>Level of Care</h2>
@@ -2412,7 +2416,7 @@
               <h2 style="white-space: nowrap;">Support Duration</h2>
               <h2>Psychiatry</h2>
             </div>
-            <div class="four" style="margin-left: -23px;">
+            <div class="four" style="margin-left: -18px;">
               <h3 style="width: 173px;">&nbsp;{{response.cd_LC}}</h3>
               <h3>&nbsp;{{response.cd_MedDur}}</h3>
               <h3>&nbsp;{{response.cd_GrpDur}}</h3>
@@ -3005,7 +3009,7 @@
           </div>
         </div>
         <div class="resilience">
-          <h2>{{response.cd_hashRes}} of 28 | {{response.cd_percentRes}} Current Resources</h2>
+          <h2>{{response.cd_hashRes}} &nbsp; of &nbsp; 28 &nbsp; | &nbsp; {{response.cd_percentRes}} &nbsp; Current Resources</h2>
         </div>
         <div class="resilience-section">
           <span class="line"></span>
@@ -3309,7 +3313,7 @@
         </div>
         <div class="sym-head">
           <div class="first">
-            <h2>Symptoms</h2>
+            <h2>Symptoms (excludes nicotine)</h2>
             </div>
           <div class="last">
             <span>30d</span>
@@ -3530,7 +3534,7 @@
         </div>
         <div class="sym-section">
           <div class="first">
-            <h2>Stopping led to: sleep loss, shaky, irritable, anxious, depressed, sick, sweats, hallucinations</h2>
+            <h2>Stopping led to: sleep loss, shaky, irritable, anxious, depressed, sick, sweats or hallucinations</h2>
           </div>
           <div class="last">
             <span class="{% if response.cd_30dhash11| int == 1 %}tick-check{% endif %}"></span>
@@ -3936,7 +3940,7 @@
           </div>
           <div class="right">
           <div class="first">
-            <h3 style="width:163%;padding-left:36px;">Substance Management History</h3>
+            <h3 style="width:150%;padding-left:49px;">Substance Management History</h3>
             <h4>Prior Cutbacks</h4>
             <h4>Prior Quits</h4>
             <h4>Prior Remissions</h4>
