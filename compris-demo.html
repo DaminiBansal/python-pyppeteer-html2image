@@ -854,13 +854,13 @@
         line-height: 20px;
         padding: 0px 5px;
         font-weight: 400;
-        width: 65px;
+        width: 136px;
       }
       .sym-head .first{
         width: 70%;
       }
       .sym-head .last{
-        width: 8.2%;
+        width: 8%;
         text-align: center;
         background-color: #3676BB;
       }
@@ -884,7 +884,7 @@
         border-bottom: none;
       }
       .sym-section .first{
-        width: 70%;
+        width: 73%;
         margin-bottom: -4px;
       }
       .sym-section .last{
@@ -925,7 +925,7 @@
         font-weight: 300;
       }
       .sym-total .last{
-        width: 6.31%;
+        width: 6.15%;
         padding-left: 5.32px;
         background-color: #F1F2F2;
         height: 26px;
@@ -1574,7 +1574,7 @@
      .evidence-text-sec{
       display: flex;
     justify-content: space-around;
-    margin-left: 20px;
+    margin-left: 12px;
     margin-top:0px
      }
      .lifetime-section{
@@ -1799,11 +1799,11 @@
         </div>
         <div class="text">
           <div class="content">
-            <p>Patient CMR: &nbsp;{{response.cd_CMR}}</p>
+            <p>CMR del Paciente: &nbsp;{{response.cd_CMR}}</p>
             <div class="bottom">
-              <p>Age | Gender: {{response.cd_Age}}</p>
-              <p>Date: {{response.cd_Date|replace('\/','/')}}</p>
-              <p>Initials: {{response.cd_ABC}}</p>
+              <p>Edad | Sexo: {{response.cd_Age}}</p>
+              <p>Fecha: {{response.cd_Date|replace('\/','/')}}</p>
+              <p>Iniciales: {{response.cd_ABC}}</p>
             </div>
           </div>
           <label class="graybg">
@@ -1820,19 +1820,19 @@
       </div>
       <div class="box-container">
         <div class="box-head">
-          <h2>COMPRIS PROFILE SUMMARY</h2>
+          <h2>RESUMEN DEL PERFIL COMPRIS</h2>
         </div>
         <div class="box-inner-section">
           <div class="left">
             <div class="inner-box-container">
               <div class="inner-box">
                 <div class="head" style="margin-bottom:16px !important;">
-                  <h2 style="float:left;">ADDICTION RISK STRATIFICATION</h2>
+                  <h2 style="float:left;">ESTRATIFICACIÓN DE RIESGO DE ADICCIÓN</h2>
                   <h4 class="sh">{{response.cd_SH}}</h4>
                 </div>
                 <div class="content">
                   <div class="first">
-                    <h2 style="white-space: nowrap;">CURRENT ADJUSTED RISK</h2>
+                    <h2 style="white-space: nowrap;">RIESGO ACTUAL AJUSTADO</h2>
                   </div>
                   <div class="middle">
                     <h3 class="small">{{response.cd_Riskplus}}</h3>
@@ -1844,7 +1844,7 @@
                 </div>
                 <div class="content">
                   <div class="first">
-                    <h2>•&nbsp;&nbsp;Lifetime Addiction Risk</h2>
+                    <h2>•&nbsp;&nbsp;Riesgo de Adicción de por vida</h2>
                   </div>
                   <div class="middle">
                     <h3>{{response.cd_Riskdash}}</h3>
@@ -1856,7 +1856,7 @@
                 </div>
                 <div class="content">
                   <div class="first">
-                    <h2>•&nbsp;&nbsp;Current Resilience</h2>
+                    <h2>•&nbsp;&nbsp;Resiliencia Actual</h2>
                   </div>
                   <div class="middle">
                     <h3>{{response.cd_Res}}</h3>
@@ -1868,7 +1868,7 @@
                 </div>
                 <div class="content">
                   <div class="first">
-                    <h2>•&nbsp;&nbsp;Sustained Remission</h2>
+                    <h2>•&nbsp;&nbsp;Remisión sostenida</h2>
                   </div>
                   <div class="middle">
                     <h3>{{response.cd_Remplus}}</h3>
@@ -1880,25 +1880,25 @@
                 </div>
               </div>
               <div class="percent nop">
-                <h2>Trait-Specific Risk</h2>
+                <h2>Riesgo de Rasgo Específico</h2>
                 <h3>{{response.cd_PersRisk}}</h3>
               </div>
               <div class="percent nop">
-                <h2>Substance-Specific Risk</h2>
+                <h2>Riesgo Específico de la Sustancia</h2>
                 <h3>{{response.cd_SubsRisk}}</h3>
               </div>
               <div class="inner-box">
                 <div class="head">
-                  <h2>ACUITY & SEVERITY DIAGNOSTICS</h2>
+                  <h2>DIAGNÓSTICO DE LA AGUDEZA Y GRAVEDAD</h2>
                 </div>
                 <div class="acuity-table">
                   <div class="acuity-first">
                       <h2></h2>
-                      <label>Current Illness</br>  30 Days</label>
-                    <label>Acute Illness</br>  1 - 3 Months</label>
-                    <label>Sub-Acute Illness</br> 4 - 11 Months</label>
-                    <label>Chronic Illness</br> 1 - 4 Years</label>
-                    <label style="white-space: nowrap;">Chronic | <small>Remote Illness</small></br> 5+ Years</label>
+                      <label>Enfermedad Actual</br>  30 Días</label>
+                    <label>Enfermedad Aguda</br>  1-3 Meses</label>
+                    <label>Enfermedad subaguda</br> 4 - 11 Meses</label>
+                    <label>Enfermedad Crónica</br> 1 - 4 Años</label>
+                    <label style="white-space: nowrap;">Crónica | <small>Enfermedad Remota</small></br> 5+ Años</label>
                   </div>
 
                   {% if response.cd_SympSev not in [None, ""] %}
@@ -1928,7 +1928,7 @@
                   {% endif %}
 
                   <div class="acuity-last">
-                    <h2>Nicotine</h2>
+                    <h2>Nicotina</h2>
                     <h3>
                       <span class="{% if response.cd_30dNic|int == 1 %}mild{% elif response.cd_30dNic|int == 2  %}moderate{% elif response.cd_30dNic|int == 3%}severe{% endif %}">
                         {% if response.cd_30dNic not in '123' %}{{response.cd_30dNic}}{% endif %}</span>
@@ -1973,7 +1973,7 @@
                     </h3>
                   </div>
                   <div class="acuity-last">
-                    <h2>Opioids</h2>
+                    <h2>Opioides</h2>
                     <h3>
                       <span class="{% if response.cd_30dRx|int == 1 %}mild{% elif response.cd_30dRx|int == 2  %}moderate{% elif response.cd_30dRx|int == 3%}severe{% endif %}">
                         {% if response.cd_30dRx not in '123' %}{{response.cd_30dRx}}{% endif %}</span>
@@ -1995,7 +1995,7 @@
                     </h3>
                   </div>
                   <div class="acuity-last" style="width: 22%;">
-                    <h2>Other Drugs</h2>
+                    <h2>Otras Drogas</h2>
                     <h3>
                       <span class="{% if response.cd_30dDrg|int == 1 %}mild{% elif response.cd_30dDrg|int == 2  %}moderate{% elif response.cd_30dDrg|int == 3%}severe{% endif %}">
                         {% if response.cd_30dDrg not in '123' %}{{response.cd_30dDrg}}{% endif %}</span>
@@ -2028,19 +2028,19 @@
               <div class="acuity">
                 <div>
                   <span class="mild"></span>
-                  <label>MILD</label>
+                  <label>LEVE</label>
                 </div>
                 <div>
                   <span class="moderate"></span>
-                  <label>MODERATE</label>
+                  <label>MODERADO</label>
                 </div>
                 <div>
                   <span class="severe"></span>
-                  <label>SEVERE</label>
+                  <label>GRAVE</label>
                 </div>
                 <div style="padding-top: 6px;">
                   <span class=""></span>
-                  <label>+/++ MISUSE MARKERS</label>
+                  <label>+/++ MARCADORES DE ABUSO</label>
                 </div>
               </div>
             </div>
@@ -2049,11 +2049,11 @@
             <div class="inner-box-container">
               <div class="inner-box">
                 <div class="head" style="margin-bottom:1px;">
-                  <h2>ENGAGEMENT</h2>
+                  <h2>COMPROMISO</h2>
                 </div>
                 <div class="content">
                   <div class="first">
-                    <h2>Subjective Severity</h2>
+                    <h2>Gravedad Subjetiva</h2>
                   </div>
                   <div class="middle nob">
                     <h3>{{response.cd_SSev}}</h3>
@@ -2061,7 +2061,7 @@
                 </div>
                 <div class="content">
                   <div class="first">
-                    <h2>Illness Denial</h2>
+                    <h2>Negación de la enfermedad</h2>
                   </div>
                   <div class="middle nob">
                     <h3>{{response.cd_Den}}</h3>
@@ -2069,7 +2069,7 @@
                 </div>
                 <div class="content">
                   <div class="first">
-                    <h2>Motivators {{response.cd_MBTI}}</h2>
+                    <h2>Motivadores {{response.cd_MBTI}}</h2>
                   </div>
                   <div class="middle nob">
                     <h3>{{response.cd_Style}}</h3>
@@ -2077,7 +2077,7 @@
                 </div>
                 <div class="content">
                   <div class="first">
-                    <h2>Current Motivation</h2>
+                    <h2>Motivación Actual</h2>
                   </div>
                   <div class="middle nob">
                     <h3>{{response.cd_Motplusdash}}</h3>
@@ -2085,52 +2085,52 @@
                 </div>
               </div>
               <div class="percent">
-                <h2 class="fullwidth">Motivation Scale
+                <h2 class="fullwidth">Escala Motivacional
                 <h3>{{response.cd_Motpercent}}</h3>
               </div>
               <div class="inner-box" style="padding:5px">
                 <div class="positive-box pos">
                   <div class="first pos">
-                    <h2>POSITIVE</h2>
+                    <h2>POSITIVO</h2>
                   </div>
                   <div class="second">
                     <ul>
                       <li>
                         {% if response.cd_Motpercent| replace("%", "") | int  == 100 %}
                           <label>10</label>
-                          <span class="greenOpacity">Never more committed</span>
+                          <span class="greenOpacity">Comprometido como nunca antes</span>
                         {% elif response.cd_Motpercent| replace("%", "") | int  < 100 %}
                           <label class="greenOpacity">10</label>
-                          <span>Never more committed</span>
+                          <span>Comprometido como nunca antes</span>
                         {% else %}
                           <label>10</label>
-                          <span>Never more committed</span>
+                          <span>Comprometido como nunca antes</span>
                         {% endif %}
                       </li>
                       <li>
 
                         {% if response.cd_Motpercent| replace("%", "") | int  == 90 %}
                           <label>9</label>
-                          <span class="greenOpacity">Ready / engaged</span>
+                          <span class="greenOpacity">Listo / comprometido</span>
                         {% elif response.cd_Motpercent| replace("%", "") | int  < 90 %}
                           <label class="greenOpacity">9</label>
-                          <span>Ready / engaged</span>
+                          <span>Listo / comprometido</span>
                         {% else %}
                           <label>9</label>
-                          <span>Ready / engaged</span>
+                          <span>Listo / comprometido</span>
                         {% endif %}
                       </li>
                       <li>
 
                         {% if response.cd_Motpercent| replace("%", "") | int  == 80 %}
                           <label>8</label>
-                          <span class="greenOpacity">Want my life back</span>
+                          <span class="greenOpacity">Quiero mi vida de vuelta</span>
                         {% elif response.cd_Motpercent| replace("%", "") | int  < 80 %}
                           <label class="greenOpacity">8</label>
-                          <span>Want my life back</span>
+                          <span>Quiero mi vida de vuelta</span>
                         {% else %}
                           <label>8</label>
-                          <span>Want my life back</span>
+                          <span>Quiero mi vida de vuelta</span>
                         {% endif %}
                       </li>
                     </ul>
@@ -2138,7 +2138,7 @@
                 </div>
                 <div class="positive-box con">
                   <div class="first con">
-                    <h2>CONFLICTED</h2>
+                    <h2>EN CONFLICTO</h2>
                   </div>
                   <div class="second">
                     <ul>
@@ -2146,38 +2146,38 @@
 
                         {% if response.cd_Motpercent| replace("%", "") | int  == 70 %}
                           <label>7</label>
-                          <span class="yellowfill">Afraid not to try</span>
+                          <span class="yellowfill">Con miedo a no intentarlo</span>
                         {% elif response.cd_Motpercent| replace("%", "") | int  < 70 %}
                           <label class="yellowfill">7</label>
-                          <span>Afraid not to try</span>
+                          <span>Con miedo a no intentarlo</span>
                         {% else %}
                           <label>7</label>
-                          <span>Afraid not to try</span>
+                          <span>Con miedo a no intentarlo</span>
                         {% endif %}
                       </li>
                       <li>
 
                         {% if response.cd_Motpercent| replace("%", "") | int  == 60 %}
                           <label>6</label>
-                          <span class="yellowfill">Tired of it all</span>
+                          <span class="yellowfill">Cansado de todo</span>
                         {% elif response.cd_Motpercent| replace("%", "") | int  < 60 %}
                           <label class="yellowfill">6</label>
-                          <span>Tired of it all</span>
+                          <span>Cansado de todo</span>
                         {% else %}
                           <label>6</label>
-                          <span>Tired of it all</span>
+                          <span>Cansado de todo</span>
                         {% endif %}
                       </li>
                       <li>
                         {% if response.cd_Motpercent| replace("%", "") | int  == 50 %}
                           <label>5</label>
-                          <span class="yellowfill">Unsure</span>
+                          <span class="yellowfill">Inseguro</span>
                         {% elif response.cd_Motpercent| replace("%", "") | int  < 50 %}
                           <label class="yellowfill">5</label>
-                          <span>Unsure</span>
+                          <span>Inseguro</span>
                         {% else %}
                           <label>5</label>
-                          <span>Unsure</span>
+                          <span>Inseguro</span>
                         {% endif %}
                       </li>
                       <li>
@@ -2197,52 +2197,52 @@
                 </div>
                 <div class="positive-box neg">
                   <div class="first neg">
-                    <h2>NEGATIVE</h2>
+                    <h2>NEGATIVO</h2>
                   </div>
                   <div class="second">
                     <ul>
                       <li style="margin-top: 1px;">
                         {% if response.cd_Motpercent| replace("%", "") | int  == 30 %}
                           <label>3</label>
-                          <span class="redfill">Feel guilty</span>
+                          <span class="redfill">Me siento culpable</span>
                         {% elif response.cd_Motpercent| replace("%", "") | int  < 30 %}
                           <label class="redfill">3</label>
-                          <span>Feel guilty</span>
+                          <span>Me siento culpable</span>
                         {% else %}
                           <label>3</label>
-                          <span>Feel guilty</span>
+                          <span>Me siento culpable</span>
                         {% endif %}
                       </li>
                       <li>
                         {% if response.cd_Motpercent| replace("%", "") | int  == 20 %}
                           <label>2</label>
-                          <span class="redfill">Feel pressured</span>
+                          <span class="redfill">Me siento bajo presión</span>
                         {% elif response.cd_Motpercent| replace("%", "") | int  < 20 %}
                           <label class="redfill">2</label>
-                          <span>Feel pressured</span>
+                          <span>Me siento bajo presión</span>
                         {% else %}
                           <label>2</label>
-                          <span>Feel pressured</span>
+                          <span>Me siento bajo presión</span>
                         {% endif %}
                       </li>
                       <li>
                         {% if response.cd_Motpercent| replace("%", "") | int  == 10 %}
                           <label>1</label>
-                          <span class="redfill">No interest</span>
+                          <span class="redfill">Sin interés</span>
                         {% elif response.cd_Motpercent| replace("%", "") | int  < 10 %}
                           <label class="redfill">1</label>
-                          <span>No interest</span>
+                          <span>Sin interés</span>
                         {% else %}
                           <label>1</label>
-                          <span>No interest</span>
+                          <span>Sin interés</span>
                         {% endif %}
                       </li>
                       <li>
                         <label>0</label>
                         {% if response.cd_Motpercent| replace("%", "") | int  == 0 %}
-                        <span class="redfill">No need</span>
+                        <span class="redfill">Sin necesidad</span>
                         {% else %}
-                        <span>No need</span>
+                        <span>Sin necesidad</span>
                         {% endif %}
                       </li>
                     </ul>
@@ -2255,30 +2255,30 @@
       </div>
       <div class="box-container">
         <div class="box-head">
-          <h2>THE RESILIENCE FACTOR</h2>
+          <h2>EL FACTOR DE RESILIENCIA</h2>
         </div>
         <div class="risk-chart-section">
           <div class="risk-chart bg">
-            <h2>Stratified Risk : Resilience + Risk = Remission Odds</h2>
+            <h2>Riesgo Estratificado Resiliencia + Riesgo = Probabilidad de Remisión</h2>
             <div class="risk-bar-section">
                 <div class="risk-bar">
                    <label><span style="height:{{response.cd_percentRes}};background-color:#349A97"></span></label>
-                   <h4 style="color:#349A97"> <strong>Resilience </strong></h4>
+                   <h4 style="color:#349A97"> <strong>Resiliencia </strong></h4>
                     <h3 style="color:#349A97"> <strong>{{response.cd_percentRes}} </strong></h3>
                 </div>
                 <div class="risk-bar">
                   <label><span style="height:{{response.cd_percentRiskplus}};background-color:#D04646"></span></label>
-                  <h4>Risk</h4>
+                  <h4>Riesgo</h4>
                    <h3>{{response.cd_percentRiskplus}}</h3>
                </div>
                <div class="risk-bar">
                 <label><span style="height:{{response.cd_percentRemplus}};background-color: #8DAD3C;"></span></label>
-                 <h4>Remission</h4>
+                 <h4>Remisión</h4>
                  <h3>{{response.cd_percentRemplus}}</h3>
              </div>
             </div>
             <div class="risk-bar-ft">
-              <h3>Current Resilience</h3>
+              <h3>Resiliencia Actual</h3>
             </div>
           </div>
           <div class="risk-chart">
@@ -2286,22 +2286,22 @@
             <div class="risk-bar-section">
               <div class="risk-bar">
                  <label><span style="height:0%;background-color:#349A97"></span></label>
-                 <h4 style="color:#349A97"><strong> Resilience</strong></h4>
+                 <h4 style="color:#349A97"><strong> Resiliencia</strong></h4>
                   <h3 style="color:#349A97"><strong>0%</strong></h3>
               </div>
               <div class="risk-bar">
                 <label><span style="height:{{response.cd_percentRiskdash}};background-color:#D04646"></span></label>
-                <h4>Risk</h4>
+                <h4>Riesgo</h4>
                  <h3>{{response.cd_percentRiskdash}}</h3>
              </div>
              <div class="risk-bar">
               <label><span style="height:{{response.cd_percentRemdash}};background-color: #8DAD3C;"></span></label>
-               <h4>Remission</h4>
+               <h4>Remisión</h4>
                <h3>{{response.cd_percentRemdash}}</h3>
            </div>
           </div>
           <div class="risk-bar-ft">
-            <h3>Minimum Resilience</h3>
+            <h3>Resiliencia Mínima</h3>
           </div>
           </div>
           <div class="risk-chart">
@@ -2309,29 +2309,29 @@
             <div class="risk-bar-section">
               <div class="risk-bar">
                  <label><span style="height:100%;background-color:#349A97"></span></label>
-                 <h4 style="color:#349A97"><strong> Resilience</strong></h4>
+                 <h4 style="color:#349A97"><strong> Resiliencia</strong></h4>
                   <h3 style="color:#349A97"><strong>100%</strong></h3>
               </div>
               <div class="risk-bar">
                 <label><span style="height:{{response.cd_percentRiskplusplus}};background-color:#D04646"></span></label>
-                <h4>Risk</h4>
+                <h4>Riesgo</h4>
                  <h3>{{response.cd_percentRiskplusplus}}</h3>
              </div>
              <div class="risk-bar">
               <label><span style="height: {{response.cd_percentRemplusplus}};background-color: #8DAD3C;"></span></label>
-               <h4>Remission</h4>
+               <h4>Remisión</h4>
                <h3>{{response.cd_percentRemplusplus}}</h3>
            </div>
           </div>
           <div class="risk-bar-ft">
-            <h3>Maximum Resilience</h3>
+            <h3>Resiliencia Máxima</h3>
           </div>
           </div>
         </div>
       </div>
       <div class="box-container">
         <div class="box-head">
-          <h2>PREVENTION - REMISSION GUIDE ©</h2>
+          <h2>PREVENCIÓN - GUÍA DE REMISIÓN ©</h2>
         </div>
         <div class="prevention-ft" style="margin-top: 5px;">
           <div class="prevention-ft-content">
@@ -2340,49 +2340,49 @@
           </div>
           <div class="prevention-ft-content">
               <span class="{% if response.cd_PrevR| int == 1 %}tick-check{% endif %}" style="{% if response.cd_PrevR | int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
-              <h2>ROUTINE</h2>
+              <h2>RUTINA</h2>
           </div>
           <div class="prevention-ft-content">
             <span class="{% if response.cd_PrevI| int == 1  %}tick-check{% endif %}" style="{% if response.cd_PrevI| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
-            <h2>INCREASED</h2>
+            <h2>AUMENTADO</h2>
         </div>
         <div class="prevention-ft-content">
           <span class="{% if response.cd_PrevS| int == 1  %}tick-check{% endif %}" style="{% if response.cd_PrevS| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
-          <h2>SIGNIFICANT</h2>
+          <h2>RELEVANTE</h2>
       </div>
       <div class="prevention-ft-content">
         <span class="{% if response.cd_PrevC| int == 1  %}tick-check{% endif %}" style="{% if response.cd_PrevC| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
         <!-- <h2>Critical [1 to 6]</h2> -->
-        <h2>CRITICAL</h2>
+        <h2>CRÍTICO</h2>
     </div>
         </div>
         <div class="prevention">
             <div class="prevention-sec">
               <div class="prevention-list">
                 <span class="{% if response.cd_Prev1| int == 1  %}tick-check{% endif %}" style="{% if response.cd_Prev1| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
-                  <h3>Risk-Based Education & Training</h3>
+                  <h3>Educación y Entrenamiento de Riesgo</h3>
               </div>
               <div class="prevention-list" style="margin-left: 75px;">
-                <span class="{% if response.cd_Prev2| int == 1  %}tick-check{% endif %}" style="{% if response.cd_Prev2| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
-                  <h3>Annual Risk Screen</h3>
+                <span class="{% if response.cd_Prev3| int == 1  %}tick-check{% endif %}" style="{% if response.cd_Prev3| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
+                  <h3>Evaluación de Riesgo Anual</h3>
               </div>
               <div class="prevention-list" style="margin-left: 10px;">
-                <span class="{% if response.cd_Prev3| int == 1  %}tick-check{% endif %}" style="{% if response.cd_Prev3| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
-                  <h3>Triggers Management</h3>
+                <span class="{% if response.cd_Prev5| int == 1  %}tick-check{% endif %}" style="{% if response.cd_Prev5| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
+                  <h3>Manejo de Desencadenantes</h3>
               </div>
             </div>
             <div class="prevention-sec">
               <div class="prevention-list">
-                <span class="{% if response.cd_Prev4| int == 1  %}tick-check{% endif %}" style="{% if response.cd_Prev4| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
-                  <h3>Resilience Training</h3>
+                <span class="{% if response.cd_Prev2| int == 1  %}tick-check{% endif %}" style="{% if response.cd_Prev2| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
+                  <h3>Entrenamiento de Resiliencia</h3>
               </div>
               <div class="prevention-list" style="margin-left: 75px;">
-                <span class="{% if response.cd_Prev5| int == 1  %}tick-check{% endif %}" style="{% if response.cd_Prev5| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
-                  <h3>Support Network</h3>
+                <span class="{% if response.cd_Prev4| int == 1  %}tick-check{% endif %}" style="{% if response.cd_Prev4| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
+                  <h3>Red de Apoyo</h3>
               </div>
               <div class="prevention-list" style="margin-left: 10px;">
                 <span class="{% if response.cd_Prev6| int == 1  %}tick-check{% endif %}" style="{% if response.cd_Prev6| int == 1  %}background-color: #268B6F;{% endif %}border: 1px solid #268B6F;"></span>
-                  <h3>Conscious Daily Living</h3>
+                  <h3>Vida Cotidiana Consciente</h3>
               </div>
             </div>
 
@@ -2396,11 +2396,11 @@
         <div class="compris-top">
           <div class="compris">
             <div class="first">
-                <h2>Withdrawal (WM)</h2>
-                <h2>Meds</h2>
-                <h2>Support</h2>
-                <h2>MET/CBT Training</h2>
-                <h2>Other Treatment</h2>
+                <h2>Abstinencia (WM)</h2>
+                <h2>Medicamentos</h2>
+                <h2>Apoyo</h2>
+                <h2>Entrenamiento MET/CBT</h2>
+                <h2>Otros tratamientos</h2>
 
             </div>
             <div class="second">
@@ -2411,10 +2411,10 @@
               <h3 style="width:486px;">&nbsp;{{response.cd_OthTx}}</h3>
             </div>
             <div class="third">
-              <h2>Level of Care</h2>
-              <h2>Meds Duration</h2>
-              <h2 style="white-space: nowrap;">Support Duration</h2>
-              <h2>Psychiatry</h2>
+              <h2>Nivel de cuidado</h2>
+              <h2>Duración de medicamentos</h2>
+              <h2 style="white-space: nowrap;">Duración del apoyo</h2>
+              <h2>Psiquiatría</h2>
             </div>
             <div class="four" style="margin-left: -18px;">
               <h3 style="width: 173px;">&nbsp;{{response.cd_LC}}</h3>
@@ -2428,12 +2428,12 @@
             <span class="gray-line" style="top:65px;"></span>
         </div>
         <div class="compris-ft">
-            <h2 style="white-space:nowrap;font-size: 8px;margin-left: -3px">Patient Preference <span style="margin-left: 6px ! important;"></span>{{response.cd_Pref}}</h2>
+            <h2 style="white-space:nowrap;font-size: 8px;margin-left: -3px">Preferencia del Paciente <span style="margin-left: 6px ! important;"></span>{{response.cd_Pref}}</h2>
         </div>
         </div>
       </div>
       <div class="page-footer">
-        <p>DISCLAIMER : THIS REPORT IS INTENDED AS A GUIDE, NOT A SUBSTITUTE, FOR FACE-TO-FACE PROVIDER-PATIENT TREATMENT COLLABORATION.</p>
+        <p>DESCARGO DE RESPONSABILIDAD ESTE REPORTE TIENE COMO INTENCIÓN SER UNA GUÍA, NO UN SUSTITUTO DEL TRATAMIENTO EN PERSONA ENTRE EL PROVEEDOR Y EL PACIENTE.</p>
         <p style="float: right;margin-top: -7px !important;margin-right: 2px;">info@compriscare.com</p>
       </div>
     </div>
@@ -2446,11 +2446,11 @@
        </div>
        <div class="text">
          <div class="content">
-           <p>Patient CMR: &nbsp;{{response.cd_CMR}}</p>
+           <p>CMR del Paciente: &nbsp;{{response.cd_CMR}}</p>
            <div class="bottom">
-             <p>Age | Gender: {{response.cd_Age}}</p>
-             <p>Date: {{response.cd_Date|replace('\/','/')}}</p>
-             <p>Initials: {{response.cd_ABC}}</p>
+             <p>Edad | Sexo: {{response.cd_Age}}</p>
+             <p>Fecha: {{response.cd_Date|replace('\/','/')}}</p>
+             <p>Iniciales: {{response.cd_ABC}}</p>
            </div>
          </div>
          <label class="graybg">
@@ -2467,12 +2467,12 @@
      </div>
      <div class="box-container">
        <div class="box-head">
-         <h2>PERSONAL SUMMARY</h2>
+         <h2>RESUMEN PERSONAL</h2>
        </div>
        <div class="box-inner-section">
        <div class="inner-box">
          <div class="head">
-           <h2>WITH RECOMMENDATIONS</h2>
+           <h2>CON RECOMENDACIONES</h2>
          </div>
          </div>
        </div>
@@ -2481,7 +2481,7 @@
 
            <div class="left" style="height: 100px;">
              <div>
-               <h2>Addiction <br>Risk Factors</h2>
+               <h2>Adicción <br>Factores de Riesgo</h2>
              </div>
 
            </div>
@@ -2496,7 +2496,7 @@
          <div class="recommen-box-list">
            <div class="left">
              <div>
-               <h2>Resilience & <br>Addiction Odds</h2>
+               <h2>Resiliencia & <br>Probabilidad de Adicción</h2>
              </div>
 
            </div>
@@ -2512,7 +2512,7 @@
            <div class="left">
              <div class="six">
 
-               <h2>Resilience<br/>Improvement Options</h2>
+               <h2>Resiliencia<br/>Posibilidades de Mejora</h2>
              </div>
 
            </div>
@@ -2528,7 +2528,7 @@
            <div class="left">
              <div class="eight">
 
-               <h2>Substance Use History<br/>& Prevention Strategies</h2>
+               <h2>Historial del uso de sustancias<br/>y Estrategias de Prevención</h2>
              </div>
 
            </div>
@@ -2544,7 +2544,7 @@
            <div class="left">
              <div>
 
-               <h2>Managing Motivation</h2>
+               <h2>Manejo de la Motivación</h2>
              </div>
 
            </div>
@@ -2559,13 +2559,13 @@
 
        </div>
        <div class="recommon-ft">
-           <h2>Next Steps</h2>
+           <h2>Próximos pasos</h2>
            <p>{{response.cd_PS6}}</p>
-           <p style="margin-top: 4px;">Thanks for including Compris's input as you consider your NEXT POSITIVE STEP…and the one after that.</p>
+           <p style="margin-top: 4px;">Gracias por incluir la participación de Compris mientras considera su PRÓXIMO PASO EN POSITIVO y el próximo después de él.</p>
          </div>
      </div>
      <div class="page-footer">
-       <p>DISCLAIMER : THIS REPORT IS INTENDED AS A GUIDE, NOT A SUBSTITUTE, FOR FACE-TO-FACE PROVIDER-PATIENT TREATMENT COLLABORATION.</p>
+       <p>DESCARGO DE RESPONSABILIDAD ESTE REPORTE TIENE COMO INTENCIÓN SER UNA GUÍA, NO UN SUSTITUTO DEL TRATAMIENTO EN PERSONA ENTRE EL PROVEEDOR Y EL PACIENTE.</p>
        <p style="float: right;margin-top: -7px !important;margin-right: 2px;">info@compriscare.com</p>
      </div>
    </div>
@@ -2580,11 +2580,11 @@
         </div>
         <div class="text">
           <div class="content">
-            <p>Patient CMR: &nbsp;{{response.cd_CMR}}</p>
+            <p>CMR del Paciente: &nbsp;{{response.cd_CMR}}</p>
             <div class="bottom">
-              <p>Age | Gender: {{response.cd_Age}}</p>
-              <p>Date: {{response.cd_Date|replace('\/','/')}}</p>
-              <p>Initials: {{response.cd_ABC}}</p>
+              <p>Edad | Sexo: {{response.cd_Age}}</p>
+              <p>Fecha: {{response.cd_Date|replace('\/','/')}}</p>
+              <p>Iniciales: {{response.cd_ABC}}</p>
             </div>
           </div>
           <label class="graybg">
@@ -2607,28 +2607,28 @@
        <div class="box-inner-section" style="margin-bottom: -10px;margin-top: -3px;">
        <div class="inner-box">
          <div class="head" style="margin-top:-4px;">
-           <h2>EVIDENCE-BASED RISK FACTORS</h2>
+           <h2>FACTORES DE RIESGO CON EVIDENCIA</h2>
          </div>
          </div>
        </div>
        <div class="evidence-section" style="margin-bottom: -8px;">
          <div class="evidence-level" style="margin-top:-4px;padding-bottom:4px;padding-top:-10px;">
-           <label>1.5+ = At Risk</label>
-           <span>3.0+ = Significant Risk</span>
+           <label>1.5+ = En riesgo</label>
+           <span>3.0+ = En Riesgo Grave</span>
          </div>
          <div class="evidence-color">
            <ul>
              <li>
                <span style="background-color: #8DAD3C;"></span>
-               <label>Low Risk</label>
+               <label>Bajo riesgo</label>
              </li>
              <li>
                <span style="background-color: #FCC528;"></span>
-               <label>At Risk</label>
+               <label>En riesgo</label>
              </li>
              <li>
                <span style="background-color: #D04646;"></span>
-               <label>Significant Risk</label>
+               <label>Riesgo Grave</label>
              </li>
            </ul>
          </div>
@@ -2702,40 +2702,40 @@
        </div>
        <div class="evidence-text-sec">
          <div class="evidence-text">
-              <h3><span>B</span>lueprint (Epi/Genetics) </h3>
+              <h3><span>B</span>lueprint (Epi/Genética) </h3>
              <h6>{{response.cd_Bi}}</h6>
          </div>
-         <div class="evidence-text">
+         <div class="evidence-text" style="margin-left:10.5px;">
            <div class="arrow-user">
              <img src="assets/user.svg">
 
            </div>
-           <h3><span>U</span>ser Traits</h3>
+           <h3><span>R</span>asgos del Usuario</h3>
            <h6>{{response.cd_Ui}}</h6>
        </div>
-       <div class="evidence-text">
-          <h3><span>I</span>njured Developing Brain </h3>
+       <div class="evidence-text" style="margin-left:6px;">
+          <h3><span>L</span>esión del cerebro en desarollo </h3>
          <h6>{{response.cd_Ii}}</h6>
      </div>
-     <div class="evidence-text">
-       <h3><span>L</span>ife Stress & Trauma </h3>
+     <div class="evidence-text" style="amrgin-left:-8px;">
+       <h3><span>E</span>strés de vida y Trauma </h3>
        <h6>{{response.cd_Li}}</h6>
     </div>
     <div class="evidence-text">
-     <h3><span>D</span>amage from Use</h3>
+     <h3><span>D</span>años por uso</h3>
      <h6>{{response.cd_Di}}</h6>
    </div>
        </div>
      </div>
      <div class="box-container">
        <div class="box-head">
-         <h2>PERSONALITY RISK TRAITS</h2>
+         <h2>RASGOS DE RIESGO POR PERSONALIDAD</h2>
        </div>
         <div class="box-inner-section" style="height:0px;">
        <div class="inner-box">
          <div class="head">
-           <h2 style="margin-top:-3px;margin-bottom:-2px;">SUBSTANCE USE RISK PROFILE SCALE (SURPS)*</h2>
-           <h3>*Used with permission</h3>
+           <h2 style="margin-top:-3px;margin-bottom:-2px;">ESCALA DE RIESGO DEL PERFIL POR USO DE SUSTANCIAS (SURPS)*</h2>
+           <h3>*Usado con permiso</h3>
          </div>
          </div>
        </div>
@@ -2744,15 +2744,15 @@
            <ul>
              <li>
                <span style="background-color: #8DAD3C;"></span>
-               <label>Low Risk</label>
+               <label>Bajo riesgo</label>
              </li>
              <li>
                <span style="background-color: #FCC528;"></span>
-               <label>At Risk</label>
+               <label>En riesgo</label>
              </li>
              <li>
                <span style="background-color: #D04646;"></span>
-               <label>Significant Risk</label>
+               <label>Riesgo Grave</label>
              </li>
            </ul>
          </div>
@@ -2813,23 +2813,23 @@
          </div>
        </div>
        <div class="evidence-text-sec">
-         <div class="evidence-text">
-             <h3>Negative Thinking </h3>
+         <div class="evidence-text" style="margin-left: 9px;">
+             <h3>Pensamientos negativos </h3>
              <h6>{{response.cd_Negpercent}}</h6>
              <h4>{{response.cd_NegSubs}}</h4>
          </div>
-         <div class="evidence-text">
-           <h3>Anxious Feelings</h3>
+         <div class="evidence-text" style="margin-left:2px;">
+           <h3>Pensamientos ansiosos</h3>
            <h6>{{response.cd_Anxpercent}}</h6>
            <h4>{{response.cd_AnxSubs}}</h4>
        </div>
-       <div class="evidence-text">
-         <h3>Impulsive Behavior</h3>
+       <div class="evidence-text" style="margin-left:3px;">
+         <h3>Comportamiento impulsivo</h3>
          <h6>{{response.cd_Imppercent}}</h6>
          <h4>{{response.cd_ImpSubs}}</h4>
      </div>
      <div class="evidence-text">
-       <h3>Sensation-Seeking</h3>
+       <h3>En búsqueda de sensaciones</h3>
        <h6>{{response.cd_Senspercent}}</h6>
        <h4>{{response.cd_SensSubs}}</h4>
     </div>
@@ -2848,7 +2848,7 @@
       <div class="box-inner-section" style="margin-top:-12px;margin-bottom: -6px;">
       <div class="inner-box" style="padding: 0px 0px;">
         <div class="head">
-          <h2>DETAILED ADDICTION RISK HISTORY</h2>
+          <h2>HISTORIAL DETALLADO DEL RIESGO DE ADICCIÓN</h2>
         </div>
         </div>
       </div>
@@ -2856,10 +2856,10 @@
 
         <div class="recommen-box-list">
           <div class="left">
-            <h6>RANKED FACTORS </h6>
+            <h6>CLASIFICACIÓN DE FACTORES </h6>
 
               <div class="factors">
-                <h1>1<sup>st</sup></h1>
+                <h1>P<sup>rimer</sup></h1>
                 <h2>{{response.cd_1stRF[0:1]}}<span>{{response.cd_1stRF[1:]}}</span></h2>
                 <h3>{{response.cd_1stpercent}}</h3>
                 <h4><span>{{response.cd_1stNoSig}}</span></h4>
@@ -2868,7 +2868,7 @@
 
           </div>
           <div class="right">
-            <h6>ANALYSIS</h6>
+            <h6>ANÁLISIS</h6>
 
             <div>
                <p>{{response.cd_1stTxt}}</p>
@@ -2881,7 +2881,7 @@
 
 
             <div class="factors">
-              <h1>2<sup>nd</sup></h1>
+              <h1>S<sup>egundo</sup></h1>
               <h2>{{response.cd_2ndRF[0:1]}}<span>{{response.cd_2ndRF[1:]}}</span></h2>
               <h3>{{response.cd_2ndpercent}}</h3>
               <h4><span>{{response.cd_2ndNoSig}}</span></h4>
@@ -2902,7 +2902,7 @@
 
 
             <div class="factors">
-              <h1>3<sup>rd</sup></h1>
+              <h1>T<sup>ercero</sup></h1>
               <h2>{{response.cd_3rdRF[0:1]}}<span>{{response.cd_3rdRF[1:]}}</span></h2>
               <h3>{{response.cd_3rdpercent}}</h3>
               <h4><span>{{response.cd_3rdNoSig}}</span></h4>
@@ -2923,7 +2923,7 @@
 
 
             <div class="factors">
-              <h1>4<sup>th</sup></h1>
+              <h1>C<sup>uarto</sup></h1>
               <h2>{{response.cd_4thRF[0:1]}}<span>{{response.cd_4thRF[1:]}}</span></h2>
               <h3>{{response.cd_4thpercent}}</h3>
               <h4><span>{{response.cd_4thNoSig}}</span></h4>
@@ -2965,7 +2965,7 @@
       </div>
     </div>
     <div class="page-footer">
-      <p>DISCLAIMER : THIS REPORT IS INTENDED AS A GUIDE, NOT A SUBSTITUTE, FOR FACE-TO-FACE PROVIDER-PATIENT TREATMENT COLLABORATION.</p>
+      <p>DESCARGO DE RESPONSABILIDAD ESTE REPORTE TIENE COMO INTENCIÓN SER UNA GUÍA, NO UN SUSTITUTO DEL TRATAMIENTO EN PERSONA ENTRE EL PROVEEDOR Y EL PACIENTE.</p>
       <p style="float: right;margin-top: -7px !important;margin-right: 2px;">info@compriscare.com</p>
     </div>
     </div>
@@ -2978,11 +2978,11 @@
         </div>
         <div class="text">
           <div class="content">
-            <p>Patient CMR: &nbsp;{{response.cd_CMR}}</p>
+            <p>CMR del Paciente: &nbsp;{{response.cd_CMR}}</p>
             <div class="bottom">
-              <p>Age | Gender: {{response.cd_Age}}</p>
-              <p>Date: {{response.cd_Date|replace('\/','/')}}</p>
-              <p>Initials: {{response.cd_ABC}}</p>
+              <p>Edad | Sexo: {{response.cd_Age}}</p>
+              <p>Fecha: {{response.cd_Date|replace('\/','/')}}</p>
+              <p>Iniciales: {{response.cd_ABC}}</p>
             </div>
           </div>
           <label class="graybg">
@@ -3004,22 +3004,22 @@
         <div class="box-inner-section">
         <div class="inner-box">
           <div class="head">
-            <h2>RESILIENCE: The positive things in your life that help manage the rest.</h2>
+            <h2>RESILIENCIA: Las cosas positivas en tu vida que ayudan a manejar el resto.</h2>
           </div>
           </div>
         </div>
         <div class="resilience">
-          <h2>{{response.cd_hashRes}} &nbsp; of &nbsp; 28 &nbsp; | &nbsp; {{response.cd_percentRes}} &nbsp; Current Resources</h2>
+          <h2>{{response.cd_hashRes}} &nbsp; de &nbsp; 28 &nbsp; | &nbsp; {{response.cd_percentRes}} &nbsp; Recursos Actuales</h2>
         </div>
         <div class="resilience-section">
           <span class="line"></span>
           <div class="left">
-              <h2>OBJECTIVE RESILIENCE</h2>
+              <h2>RESILIENCIA OBJETIVA</h2>
               <h3>{{response.cd_hashObj}}  {{response.cd_percentObj}}</h3>
               <div class="resilience-box">
                   <div class="box-list">
                    <div class="box-left">
-                      <h2>1 | safe living environment </h2>
+                      <h2>1 | entorno de vida seguro </h2>
                    </div>
                    <div class="box-right">
                      <h2><span class="{% if response.cd_O1|int == 1 %}mild{% elif response.cd_O1|int == 2 %}moderate{% elif response.cd_O1|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3027,7 +3027,7 @@
                   </div>
                   <div class="box-list">
                     <div class="box-left">
-                       <h2>2 | healthy food and nutrition</h2>
+                       <h2>2 | comida y nutrición saludable</h2>
                     </div>
                     <div class="box-right">
                       <h2><span class="{% if response.cd_O2|int == 1 %}mild{% elif response.cd_O2|int == 2 %}moderate{% elif response.cd_O2|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3035,7 +3035,7 @@
                    </div>
                    <div class="box-list">
                      <div class="box-left">
-                        <h2>3 | routine exercise program</h2>
+                        <h2>3 | programa de ejercicios rutinarios</h2>
                      </div>
                      <div class="box-right">
                        <h2><span class="{% if response.cd_O3|int == 1 %}mild{% elif response.cd_O3|int == 2 %}moderate{% elif response.cd_O3|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3043,7 +3043,7 @@
                     </div>
                     <div class="box-list">
                       <div class="box-left">
-                         <h2>4 | 7+ hours of sleep daily</h2>
+                         <h2>4 | 7+ horas diarias de sueño</h2>
                       </div>
                       <div class="box-right">
                         <h2><span class="{% if response.cd_O4|int == 1 %}mild{% elif response.cd_O4|int == 2 %}moderate{% elif response.cd_O4|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3051,7 +3051,7 @@
                     </div>
                      <div class="box-list">
                        <div class="box-left">
-                          <h2>5 | stable income vs expenses</h2>
+                          <h2>5 | ingresos estables frente a gastos</h2>
                        </div>
                        <div class="box-right">
                          <h2><span class="{% if response.cd_O5|int == 1 %}mild{% elif response.cd_O5|int == 2 %}moderate{% elif response.cd_O5|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3059,7 +3059,7 @@
                     </div>
                     <div class="box-list">
                       <div class="box-left">
-                         <h2>6 | substance-free home</h2>
+                         <h2>6 | hogar libre de sustancias</h2>
                       </div>
                       <div class="box-right">
                         <h2><span class="{% if response.cd_O6|int == 1 %}mild{% elif response.cd_O6|int == 2 %}moderate{% elif response.cd_O6|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3076,12 +3076,12 @@
               </div>
           </div>
           <div class="right">
-            <h2>PERSONAL RESILIENCE</h2>
+            <h2>RESILIENCIA PERSONA</h2>
             <h3>{{response.cd_hashPers}} {{response.cd_percentPers}}</h3>
             <div class="resilience-box">
               <div class="box-list">
                 <div class="box-left">
-                   <h2>1 | meaning and purpose</h2>
+                   <h2>1 | SIGNIFICADO Y PROPÓSITO</h2>
                 </div>
                 <div class="box-right">
                   <h2><span class="{% if response.cd_P1|int == 1 %}mild{% elif response.cd_P1|int == 2 %}moderate{% elif response.cd_P1|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3089,7 +3089,7 @@
               </div>
               <div class="box-list">
                 <div class="box-left">
-                   <h2>2 | clear values / spirituality</h2>
+                   <h2>2 | valores claros / espiritualidad</h2>
                 </div>
                 <div class="box-right">
                   <h2><span class="{% if response.cd_P2|int == 1 %}mild{% elif response.cd_P2|int == 2 %}moderate{% elif response.cd_P2|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3097,7 +3097,7 @@
               </div>
               <div class="box-list">
                 <div class="box-left">
-                   <h2>3 | positive attitude / gratitude</h2>
+                   <h2>3 | actitud positiva / gratitud</h2>
                 </div>
                 <div class="box-right">
                   <h2><span class="{% if response.cd_P3|int == 1 %}mild{% elif response.cd_P3|int == 2 %}moderate{% elif response.cd_P3|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3105,7 +3105,7 @@
               </div>
               <div class="box-list">
                 <div class="box-left">
-                   <h2>4 | face fears and challenges</h2>
+                   <h2>4 | enfrentar miedos y retos</h2>
                 </div>
                 <div class="box-right">
                   <h2><span class="{% if response.cd_P4|int == 1 %}mild{% elif response.cd_P4|int == 2 %}moderate{% elif response.cd_P4|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3121,7 +3121,7 @@
               </div>
               <div class="box-list">
                 <div class="box-left">
-                   <h2>6 | forgive self and others</h2>
+                   <h2>6 | perdón personal y a otros</h2>
                 </div>
                 <div class="box-right">
                   <h2><span class="{% if response.cd_P6|int == 1 %}mild{% elif response.cd_P6|int == 2 %}moderate{% elif response.cd_P6|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3129,7 +3129,7 @@
               </div>
               <div class="box-list">
                 <div class="box-left">
-                   <h2>7 | good sense of humor</h2>
+                   <h2>7 | buen sentido del humor</h2>
                 </div>
                 <div class="box-right">
                   <h2><span class="{% if response.cd_P7|int == 1 %}mild{% elif response.cd_P7|int == 2 %}moderate{% elif response.cd_P7|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3141,7 +3141,7 @@
         <div class="resilience-section">
           <span class="line"></span>
           <div class="left">
-              <h2>RELATIONAL RESILIENCE</h2>
+              <h2>RESILIENCIA RELACIONAL</h2>
               <h3>{{response.cd_hashRel}} {{response.cd_percentRel}}</h3>
               <div class="resilience-box">
                 <div class="box-list">
@@ -3162,7 +3162,7 @@
                 </div>
                 <div class="box-list">
                   <div class="box-left">
-                     <h2>3 | belong to supportive community</h2>
+                     <h2>3 | pertecener a una comunidad solidaria</h2>
                   </div>
                   <div class="box-right">
                     <h2><span class="{% if response.cd_R3|int == 1 %}mild{% elif response.cd_R3|int == 2 %}moderate{% elif response.cd_R3|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3170,7 +3170,7 @@
                 </div>
                 <div class="box-list">
                   <div class="box-left">
-                     <h2>4 | trusted healthcare provider</h2>
+                     <h2>4 | proveedor de asistencia médica de confianza</h2>
                   </div>
                   <div class="box-right">
                     <h2><span class="{% if response.cd_R4|int == 1 %}mild{% elif response.cd_R4|int == 2 %}moderate{% elif response.cd_R4|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3178,7 +3178,7 @@
                 </div>
                 <div class="box-list">
                   <div class="box-left">
-                     <h2>5 | positive role model(s)</h2>
+                     <h2>5 | modelo(s) positivos a seguir</h2>
                   </div>
                   <div class="box-right">
                     <h2><span class="{% if response.cd_R5|int == 1 %}mild{% elif response.cd_R5|int == 2 %}moderate{% elif response.cd_R5|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3186,7 +3186,7 @@
                 </div>
                 <div class="box-list">
                   <div class="box-left">
-                     <h2>6 | honest and open sharing</h2>
+                     <h2>6 | honesto y abierto a compartir</h2>
                   </div>
                   <div class="box-right">
                     <h2><span class="{% if response.cd_R6|int == 1 %}mild{% elif response.cd_R6|int == 2 %}moderate{% elif response.cd_R6|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3194,7 +3194,7 @@
                 </div>
                 <div class="box-list">
                   <div class="box-left">
-                     <h2>7 | kind and helpful to others</h2>
+                     <h2>7 | amable y servicial con otros</h2>
                   </div>
                   <div class="box-right">
                     <h2><span class="{% if response.cd_R7|int == 1 %}mild{% elif response.cd_R7|int == 2 %}moderate{% elif response.cd_R7|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3203,12 +3203,12 @@
               </div>
            </div>
           <div class="right">
-            <h2>ACTIVE RESILIENCE</h2>
+            <h2>RESILIENCIA ACTIVA</h2>
             <h3>{{response.cd_hashFunc}} {{response.cd_percentFunc}}</h3>
             <div class="resilience-box">
               <div class="box-list">
                 <div class="box-left">
-                   <h2>1 | many interests / hobbies</h2>
+                   <h2>1 | muchos intereses/hobbies</h2>
                 </div>
                 <div class="box-right">
                   <h2><span class="{% if response.cd_F1|int == 1 %}mild{% elif response.cd_F1|int == 2 %}moderate{% elif response.cd_F1|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3216,7 +3216,7 @@
               </div>
             <div class="box-list">
               <div class="box-left">
-                 <h2>2 | know and use strengths</h2>
+                 <h2>2 | conoce y usa sus fortalezas</h2>
               </div>
               <div class="box-right">
                 <h2><span class="{% if response.cd_F2|int == 1 %}mild{% elif response.cd_F2|int == 2 %}moderate{% elif response.cd_F2|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3224,7 +3224,7 @@
             </div>
              <div class="box-list">
              <div class="box-left">
-               <h2>3 | productive / achievements</h2>
+               <h2>3 | productividad / logros</h2>
             </div>
             <div class="box-right">
               <h2><span class="{% if response.cd_F3|int == 1 %}mild{% elif response.cd_F3|int == 2 %}moderate{% elif response.cd_F3|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3232,7 +3232,7 @@
            </div>
           <div class="box-list">
             <div class="box-left">
-               <h2>4 | communication skills</h2>
+               <h2>4 | habilidades de comunicación</h2>
             </div>
             <div class="box-right">
               <h2><span class="{% if response.cd_F4|int == 1 %}mild{% elif response.cd_F4|int == 2 %}moderate{% elif response.cd_F4|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3240,7 +3240,7 @@
             </div>
           <div class="box-list">
             <div class="box-left">
-               <h2>5 | problem-solving skills</h2>
+               <h2>5 | habilidades de resolución de problemas</h2>
             </div>
             <div class="box-right">
               <h2><span class="{% if response.cd_F5|int == 1 %}mild{% elif response.cd_F5|int == 2 %}moderate{% elif response.cd_F5|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3248,7 +3248,7 @@
             </div>
           <div class="box-list">
             <div class="box-left">
-               <h2>6 | stress management skills</h2>
+               <h2>6 | habilidades de manejo del estrés</h2>
             </div>
             <div class="box-right">
               <h2><span class="{% if response.cd_F6|int == 1 %}mild{% elif response.cd_F6|int == 2 %}moderate{% elif response.cd_F6|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3256,7 +3256,7 @@
            </div>
           <div class="box-list">
             <div class="box-left">
-               <h2>7 | mindfulness / meditation</h2>
+               <h2>7 | mindfulness/meditación</h2>
             </div>
             <div class="box-right">
               <h2><span class="{% if response.cd_F7|int == 1 %}mild{% elif response.cd_F7|int == 2 %}moderate{% elif response.cd_F7|int == 3 %}severe{% else %}severe poor{% endif %}"></span></h2>
@@ -3271,8 +3271,8 @@
                 <h1><span class="mild"></span></h1>
             </div>
             <div class="right">
-              <h2>Great Resource</h2>
-              <h3>Be Grateful</h3>
+              <h2>Muy buen recurso</h2>
+              <h3>Sé agradecido</h3>
             </div>
           </div>
           <div class="resilience-level-list">
@@ -3280,8 +3280,8 @@
                 <h1><span class="moderate"></span></h1>
             </div>
             <div class="right">
-              <h2>Good Resource</h2>
-              <h3>Improve It</h3>
+              <h2>Buen recurso</h2>
+              <h3>Mejóralo</h3>
             </div>
           </div>
           <div class="resilience-level-list">
@@ -3289,8 +3289,8 @@
                 <h1><span class="severe"></span></h1>
             </div>
             <div class="right">
-              <h2>Poor Resource</h2>
-              <h3>Develop It</h3>
+              <h2>Mal recurso</h2>
+              <h3>Desarrollarlo más</h3>
             </div>
           </div>
           <div class="resilience-level-list">
@@ -3298,8 +3298,8 @@
                 <h1><span class="severe poor"></span></h1>
             </div>
             <div class="right">
-              <h2>Missing Resource</h2>
-              <h3>Consider It</h3>
+              <h2>Faltan Resource</h2>
+              <h3>Considéralo</h3>
             </div>
           </div>
 
@@ -3309,7 +3309,7 @@
 
         <div class="box-container">
         <div class="box-head width">
-          <h2>DSM-5 SUBSTANCE USE DISORDER SYMPTOMS</h2>
+          <h2>SÍNTOMAS POR EL USO DE SUSTANCIA DSM-5</h2>
         </div>
         <div class="sym-head">
           <div class="first">
@@ -3325,16 +3325,16 @@
             <span>4-11m</span>
           </div>
           <div class="last">
-            <span>1-4y</span>
+            <span>1-4a</span>
           </div>
           <div class="last">
-            <span>5+y</span>
+            <span>5+a</span>
           </div>
         </div>
         <div class="sym-sec">
         <div class="sym-section">
             <div class="first">
-              <h2>Used more or longer than intended at times </h2>
+              <h2>Utilizado más o a veces más de lo previsto </h2>
             </div>
             <div class="last">
               <span class="{% if response.cd_30dhash1| int == 1 %}tick-check{% endif %}"></span>
@@ -3354,7 +3354,7 @@
         </div>
         <div class="sym-section">
           <div class="first">
-            <h2>Tried and failed more than once to cut down or stop using</h2>
+            <h2>Intentó y falló más de una vez para reducir o dejar de usar</h2>
           </div>
           <div class="last">
             <span class="{% if response.cd_30dhash2| int == 1 %}tick-check{% endif %}"></span>
@@ -3374,7 +3374,7 @@
         </div>
         <div class="sym-section">
             <div class="first">
-              <h2>Spent a lot of time using or dealing with after-effects </h2>
+              <h2>Pasé mucho tiempo usando o lidiando con las secuelas </h2>
             </div>
             <div class="last">
               <span class="{% if response.cd_30dhash3| int == 1 %}tick-check{% endif %}"></span>
@@ -3394,7 +3394,7 @@
         </div>
         <div class="sym-section">
           <div class="first">
-            <h2>Experienced a strong desire or craving to use </h2>
+            <h2>Experimentó un fuerte deseo o ansia de usar </h2>
           </div>
           <div class="last">
             <span class="{% if response.cd_30dhash4| int == 1 %}tick-check{% endif %}"></span>
@@ -3414,7 +3414,7 @@
          </div>
         <div class="sym-section">
         <div class="first">
-          <h2>Using interfered with taking care of home, family, job or school </h2>
+          <h2>Uso interfirió con el cuidado del hogar, la familia, el trabajo o la escuela </h2>
         </div>
         <div class="last">
           <span class="{% if response.cd_30dhash5| int == 1 %}tick-check{% endif %}"></span>
@@ -3434,7 +3434,7 @@
         </div>
         <div class="sym-section">
           <div class="first">
-            <h2>Kept using despite concerns of family or friends</h2>
+            <h2>Uso continuado a pesar de preocupaciones de la familia o amigos</h2>
           </div>
           <div class="last">
             <span class="{% if response.cd_30dhash6| int == 1 %}tick-check{% endif %}"></span>
@@ -3454,7 +3454,7 @@
         </div>
         <div class="sym-section">
           <div class="first">
-            <h2>Using took the place of other valued interests or pleasures</h2>
+            <h2>El uso tomó el lugar de otros intereses o placeres valiosos</h2>
           </div>
           <div class="last">
             <span class="{% if response.cd_30dhash7| int == 1 %}tick-check{% endif %}"></span>
@@ -3474,7 +3474,7 @@
         </div>
         <div class="sym-section">
           <div class="first">
-            <h2>Got into risky situations while using (accidents, sex, crime, disease)</h2>
+            <h2>Me involucré en situaciones peligrosas mientras usaba (accidentes, sexo, crímenes, enfermedades)</h2>
           </div>
           <div class="last">
             <span class="{% if response.cd_30dhash8| int == 1 %}tick-check{% endif %}"></span>
@@ -3494,7 +3494,7 @@
         </div>
         <div class="sym-section">
           <div class="first">
-            <h2 style="white-space: nowrap;">Continued using despite feeling depressed / anxious, memory blackouts or health risks </h2>
+            <h2 style="white-space: nowrap;">Uso continuado a pesar de sentirme deprimido/ansioso, pérdidas de memoria o riesgos de salud </h2>
           </div>
           <div class="last">
             <span class="{% if response.cd_30dhash9| int == 1 %}tick-check{% endif %}"></span>
@@ -3514,7 +3514,7 @@
         </div>
         <div class="sym-section">
           <div class="first">
-            <h2>Needed to use more to get the same or less results</h2>
+            <h2>Necesitaba usar más para obtener los mismos o menos resultados</h2>
           </div>
           <div class="last">
             <span class="{% if response.cd_30dhash10| int == 1 %}tick-check{% endif %}"></span>
@@ -3534,7 +3534,7 @@
         </div>
         <div class="sym-section">
           <div class="first">
-            <h2>Stopping led to: sleep loss, shaky, irritable, anxious, depressed, sick, sweats or hallucinations</h2>
+            <h2>Parar condujo a pérdida de sueño, temblores, irritabilidad, ansiedad, depresión, enfermedad, sudoración, alucinaciones</h2>
           </div>
           <div class="last">
             <span class="{% if response.cd_30dhash11| int == 1 %}tick-check{% endif %}"></span>
@@ -3555,7 +3555,7 @@
       </div>
       <div class="sym-total">
         <div class="first">
-          <h2>Maximum Number of Symptoms</h2>
+          <h2>Número Máximo de síntomas</h2>
           </div>
         <div class="last">
           <span>{{response.cd_30dMaxhash}}</span>
@@ -3578,7 +3578,7 @@
 
 
       <div class="page-footer">
-        <p>DISCLAIMER : THIS REPORT IS INTENDED AS A GUIDE, NOT A SUBSTITUTE, FOR FACE-TO-FACE PROVIDER-PATIENT TREATMENT COLLABORATION.</p>
+        <p>DESCARGO DE RESPONSABILIDAD ESTE REPORTE TIENE COMO INTENCIÓN SER UNA GUÍA, NO UN SUSTITUTO DEL TRATAMIENTO EN PERSONA ENTRE EL PROVEEDOR Y EL PACIENTE.</p>
         <p style="float: right;margin-top: -7px !important;margin-right: 2px;">info@compriscare.com</p>
       </div>
     </div>
@@ -3592,11 +3592,11 @@
         </div>
         <div class="text">
           <div class="content">
-            <p>Patient CMR: &nbsp;{{response.cd_CMR}}</p>
+            <p>CMR del Paciente: &nbsp;{{response.cd_CMR}}</p>
             <div class="bottom">
-              <p>Age | Gender: {{response.cd_Age}}</p>
-              <p>Date: {{response.cd_Date|replace('\/','/')}}</p>
-              <p>Initials: {{response.cd_ABC}}</p>
+              <p>Edad | Sexo: {{response.cd_Age}}</p>
+              <p>Fecha: {{response.cd_Date|replace('\/','/')}}</p>
+              <p>Iniciales: {{response.cd_ABC}}</p>
             </div>
           </div>
           <label class="graybg">
@@ -3613,12 +3613,12 @@
       </div>
       <div class="box-container">
         <div class="box-head">
-          <h2>SUBSTANCE ILLNESS DIAGNOSTICS</h2>
+          <h2>DIAGNÓSTICOS POR USO DE SUSTANCIA</h2>
         </div>
         <div class="box-inner-section">
           <div class="inner-box">
             <div class="head">
-              <h2>ACUITY, SEVERITY, MISUSE MARKERS & CO-OCCURRING CONDITIONS</h2>
+              <h2>AGUDEZA, GRAVEDAD, MARCADORES DE ABUSO Y CONDICIONES SIMULTÁNEAS</h2>
               <h3 style="right: 26px;position:absolute;color:#121213;font-size: 6px;width:90px;margin-top:-15px;">{{response.cd_5plusChron}}</h3>
             </div>
             <h2 class="remote-illness">{{response.cd_5plusRem}}</h2>
@@ -3629,19 +3629,19 @@
               <li>
                 <h1>
                   <span class="severe"></span>
-                  <label>Severe</label>
+                  <label>Grave</label>
                 </h1>
               </li>
               <li>
                 <h1>
                   <span class="moderate"></span>
-                  <label>Moderate</label>
+                  <label>Moderado</label>
                 </h1>
               </li>
               <li>
                 <h1>
                   <span class="mild"></span>
-                  <label>mild</label>
+                  <label>leve</label>
                 </h1>
               </li>
             </ul>
@@ -3724,23 +3724,23 @@
           </div>
           <div class="activity-chart-line-ft-section">
             <div class="activity-chart-line-ft">
-                <h2>CURRENT ILLNESS</h2>
-                <h3>30 days</h3>
+                <h2>ENFERMEDAD ACTUAL</h2>
+                <h3>30 días</h3>
             </div>
             <div class="activity-chart-line-ft">
-              <h2>ACUTE ILLNESS</h2>
-              <h3>1 - 3 months</h3>
+              <h2>ENFERMEDAD AGUDA</h2>
+              <h3>1 - 3 meses</h3>
           </div>
           <div class="activity-chart-line-ft">
-            <h2>SUB-ACUTE ILLNESS</h2>
-            <h3>4 - 11 months</h3>
+            <h2>ENFERMEDAD SUBAGUDA</h2>
+            <h3>4 - 11 meses</h3>
         </div>
         <div class="activity-chart-line-ft">
-          <h2>CHRONIC ILLNESS</h2>
-          <h3>1 - 4 years</h3>
+          <h2>ENFERMEDAD CRÓNICA</h2>
+          <h3>1 - 4 años</h3>
       </div>
           </div>
-          <h2 class="activity-chart-clarifier">Substance Misuse Markers : &nbsp;(+) weekly use or 2-3x/month &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(++) more than weekly use &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nicotine: &nbsp;(+) 1-4 cigs /day (1 mg vaped) &nbsp;&nbsp;&nbsp;&nbsp;(++) 5-10 cigs /day (2mg vaped) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alcohol: &nbsp;(+) 2-3x/week &nbsp;&nbsp;&nbsp;&nbsp;(++) daily or most days</h2>
+          <h2 class="activity-chart-clarifier">Marcadores de abuso de sustancias : &nbsp;(+) uso semanal o 2-3x/mes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(++) mayor que el uso semanal de &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nicotina: &nbsp;(+) 1-4 cigs /día (1 mg vaped) &nbsp;&nbsp;&nbsp;&nbsp;(++) 5-10 cigs /día (2mg vapeo) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Alcohol: &nbsp;(+) 2-3x/semana &nbsp;&nbsp;&nbsp;&nbsp;(++) a diario o la mayoría de los días</h2>
           <div class="activity-chart-level-section">
             <div class="activity-chart-level" style="width: 23%;margin-left: 5px;">
               <h2 style="margin-left:0px;white-space: nowrap; !important;"><label>{{response.cd_30d1}}</label><span class="{% if response.cd_30d1Sev|int == 3  %}severe{% elif response.cd_30d1Sev|int == 2  %}moderate{% elif response.cd_30d1Sev|int == 1  %}mild{% else %}none{% endif %}">{% if response.cd_30d1Sev not in '0123' %}{{response.cd_30d1Sev}}{% endif %}</span><label>{{response.cd_30d1Sub}}</label></h2>
@@ -3791,7 +3791,7 @@
         <div class="substance-bottom-section bt">
         <div class="substance-bottom-sec">
           <div class="first">
-            <h2>Withdrawal History</h2>
+            <h2>Historial de Abstinencia</h2>
           </div>
           <div class="last">
             <h3>{{response.cd_WDSubsSub}}</h3>
@@ -3799,15 +3799,15 @@
         </div>
         <div class="substance-bottom-sec">
           <div class="first">
-            <h2 style="white-space:nowrap;">Current Remission</h2>
+            <h2 style="white-space:nowrap;">Remisión Actual</h2>
           </div>
           <div class="last">
-            <h3><span>Early Remission ( 3 - 11 months ): </span>{{response.cd_ERem}}<br> <span>{{response.cd_Sust}}</span> {{response.cd_SRem}}</h3>
+            <h3><span>Primeras Remisiones ( 3 - 11 meses ): </span>{{response.cd_ERem}}<br> <span>{{response.cd_Sust}}</span> {{response.cd_SRem}}</h3>
             </div>
         </div>
         <div class="substance-bottom-sec">
           <div class="first">
-            <h2>Co-occurring Illness</h2>
+            <h2>Enfermedades simultáneas</h2>
           </div>
           <div class="last">
             <h3>{{response.cd_CoO}}</h3>
@@ -3815,7 +3815,7 @@
         </div>
         <div class="substance-bottom-sec">
           <div class="first">
-            <h2>Medical History</h2>
+            <h2>Historial Médico</h2>
           </div>
           <div class="last">
             <h3>{{response.cd_MedHx}}</h3>
@@ -3828,23 +3828,23 @@
       <div class="box-inner-section time">
         <div class="inner-box" style="margin-top:-20px;">
           <div class="head" style="margin-bottom:0px;">
-            <h2>NICOTINE DEPENDENCE</h2>
+            <h2>DEPENDENCIA DE NICOTINA</h2>
           </div>
           </div>
         </div>
         <div class="time-heads">
-          <h2>HSI - Heaviness of Smoking Index</h2>
+          <h2>Índice de Magnitud del Fumador</h2>
         </div>
-        <h2 class="misuse-marker">Nicotine Misuse Markers: &nbsp;(+) 1-4 cigs / day OR 1 mg vaped / day &nbsp;(++) 5-10 cigs / day OR 2mg vaped / day</h2>
+        <h2 class="misuse-marker">Marcadores de Abuso de Nicotina: &nbsp;(+) 1-4 cigs / día OR 1 mg vapeo / día &nbsp;(++) 5-10 cigs / día OR 2mg vapeo / día</h2>
       <div class="timeline-section">
         <div class="first">
-            <h2>Nicotine Use</h2>
+            <h2>Uso de nicotina</h2>
             <h3 style="white-space: nowrap;">{{response.cd_NhashplusFreq}}</h3>
             <h3 style="white-space: nowrap;">How soon after awake</h3>
             <h3 style="white-space: nowrap;">Dependence</h3>
         </div>
         <div class="last">
-          <h2>30 Days</h2>
+          <h2>30 Días</h2>
          <h3>{{response.cd_Nhash30d|replace('\/','/')}}</h3>
          <h3>{{response.cd_NT30d|replace('\/','/')}}</h3>
          <h3>
@@ -3855,7 +3855,7 @@
 
       </div>
       <div class="last">
-        <h2>1 - 3 Months</h2>
+        <h2>1-3 Meses</h2>
         <h3>{{response.cd_Nhash3m|replace('\/','/')}}</h3>
         <h3>{{response.cd_NT3m|replace('\/','/')}}</h3>
         <h3>
@@ -3865,7 +3865,7 @@
 
     </div>
     <div class="last">
-      <h2>4 - 11 Months</h2>
+      <h2>4 - 11 Meses</h2>
       <h3>{{response.cd_Nhash12m|replace('\/','/')}}</h3>
       <h3>{{response.cd_NT12m|replace('\/','/')}}</h3>
       <h3>
@@ -3876,7 +3876,7 @@
 
   </div>
   <div class="last">
-    <h2>1 - 4 Years</h2>
+    <h2>1 - 4 Años</h2>
     <h3>{{response.cd_Nhash1dash4y|replace('\/','/')}}</h3>
     <h3>{{response.cd_NT1dash4y|replace('\/','/')}}</h3>
     <h3>
@@ -3886,7 +3886,7 @@
 
   </div>
   <div class="last">
-    <h2>5+ Years</h2>
+    <h2>5+ Años</h2>
     <h3>{{response.cd_Nhash5plusy|replace('\/','/')}}</h3>
     <h3>{{response.cd_NT5plusy|replace('\/','/')}}</h3>
     <h3>
@@ -3902,33 +3902,33 @@
 
       <div class="box-container" style="margin-top:20px;">
         <div class="box-head width">
-          <h2>SUBSTANCE USE / TREATMENT HISTORY</h2>
+          <h2>USO DE SUSTANCIAS / HISTORIAL DE TRATAMIENTO</h2>
         </div>
         <div class="substance-sec">
           <div class="left">
             <div class="first">
               <h3>Substance</h3>
-              <h4>Nicotine</h4>
+              <h4>Nicotina</h4>
               <h4>Alcohol</h4>
-              <h4>Opioids</h4>
-              <h4>Other Drugs</h4>
+              <h4>Opioides</h4>
+              <h4>Otras Drogas</h4>
             </div>
             <div class="second">
-              <h3>Age 1st Used</h3>
+              <h3>EDAD DEL PRIMER CONSUMO</h3>
               <h4>{{response.cd_N1stUse}}</h4>
               <h4>{{response.cd_A1stUse}}</h4>
               <h4>{{response.cd_Rx1stUse}}</h4>
               <h4>{{response.cd_D1stUse}}</h4>
           </div>
           <div class="second">
-              <h3>Age 1st Dependent</h3>
+              <h3>EDAD CUANDO SE VOLVIÓ DEPENDIENTE</h3>
               <h4>{{response.cd_N1stDep}}</h4>
               <h4>{{response.cd_A1stDep}}</h4>
               <h4>{{response.cd_Rx1stDep}}</h4>
               <h4>{{response.cd_D1stDep}}</h4>
           </div>
           <div class="third">
-            <h3>Number of Dependent Years</h3>
+            <h3>Número de Años de Dependencia</h3>
             <h4>{{response.cd_NDepY}}</h4>
             <h4>{{response.cd_ADepY}}</h4>
             <h4>{{response.cd_RxDepY}}</h4>
@@ -3940,11 +3940,11 @@
           </div>
           <div class="right">
           <div class="first">
-            <h3 style="width:150%;padding-left:49px;">Substance Management History</h3>
-            <h4>Prior Cutbacks</h4>
-            <h4>Prior Quits</h4>
-            <h4>Prior Remissions</h4>
-            <h4 style="white-space:nowrap;">Relapses While on Meds</h4>
+            <h3 style="width:150%;padding-left:49px;">Historial del Manejo de la Sustancia</h3>
+            <h4>Retrocesos Anteriores</h4>
+            <h4>Intentos anteriores para dejar de consumir</h4>
+            <h4>Remisiones Anteriores</h4>
+            <h4 style="white-space:nowrap;">Recaídas bajo medicación</h4>
           </div>
           <div class="second" style="border-left:transparent;">
             <h3 style="width:0px;z-index:-7;position:relative;"></h3>
@@ -3960,9 +3960,9 @@
         </div>
         <div class="substance-ft">
           <div class="substance-ft-list">
-            <h2>7-Day Use</h2>
-            <h2>30-Day Use</h2>
-            <h2>12-Month Use</h2>
+            <h2>Uso en 7 Días</h2>
+            <h2>Uso en 30 Días</h2>
+            <h2>Uso en 12 Meses</h2>
           </div>
           <div class="substance-ft-list">
             <h3>{{response.cd_7dUse}}</h3>
@@ -3973,7 +3973,7 @@
         <div class="substance-bottom-section">
         <div class="substance-bottom-sec">
           <div class="first">
-            <h2>Help Received</h2>
+            <h2>Ayuda Recibida</h2>
           </div>
           <div class="last">
             <h3>{{response.cd_Help}}</h3>
@@ -3981,7 +3981,7 @@
         </div>
         <div class="substance-bottom-sec">
           <div class="first height">
-            <h2 style="white-space:nowrap;">Treatment Duration</h2>
+            <h2 style="white-space:nowrap;">Duración del tratamiento</h2>
           </div>
           <div class="last">
             <h3>{{response.cd_TxDur}}</h3>
@@ -3989,7 +3989,7 @@
         </div>
         <div class="substance-bottom-sec">
           <div class="first height">
-            <h2>Medication</h2>
+            <h2>Medicamento</h2>
           </div>
           <div class="last">
             <h3>{{response.cd_MAT}}</h3>
@@ -3997,7 +3997,7 @@
         </div>
         <div class="substance-bottom-sec">
           <div class="first height">
-            <h2 style="white-space:nowrap;">Last 30 Days</h2>
+            <h2 style="white-space:nowrap;">Últimos 30 Días</h2>
           </div>
           <div class="last">
             <h3>{{response.cd_30dTx}}</h3>
@@ -4007,7 +4007,7 @@
 
       </div>
       <div class="page-footer">
-        <p>DISCLAIMER : THIS REPORT IS INTENDED AS A GUIDE, NOT A SUBSTITUTE, FOR FACE-TO-FACE PROVIDER-PATIENT TREATMENT COLLABORATION.</p>
+        <p>DESCARGO DE RESPONSABILIDAD ESTE REPORTE TIENE COMO INTENCIÓN SER UNA GUÍA, NO UN SUSTITUTO DEL TRATAMIENTO EN PERSONA ENTRE EL PROVEEDOR Y EL PACIENTE.</p>
         <p style="float: right;margin-top: -7px !important;margin-right: 2px;">info@compriscare.com</p>
       </div>
     </div>
